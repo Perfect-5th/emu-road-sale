@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>77–79 Emu Road, Elimbah QLD — ¾‑acre executive home | dual‑living friendly | close to coast & city</title>
+    <link rel="preload" as="image" href="/images/hero-1.jpg">
+    <meta
+      name="description"
+      content="Executive country home on ¾ acre (3,011 m²) with dual‑living friendly layout, FTTP, solar, shed & reserve outlook. Around 30–40 min to Sunshine Coast beaches and roughly an hour to Brisbane CBD."
+    />
+    <meta property="og:title" content="77–79 Emu Road, Elimbah QLD — ¾‑acre executive home" />
+    <meta property="og:description" content="Executive country home on ¾ acre with dual‑living potential, FTTP, solar & reserve outlook. ~30–40 min to Sunshine Coast beaches; ~60–70 min to Brisbane CBD." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/images/hero-1.jpg" />
+    <meta property="og:url" content="https://example.com/emu-road" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="77–79 Emu Road, Elimbah QLD — ¾‑acre executive home" />
+    <meta name="twitter:description" content="¾‑acre, dual‑living friendly, close to coast & city." />
+    <meta name="twitter:image" content="/images/hero-1.jpg" />
+    <!-- Tailwind Play CDN for quick deploy -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        border-radius: 9999px;
+        border: 1px solid rgb(226 232 240);
+        padding: 0.35rem 0.75rem;
+        font-size: 0.875rem;
+        color: rgb(71 85 105);
+      }
+      html { scroll-behavior: smooth; }
+      /* Decorative gradient blobs */
+      .blob {
+        position: absolute; inset: auto; pointer-events: none; filter: blur(50px); opacity: .5;
+      }
+      .blob.blob-1 { width: 420px; height: 420px; right: -120px; top: -80px; background: radial-gradient(45% 45% at 50% 50%, #a7f3d0 0%, transparent 70%); }
+      .blob.blob-2 { width: 360px; height: 360px; left: -120px; bottom: -80px; background: radial-gradient(45% 45% at 50% 50%, #bae6fd 0%, transparent 70%); }
+
+      /* Icon sizing */
+      .icon { font-size: 22px; line-height: 1; color: rgb(51 65 85); }
+      .prox-icon { font-size: 20px; line-height: 1; color:#0f172a; flex:none; margin-top:2px; }
+
+      /* Card polish */
+      .card { border-radius: 1.5rem; box-shadow: 0 1px 2px rgba(2,6,23,.04), 0 8px 24px rgba(2,6,23,.06); }
+
+      /* Anchor targets */
+      :target { scroll-margin-top: 96px; }
+
+      /* Swiper arrows: make them visible on light bg */
+      .swiper-button-next, .swiper-button-prev { color: #0f172a; }
+      .swiper-pagination-bullet { background: #0f172a; opacity: .3; }
+      .swiper-pagination-bullet-active { opacity: 1; }
+
+      /* Image empty state placeholder */
+      .img-placeholder { background: linear-gradient(135deg,#eef2ff,#f0fdfa); display:grid; place-items:center; color:#94a3b8; }
+      .img-placeholder::before { content: "Add image"; font-size: .875rem; }
+
+      ul.feature-list { list-style: disc; padding-left: 1.25rem; }
+      ul.feature-list li { padding-left: .25rem; text-indent: -0.25rem; }
+      ul.feature-list li::marker { font-size: .9em; }
+
+      .skeleton { position:relative; overflow:hidden; background:linear-gradient(90deg,#f1f5f9 0,#f8fafc 20%,#f1f5f9 40%); background-size:200% 100%; animation:sheen 1.2s linear infinite; }
+      @keyframes sheen { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+      .modal { position:fixed; inset:0; background:rgba(15,23,42,.6); display:none; align-items:center; justify-content:center; z-index:60; }
+      .modal.open { display:flex; }
+      .modal-card { background:#fff; width:min(920px,92vw); border-radius:1rem; box-shadow:0 20px 60px rgba(2,6,23,.2); overflow:hidden; }
+      .modal-head { display:flex; align-items:center; justify-content:space-between; padding:0.75rem 1rem; border-bottom:1px solid #e2e8f0; }
+      .toast { position:fixed; right:1rem; bottom:1rem; background:#0f172a; color:#fff; padding:.75rem 1rem; border-radius:.75rem; z-index:70; display:none; }
+      .toast.show { display:block; }
+      .sticky-nav { position:sticky; top:0; z-index:40; backdrop-filter:blur(8px); background:rgba(255,255,255,.7); border-bottom:1px solid rgba(226,232,240,.8); }
+      .sticky-bar { position:fixed; inset-inline:0; bottom:0; z-index:50; display:none; }
+      .sticky-bar.show { display:flex; }
+      @media (min-width:768px){ .sticky-bar { bottom:1rem; justify-content:center; } }
+      .btn { display:inline-flex; align-items:center; gap:.5rem; border-radius:1rem; padding:.625rem 1rem; }
+      .btn-primary { background:#0f172a; color:#fff; }
+      .btn-primary:hover { background:#111827; }
+      .btn-outline { border:1px solid #e2e8f0; }
+      .btn-ghost { background:transparent; }
+      .btn-cta { border:2px solid #0f172a; box-shadow:0 6px 14px rgba(15,23,42,.12); font-weight:600; }
+      .modal-video { width:min(1080px, 96vw); aspect-ratio:16/9; background:#000; }
+      .modal video, .modal iframe { width:100%; height:100%; display:block; }
+      .modal-close { appearance:none; border:0; background:#0f172a; color:#fff; border-radius:.5rem; padding:.4rem .6rem; font-size:.9rem; }
+    </style>
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  </head>
+  <body class="min-h-screen bg-white text-slate-800">
+    <!-- Hero -->
+    <header class="relative isolate overflow-hidden">
+      <div
+        class="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-50 via-sky-50 to-white"
+      ></div>
+      <div class="mx-auto max-w-7xl px-4 py-16 sm:py-20">
+        <div class="grid items-center gap-8 md:grid-cols-2">
+          <div>
+            <span class="chip">Additional property highlights</span>
+            <h1 class="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
+              77–79 Emu Road, <span class="whitespace-nowrap">Elimbah QLD</span>
+            </h1>
+            <div class="mt-3 text-slate-600">4 bed • 2 bath • 7 car • 3,011 m² • Offers over $1,450,000</div>
+            <p class="mt-4 max-w-prose text-lg text-slate-700">
+              Executive country home on ¾ acre — space, privacy, and easy city &amp; coast access.
+            </p>
+            <p class="mt-2 text-slate-600">Around 30–40 min to Sunshine Coast beaches and roughly an hour to Brisbane CBD.*</p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="https://www.realestate.com.au/property-house-qld-elimbah-148472268" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Listing / Book a Viewing</a>
+              <a href="#video" class="btn btn-cta js-watch" data-video-src="https://www.youtube.com/embed/yP4cxBDrNe0"><i class="fa-regular fa-circle-play icon"></i><span>Watch Video Tour</span></a>
+            </div>
+            <div class="mt-6 text-sm text-slate-500">
+              (This page complements the agent listing and includes extras
+              buyers often ask about.)
+            </div>
+          </div>
+
+          <div id="video" class="relative aspect-video w-full overflow-hidden rounded-3xl shadow-sm">
+            <iframe width="1280" height="720" src="https://www.youtube.com/embed/yP4cxBDrNe0" title="77-79 Emu Road, Elimbah" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%;height:100%;"></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </header>
+
+    <nav class="sticky-nav">
+      <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between">
+        <div class="text-sm font-medium">77–79 Emu Rd</div>
+        <div class="flex items-center gap-4 text-sm">
+          <a href="#highlights">Highlights</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#lifestyle">Lifestyle</a>
+          <a href="#proximity">Proximity</a>
+          <a href="#location">Location</a>
+          <a href="#enquire" class="btn btn-primary">Enquire</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Quick Stats -->
+    <section class="mx-auto max-w-7xl px-4 py-10">
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div class="flex items-center gap-3 rounded-3xl border p-4">
+          <i class="fa-solid fa-bed icon"></i>
+          <div>
+            <div class="text-sm text-slate-500">Bedrooms</div>
+            <div class="text-lg font-medium">4</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-3xl border p-4">
+          <i class="fa-solid fa-bath icon"></i>
+          <div>
+            <div class="text-sm text-slate-500">Bathrooms</div>
+            <div class="text-lg font-medium">2</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-3xl border p-4">
+          <i class="fa-solid fa-car-side icon"></i>
+          <div>
+            <div class="text-sm text-slate-500">Parking</div>
+            <div class="text-lg font-medium">7 (4 garage + 3 carport)</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-3xl border p-4">
+          <i class="fa-regular fa-square icon"></i>
+          <div>
+            <div class="text-sm text-slate-500">Land size</div>
+            <div class="text-lg font-medium">3,011 m²</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-3xl border p-4">
+          <i class="fa-solid fa-wifi icon"></i>
+          <div>
+            <div class="text-sm text-slate-500">NBN</div>
+            <div class="text-lg font-medium">FTTP connected</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section id="highlights" class="mx-auto max-w-7xl px-4 py-12">
+      <div class="grid gap-10 lg:grid-cols-2">
+        <div>
+          <h2 class="text-2xl font-semibold">What sets this home apart</h2>
+          <ul class="mt-6 space-y-3 text-slate-700 feature-list">
+            <li>Executive country living on 3,011 m², reserve outlook; neighbours on only two sides</li>
+            <li>Flexible dual‑living potential: separate master wing and front lounge with double doors</li>
+            <li>Brand‑new Bosch oven & gas cooktop, stone benchtops, breakfast bar, dishwasher</li>
+            <li>Two living areas, both air‑conditioned (Daikin split systems)</li>
+            <li>Master suite with walk‑in robe, ensuite with dual vanities and dual shower</li>
+            <li>9m × 6m powered shed (2‑car + workshop) plus 9m × 6m 3‑car carport</li>
+            <li>Solar electricity, rainwater tank, security screens; fully fenced yard</li>
+            <li>Veggie gardens, fruit trees, greenhouse, firepit; room to add a pool</li>
+            <!-- Newly added features -->
+            <li>High ceilings</li>
+            <li>Large, well‑proportioned rooms</li>
+            <li>Air‑conditioning in all rooms except one</li>
+            <li>Air‑conditioned garage — potential for gym, rumpus, studio, or workshop</li>
+          </ul>
+        </div>
+
+        <!-- Proximity grid -->
+        <div id="proximity" class="rounded-3xl border p-6 card">
+          <h3 class="text-lg font-medium">Proximity &amp; travel times (approx.)</h3>
+          <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-umbrella-beach prox-icon"></i>
+                <div><div class="font-medium">Sunshine Coast beaches</div><div class="text-sm text-slate-600">≈ 30–40 min</div></div>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-bag-shopping prox-icon"></i>
+                <div><div class="font-medium">Pumicestone Village Shopping Centre</div><div class="text-sm text-slate-600">2.4 km</div></div>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-train prox-icon"></i>
+                <div><div class="font-medium">Elimbah train station</div><div class="text-sm text-slate-600">5.1 km</div></div>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-bag-shopping prox-icon"></i>
+                <div><div class="font-medium">Morayfield Central Shopping Centre</div><div class="text-sm text-slate-600">7.9 km</div></div>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-golf-ball-tee prox-icon"></i>
+                <div><div class="font-medium">Caboolture Golf Club</div><div class="text-sm text-slate-600">8.2 km</div></div>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-city prox-icon"></i>
+                <div><div class="font-medium">Brisbane CBD</div><div class="text-sm text-slate-600">≈ 60–70 min (traffic dependent)</div></div>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-umbrella-beach prox-icon"></i>
+                <div><div class="font-medium">Bribie Island (Woorim beaches)</div><div class="text-sm text-slate-600">≈ 35–45 min</div></div>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-plane prox-icon"></i>
+                <div><div class="font-medium">Brisbane Airport</div><div class="text-sm text-slate-600">≈ 45–55 min</div></div>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-hotel prox-icon"></i>
+                <div><div class="font-medium">Sandstone Point Hotel / Resort precinct</div><div class="text-sm text-slate-600">≈ 25–30 min</div></div>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-mountain prox-icon"></i>
+                <div><div class="font-medium">Glass House Mountains / Hinterland</div><div class="text-sm text-slate-600">≈ 10–55 min</div></div>
+              </div>
+            </div>
+          </div>
+          <p class="mt-4 text-sm text-slate-500">
+            Times/distances are approximate; check current traffic and routes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lifestyle strip -->
+    <section id="lifestyle" class="relative isolate">
+      <div
+        class="absolute inset-0 -z-10 bg-gradient-to-r from-emerald-50 to-sky-50"
+      ></div>
+      <div class="mx-auto max-w-7xl px-4 py-12">
+        <div class="grid items-center gap-8 md:grid-cols-2">
+          <div class="rounded-3xl border p-6 card">
+            <h3 class="text-xl font-semibold">Lifestyle</h3>
+            <p class="mt-3 text-slate-700">
+              Weekends sorted: coastal escapes to Bribie & Sandstone Point,
+              markets and cafes nearby, and plenty of room at home for
+              entertaining under the trees.
+            </p>
+            <ul class="mt-4 grid gap-3 sm:grid-cols-2 feature-list">
+              <li>Established gardens & fernery</li>
+              <li>Reserve outlook & birdlife</li>
+              <li>Sandstone Point events</li>
+              <li>Bribie beaches day‑trip</li>
+            </ul>
+            <div class="mt-4 rounded-2xl border p-4 bg-white/70">
+              <h4 class="font-medium">Why we love living here</h4>
+              <p class="mt-2 text-sm text-slate-700">We love the space and privacy here — mornings with birdsong, evenings by the fire pit, and clear starry skies. It’s a quiet pocket with quick access to the highway for work or weekend trips. Beaches are close enough for spontaneous days on the coast, while the city is still easily reachable when needed.</p>
+            </div>
+          </div>
+          <div
+            class="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-slate-200 grid place-items-center text-slate-500"
+          >
+            <img
+              src="/images/lifestyle-1.jpg"
+              alt="Outdoor entertaining and garden at 77–79 Emu Road"
+              width="1600"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover img-placeholder"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="mx-auto max-w-7xl px-4 py-12">
+      <h2 class="text-2xl font-semibold">Photo gallery</h2>
+      <div class="swiper mySwiper mt-6">
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide"><img src="/images/gallery-01.jpg" alt="Front facade and driveway" width="1600" height="1200" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl img-placeholder skeleton"></div>
+          <div class="swiper-slide"><img src="/images/gallery-02.jpg" alt="Kitchen with stone benchtops and Bosch appliances" width="1600" height="1200" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl img-placeholder skeleton"></div>
+          <div class="swiper-slide"><img src="/images/gallery-03.jpg" alt="Open-plan living area with Daikin air-conditioning" width="1600" height="1200" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl img-placeholder skeleton"></div>
+          <div class="swiper-slide"><img src="/images/gallery-04.jpg" alt="Master bedroom with walk-in robe and ensuite" width="1600" height="1200" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl img-placeholder skeleton"></div>
+          <div class="swiper-slide"><img src="/images/gallery-05.jpg" alt="9×6m shed and 3-car carport" width="1600" height="1200" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl img-placeholder skeleton"></div>
+          <!-- Add all listing images -->
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- Pagination dots -->
+        <div class="swiper-pagination"></div>
+      </div>
+      <p class="mt-3 text-sm text-slate-500">Full photo set coming online shortly.</p>
+    </section>
+
+    <!-- Privacy & Nature -->
+    <section class="relative isolate">
+      <div
+        class="absolute inset-0 -z-10 bg-gradient-to-r from-emerald-50/60 to-emerald-100/20"
+      ></div>
+      <div class="mx-auto max-w-7xl px-4 py-12">
+        <div class="grid gap-8 md:grid-cols-2">
+          <div class="rounded-3xl border p-6 bg-white/70 backdrop-blur card">
+            <h3 class="text-xl font-semibold">Privacy, outlook & birdlife</h3>
+            <p class="mt-3 text-slate-700">
+              Not in an estate and
+              <strong>neighbouring only two properties</strong>, the home enjoys
+              a peaceful reserve aspect — more space, fewer fences, and room for
+              the gardens to breathe.
+            </p>
+            <ul class="mt-4 grid gap-3 sm:grid-cols-2 text-slate-700 feature-list">
+              <li>Reserve-side privacy; minimal passing traffic</li>
+              <li>Mature trees & fernery create natural screening</li>
+              <li>
+                Regular native visitors: corellas, rainbow lorikeets, black cockatoos, sulphur-crested cockatoos, magpies, kookaburras
+              </li>
+              <li>Sunset through the gums; golden afternoon light</li>
+            </ul>
+          </div>
+          <div
+            class="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-slate-200 grid place-items-center text-slate-500"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1400&q=80"
+              alt="Reserve outlook with native birdlife"
+              width="1600"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover img-placeholder"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why SEQ / Investment angle -->
+    <section class="mx-auto max-w-7xl px-4 py-12">
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="rounded-3xl border p-6 card">
+          <h3 class="text-xl font-semibold">
+            Why South East Queensland — and why now
+          </h3>
+          <p class="mt-3 text-slate-700">
+            Greater Brisbane remains undersupplied, with strong population
+            growth and constrained new builds. With the
+            <strong>2032 Olympics</strong> catalysing infrastructure and ongoing
+            migration from southern states, quality lifestyle properties are
+            expected to remain in demand.
+          </p>
+          <ul class="mt-4 space-y-2 text-slate-700 feature-list">
+            <li>Low comparable stock in the acreage segment</li>
+            <li>
+              Strong lifestyle migration to SEQ (value vs Sydney/Melbourne)
+            </li>
+            <li>Improving buyer sentiment as rates ease</li>
+          </ul>
+          <p class="mt-3 text-sm text-slate-600">
+            (General information only; buyers should seek independent advice.)
+          </p>
+        </div>
+        <div class="rounded-3xl border p-6 card">
+          <h3 class="text-xl font-semibold">Sandstone Point lifestyle</h3>
+          <p class="mt-3 text-slate-700">
+            Minutes to the <strong>Sandstone Point Hotel</strong> — a major
+            events venue hosting concerts and festivals — plus the planned
+            <strong>5‑star resort</strong> precinct. Weeknight
+            dinners, weekend gigs, and Bribie’s beaches all within an easy
+            drive.
+          </p>
+          <ul class="mt-4 grid gap-2 sm:grid-cols-2 text-slate-700 feature-list">
+            <li>Concerts & food festivals</li>
+            <li>Marina, foreshore & island access</li>
+            <li>Dining & weekend markets</li>
+            <li>Resort precinct (in planning)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- For interstate movers -->
+    <section class="mx-auto max-w-7xl px-4 py-12">
+      <div class="rounded-3xl border p-6 card">
+        <h3 class="text-xl font-semibold">Moving from Sydney or Melbourne?</h3>
+        <div class="mt-3 rounded-xl bg-amber-50 border border-amber-200 p-3 text-sm text-amber-900">
+          Moving from Sydney or Melbourne? Enjoy a larger block, quieter streets, and a lower cost‑of‑living — without losing access to city amenities.
+        </div>
+        <p class="mt-3 text-slate-700">
+          Trade cramped city living for a
+          <strong>large lifestyle block</strong> with beaches, hinterland day
+          trips and warm weather — all while staying within easy reach of
+          Brisbane’s CBD and airport. This home balances privacy and space with
+          everyday convenience.
+        </p>
+        <ul class="mt-4 grid gap-2 sm:grid-cols-2 text-slate-700 feature-list">
+          <li>Off‑street parking for multiple vehicles, caravan or boat</li>
+          <li>FTTP fibre internet for hybrid work</li>
+          <li>Space for a pool, veggie gardens, pets</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Map / Location -->
+    <section id="location" class="mx-auto max-w-7xl px-4 py-12">
+      <h2 class="text-2xl font-semibold">Location</h2>
+      <p class="mt-2 max-w-prose text-slate-700">
+        Quiet pocket of Elimbah with fast highway access north/south. Surrounded
+        by quality homes and just minutes to everyday essentials.
+      </p>
+      <div class="mt-6 grid gap-6 md:grid-cols-2">
+        <div class="rounded-3xl border p-6 card">
+          <h3 class="flex items-center gap-2 text-lg font-medium">Address</h3>
+          <p class="mt-2">77–79 Emu Road, Elimbah QLD 4516</p>
+          <ul class="mt-4 feature-list text-slate-700">
+            <li>Neighbour on only two sides; reserve aspect</li>
+            <li>Quiet, low‑traffic street</li>
+            <li>School bus stop at the front (confirm route & times)</li>
+            <li>Quiet residential pocket beside a nature reserve</li>
+            <li>Fast highway access north/south</li>
+            <li>Shops, schools and services within ~5–10 min</li>
+            <li>Aerial/boundary overlay (coming soon)</li>
+          </ul>
+        </div>
+        <div class="rounded-3xl border p-2 card">
+          <div class="aspect-[4/3] w-full rounded-2xl overflow-hidden">
+            <iframe
+              title="Map"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=77-79+Emu+Road+Elimbah+QLD+4516&output=embed"
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / CTA -->
+    <footer id="enquire" class="relative isolate">
+      <div
+        class="absolute inset-0 -z-10 bg-gradient-to-br from-slate-50 to-emerald-50"
+      ></div>
+      <div class="mx-auto max-w-7xl px-4 py-14">
+        <div
+          class="grid items-center gap-8 rounded-3xl border p-6 md:grid-cols-2 card"
+        >
+          <div>
+            <h3 class="text-2xl font-semibold">
+              Interested? Book a private viewing
+            </h3>
+            <p class="mt-2 text-slate-700">
+              Contact Harcourts Connections (Agent: Melissa Brooker) to arrange a walkthrough.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="https://www.realestate.com.au/property-house-qld-elimbah-148472268" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Listing / Book a Viewing</a>
+              <a href="tel:+61XXXXXXXXX" class="btn btn-primary sm:hidden">Tap to call</a>
+            </div>
+          </div>
+          <div
+            class="relative aspect-[1/1] w-full overflow-hidden rounded-3xl bg-white p-6 shadow-sm grid place-items-center text-slate-500"
+          >
+            QR code to this page / Listing link
+          </div>
+        </div>
+        <p class="mt-6 text-center text-xs text-slate-500">
+          This page is provided by the owners to showcase additional lifestyle
+          features and local conveniences. All distances/times approximate;
+          buyers should make their own enquiries. Listing facts sourced from the agent’s published details.
+        </p>
+      </div>
+    </footer>
+    <div id="stickyCta" class="sticky-bar px-4">
+      <div class="mx-auto max-w-7xl backdrop-blur bg-white/90 border shadow-sm rounded-2xl px-4 py-3 flex items-center justify-between gap-3">
+        <div class="text-sm text-slate-700 hidden sm:block">Interested in 77–79 Emu Rd?</div>
+        <div class="flex items-center gap-3">
+          <a href="https://www.realestate.com.au/property-house-qld-elimbah-148472268" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Listing / Book a Viewing</a>
+          <a href="#video" class="btn btn-cta js-watch" data-video-src="https://www.youtube.com/embed/yP4cxBDrNe0"><i class="fa-regular fa-circle-play icon"></i><span>Watch Video Tour</span></a>
+        </div>
+      </div>
+    </div>
+ 
+  <!-- Toast removed -->
+  <script>
+    // --- Configurable URLs ---
+    const VIDEO_URL = null; // e.g. "https://www.youtube.com/embed/XXXX"
+
+    // Swiper
+    const swiper = new Swiper('.mySwiper', {
+      loop: true,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      slidesPerView: 1,
+      spaceBetween: 10,
+    });
+
+    // (lucide icons removed)
+
+    // Sticky CTA appears after hero leaves viewport
+    const heroEl = document.querySelector('header');
+    const sticky = document.getElementById('stickyCta');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { sticky.classList.remove('show'); }
+        else { sticky.classList.add('show'); }
+      });
+    }, { threshold: 0.1 });
+    if (heroEl) io.observe(heroEl);
+
+    // Slower, consistent smooth scrolling for on-page anchors
+    (function () {
+      const SCROLL_MARGIN = 96; // matches :target scroll-margin-top
+      const DURATION_MS = 900;  // increase to slow down
+
+      const easeInOutCubic = (t) =>
+        t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+      document.addEventListener('click', (e) => {
+        const anchor = e.target.closest('a[href^="#"]');
+        if (!anchor) return;
+
+        const href = anchor.getAttribute('href');
+        if (!href || href === '#' || href === '#!') return;
+
+        const target = document.querySelector(href);
+        if (!target) return; // allow default for non-existing targets
+
+        e.preventDefault();
+
+        const startY = window.pageYOffset;
+        const rectTop = target.getBoundingClientRect().top;
+        const destY = Math.max(0, Math.min(
+          document.documentElement.scrollHeight - window.innerHeight,
+          startY + rectTop - SCROLL_MARGIN
+        ));
+
+        const startTime = performance.now();
+
+        function step(now) {
+          const elapsed = now - startTime;
+          const t = Math.min(1, elapsed / DURATION_MS);
+          const eased = easeInOutCubic(t);
+          window.scrollTo(0, startY + (destY - startY) * eased);
+          if (t < 1) {
+            requestAnimationFrame(step);
+          } else {
+            // Update URL hash without jumping
+            history.replaceState(null, '', href);
+            // Optional: move focus for accessibility, without auto-scrolling
+            if (typeof target.focus === 'function') {
+              target.setAttribute('tabindex', '-1');
+              target.focus({ preventScroll: true });
+            }
+          }
+        }
+        requestAnimationFrame(step);
+      });
+    })();
+  </script>
+  <div id="videoModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle">
+    <div class="modal-card" style="background:transparent; box-shadow:none;">
+      <div class="modal-head" style="background:transparent; border-bottom:0;">
+        <div id="videoModalTitle" class="sr-only">Video Tour</div>
+        <button type="button" class="modal-close" id="videoModalClose">Close</button>
+      </div>
+      <div class="modal-video" id="videoModalFrameWrap">
+        <iframe id="videoModalFrame" title="Video tour" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <script>
+    // --- Video modal ---
+    (function(){
+      const openers = document.querySelectorAll('.js-watch');
+      const modal = document.getElementById('videoModal');
+      const closeBtn = document.getElementById('videoModalClose');
+      const frame = document.getElementById('videoModalFrame');
+
+      function youtubeAutoplayUrl(src){
+        try {
+          // Expecting an embed URL like https://www.youtube.com/embed/VIDEOID
+          const u = new URL(src, location.href);
+          const isEmbed = /\/embed\//.test(u.pathname);
+          let id = '';
+          if (isEmbed) {
+            id = u.pathname.split('/').pop();
+          } else if (u.searchParams.get('v')) {
+            id = u.searchParams.get('v');
+          }
+          const base = `https://www.youtube.com/embed/${id}`;
+          // Autoplay + loop require playlist param = id
+          return `${base}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=${id}`;
+        } catch { return src; }
+      }
+
+      function openModal(src){
+        frame.src = youtubeAutoplayUrl(src);
+        modal.classList.add('open');
+        document.documentElement.style.overflow = 'hidden';
+      }
+      function closeModal(){
+        modal.classList.remove('open');
+        frame.src = '';
+        document.documentElement.style.overflow = '';
+      }
+
+      openers.forEach(btn => btn.addEventListener('click', e => {
+        e.preventDefault();
+        const src = btn.getAttribute('data-video-src') || '';
+        openModal(src);
+      }));
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e)=> { if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', (e)=> { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+    })();
+  </script>
+  </body>
+</html>
