@@ -74,6 +74,9 @@
       .sticky-bar { position:fixed; inset-inline:0; bottom:0; z-index:50; display:none; }
       .sticky-bar.show { display:flex; }
       @media (min-width:768px){ .sticky-bar { bottom:1rem; justify-content:center; } }
+      /* Hide scrollbars for horizontal nav on small screens */
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       .btn { display:inline-flex; align-items:center; gap:.5rem; border-radius:1rem; padding:.625rem 1rem; }
       .btn-primary { background:#0f172a; color:#fff; }
       .btn-primary:hover { background:#111827; }
@@ -106,7 +109,7 @@
             <p class="mt-4 max-w-prose text-lg text-slate-700">
               Executive country home on ¾ acre — space, privacy, and easy city &amp; coast access.
             </p>
-            <p class="mt-2 text-slate-600">Around 30–40 min to Sunshine Coast beaches and roughly an hour to Brisbane CBD.*</p>
+            <p class="mt-2 text-slate-600">Ideally located 30 min to Bribie Island/Sunshine Coast beaches and roughly an hour to Brisbane CBD.*</p>
             <div class="mt-6 flex flex-wrap gap-3">
               <a href="https://www.realestate.com.au/property-house-qld-elimbah-148472268" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Listing / Book a Viewing</a>
               <a href="#video" class="btn btn-cta js-watch" data-video-src="https://www.youtube.com/embed/yP4cxBDrNe0"><i class="fa-regular fa-circle-play icon"></i><span>Watch Video Tour</span></a>
@@ -118,7 +121,13 @@
           </div>
 
           <div id="video" class="relative aspect-video w-full overflow-hidden rounded-3xl shadow-sm">
-            <iframe width="1280" height="720" src="https://www.youtube.com/embed/yP4cxBDrNe0" title="77-79 Emu Road, Elimbah" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width:100%;height:100%;"></iframe>
+            <img src="images/image-1.jpg"
+                 alt="Front hero image of 77–79 Emu Road, Elimbah"
+                 width="1600"
+                 height="900"
+                 loading="eager"
+                 decoding="async"
+                 style="width:100%;height:100%;object-fit:cover;display:block;" />
           </div>
         </div>
       </div>
@@ -127,9 +136,9 @@
     </header>
 
     <nav class="sticky-nav">
-      <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between">
-        <div class="text-sm font-medium">77–79 Emu Rd</div>
-        <div class="flex items-center gap-4 text-sm">
+      <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between gap-3 min-w-0">
+        <div class="text-sm font-medium whitespace-nowrap truncate max-w-[40vw]">77–79 Emu Rd</div>
+        <div class="flex items-center text-sm gap-3 sm:gap-4 overflow-x-auto no-scrollbar whitespace-nowrap min-w-0">
           <a href="#highlights">Highlights</a>
           <a href="#gallery">Gallery</a>
           <a href="#lifestyle">Lifestyle</a>
@@ -304,7 +313,7 @@
             class="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-slate-200 grid place-items-center text-slate-500"
           >
             <img
-              src="/images/lifestyle-1.jpg"
+              src="/images/deck-1.jpg"
               alt="Outdoor entertaining and garden at 77–79 Emu Road"
               width="1600"
               height="1200"
@@ -366,7 +375,7 @@
             class="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-slate-200 grid place-items-center text-slate-500"
           >
             <img
-              src="https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1400&q=80"
+              src="/images/image-2.jpg"
               alt="Reserve outlook with native birdlife"
               width="1600"
               height="1200"
@@ -506,9 +515,13 @@
             </div>
           </div>
           <div
-            class="relative aspect-[1/1] w-full overflow-hidden rounded-3xl bg-white p-6 shadow-sm grid place-items-center text-slate-500"
+            class="relative aspect-[1/1] w-full overflow-hidden rounded-3xl  p-6 shadow-sm grid place-items-center text-slate-500"
           >
-            QR code to this page / Listing link
+            <img src="images/melissa-brooker.jpg"
+                 alt="Profile image of agent Melissa Brooker"
+                 width="300"
+                 height="300"
+                 style="width:300px;height:300px;object-fit:cover;border-radius:50%;display:block;" />
           </div>
         </div>
         <p class="mt-6 text-center text-xs text-slate-500">
