@@ -3,24 +3,59 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>77–79 Emu Road, Elimbah QLD — ¾‑acre executive home | dual‑living friendly | close to coast & city</title>
-    <link rel="preload" as="image" href="/images/hero-1.jpg">
+    <title>
+      77–79 Emu Road, Elimbah QLD — ¾‑acre executive home | dual‑living friendly
+      | close to coast & city
+    </title>
+    <link rel="preload" as="image" href="/images/hero-1.jpg" />
     <meta
       name="description"
       content="Executive country home on ¾ acre (3,011 m²) with dual‑living friendly layout, FTTP, solar, shed & reserve outlook. Around 30–40 min to Sunshine Coast beaches and roughly an hour to Brisbane CBD."
     />
-    <meta property="og:title" content="77–79 Emu Road, Elimbah QLD — ¾‑acre executive home" />
-    <meta property="og:description" content="Executive country home on ¾ acre with dual‑living potential, FTTP, solar & reserve outlook. ~30–40 min to Sunshine Coast beaches; ~60–70 min to Brisbane CBD." />
+    <meta
+      property="og:title"
+      content="77–79 Emu Road, Elimbah QLD — ¾‑acre executive home"
+    />
+    <meta
+      property="og:description"
+      content="Executive country home on ¾ acre with dual‑living potential, FTTP, solar & reserve outlook. ~30–40 min to Sunshine Coast beaches; ~60–70 min to Brisbane CBD."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/images/hero-1.jpg" />
     <meta property="og:url" content="https://example.com/emu-road" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="77–79 Emu Road, Elimbah QLD — ¾‑acre executive home" />
-    <meta name="twitter:description" content="¾‑acre, dual‑living friendly, close to coast & city." />
+    <meta
+      name="twitter:title"
+      content="77–79 Emu Road, Elimbah QLD — ¾‑acre executive home"
+    />
+    <meta
+      name="twitter:description"
+      content="¾‑acre, dual‑living friendly, close to coast & city."
+    />
     <meta name="twitter:image" content="/images/hero-1.jpg" />
     <!-- Tailwind Play CDN for quick deploy -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+      /* Section headings font-family (h2, h3) remains as per other sections */
+      h2 {
+        font-size: 2rem;
+      }
+      h3 {
+        font-size: 1.75rem;
+      }
+      @media (min-width: 768px) {
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 2.25rem; }
+      }
+
+      /* Subheadings in feature-copy (e.g. lifestyle rows) use Over the Rainbow */
+      .feature-copy h4 {
+        font-family: 'Over the Rainbow', cursive;
+        font-size: 1.5rem;
+      }
+      @media (min-width: 768px) {
+        .feature-copy h4 { font-size: 1.75rem; }
+      }
       .chip {
         display: inline-flex;
         align-items: center;
@@ -31,66 +66,459 @@
         font-size: 0.875rem;
         color: rgb(71 85 105);
       }
-      html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
       /* Decorative gradient blobs */
       .blob {
-        position: absolute; inset: auto; pointer-events: none; filter: blur(50px); opacity: .5;
+        position: absolute;
+        inset: auto;
+        pointer-events: none;
+        filter: blur(50px);
+        opacity: 0.5;
       }
-      .blob.blob-1 { width: 420px; height: 420px; right: -120px; top: -80px; background: radial-gradient(45% 45% at 50% 50%, #a7f3d0 0%, transparent 70%); }
-      .blob.blob-2 { width: 360px; height: 360px; left: -120px; bottom: -80px; background: radial-gradient(45% 45% at 50% 50%, #bae6fd 0%, transparent 70%); }
+      .blob.blob-1 {
+        width: 420px;
+        height: 420px;
+        right: -120px;
+        top: -80px;
+        background: radial-gradient(
+          45% 45% at 50% 50%,
+          #a7f3d0 0%,
+          transparent 70%
+        );
+      }
+      .blob.blob-2 {
+        width: 360px;
+        height: 360px;
+        left: -120px;
+        bottom: -80px;
+        background: radial-gradient(
+          45% 45% at 50% 50%,
+          #bae6fd 0%,
+          transparent 70%
+        );
+      }
 
       /* Icon sizing */
-      .icon { font-size: 22px; line-height: 1; color: rgb(51 65 85); }
-      .prox-icon { font-size: 20px; line-height: 1; color:#0f172a; flex:none; margin-top:2px; }
+      .icon {
+        font-size: 22px;
+        line-height: 1;
+        color: rgb(51 65 85);
+      }
+      .prox-icon {
+        font-size: 20px;
+        line-height: 1;
+        color: #0f172a;
+        flex: none;
+        margin-top: 2px;
+      }
+
+      /* Make proximity links visually clear */
+      #proximity a {
+        color: #0ea5e9; /* teal/blue tone for visibility */
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+      #proximity a:hover {
+        color: #0284c7;
+        text-decoration-thickness: 2px;
+      }
 
       /* Card polish */
-      .card { border-radius: 1.5rem; box-shadow: 0 1px 2px rgba(2,6,23,.04), 0 8px 24px rgba(2,6,23,.06); }
+      .card {
+        border-radius: 1.5rem;
+        box-shadow: 0 1px 2px rgba(2, 6, 23, 0.04),
+          0 8px 24px rgba(2, 6, 23, 0.06);
+      }
 
       /* Anchor targets */
-      :target { scroll-margin-top: 96px; }
+      :target {
+        scroll-margin-top: 96px;
+      }
 
       /* Swiper arrows: make them visible on light bg */
-      .swiper-button-next, .swiper-button-prev { color: #0f172a; }
-      .swiper-pagination-bullet { background: #0f172a; opacity: .3; }
-      .swiper-pagination-bullet-active { opacity: 1; }
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: #0f172a;
+      }
+      .swiper-pagination-bullet {
+        background: #0f172a;
+        opacity: 0.3;
+      }
+      .swiper-pagination-bullet-active {
+        opacity: 1;
+      }
+
+      /* Home-life caption */
+      .home-life-caption {
+        position: absolute;
+        left: 0.75rem;
+        bottom: 0.75rem;
+        background: rgba(15, 23, 42, 0.6);
+        color: #fff;
+        font-size: 0.875rem;
+        padding: 0.35rem 0.6rem;
+        border-radius: 0.5rem;
+        line-height: 1.25;
+        max-width: 90%;
+      }
+      /* Ensure pagination is visible on light/dark images */
+      #homeLifeSwiper .swiper-pagination-bullet { background: #fff; opacity: 0.5; }
+      #homeLifeSwiper .swiper-pagination-bullet-active { opacity: 1; }
+
+      /* Gallery ticker */
+      .gallery-ticker {
+        overflow: hidden;
+        width: 100%;
+      }
+      .gallery-track {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        will-change: transform;
+        animation: gallery-scroll 45s linear infinite;
+      }
+      .gallery-track:hover {
+        animation-play-state: paused;
+      }
+      @keyframes gallery-scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      .gallery-thumb {
+        border: 0;
+        background: transparent;
+        padding: 0;
+        cursor: pointer;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        flex: 0 0 auto;
+      }
+      .gallery-thumb img {
+        display: block;
+        height: 120px;
+        width: auto;
+        object-fit: cover;
+      }
+      @media (min-width: 640px) {
+        .gallery-thumb img {
+          height: 140px;
+        }
+      }
+      @media (min-width: 1024px) {
+        .gallery-thumb img {
+          height: 180px;
+        }
+      }
+      /* Lifestyle alternating rows */
+      .l-row .gallery-track { animation-duration: 36s; }
+      .l-row .gallery-thumb img { height: 110px; }
+      @media (min-width: 640px) { .l-row .gallery-thumb img { height: 120px; } }
+      @media (min-width: 1024px) { .l-row .gallery-thumb img { height: 140px; } }
+
+      /* Polaroid styling for feature galleries */
+      .feature-figure.polaroid {
+        background: #fff;
+        padding: 14px 14px 46px; /* white frame + larger bottom lip */
+        border: 1px solid #e5e7eb;
+        border-bottom-width: 3px;
+        border-radius: 10px;
+        box-shadow: 0 8px 28px rgba(2, 6, 23, 0.12), 0 2px 6px rgba(2, 6, 23, 0.06);
+        aspect-ratio: 4/5; /* polaroid aspect */
+        position: relative;
+        transform: rotate(var(--tilt, 0deg));
+        transition: transform .2s ease;
+      }
+      .feature-figure.polaroid:hover {
+        transform: rotate(var(--tilt, 0deg)) scale(1.01);
+      }
+      .feature-figure.polaroid .swiper,
+      .feature-figure.polaroid img {
+        border-radius: 6px;
+      }
+
+      /* Let the standard feature-figure gradient overlay continue to work inside polaroid */
+      .feature-figure.polaroid::after {
+        border-radius: 6px; /* match inner rounding */
+      }
+
+      /* Narrower, centred column content for Lifestyle rows */
+      .narrow-col {
+        max-width: 70%;
+        margin-inline: auto;
+      }
+      @media (min-width: 768px) {
+        .narrow-col { max-width: 65%; }
+        /* Helpers to hug the centre line on desktop */
+        .center-left { margin-left: 0; margin-right: auto; }
+        .center-right { margin-left: auto; margin-right: 0; }
+      }
+
+      /* Add extra horizontal gap between text and gallery in Lifestyle section */
+      #lifestyle .l-row-center {
+        column-gap: 2rem;
+      }
+      @media (min-width: 768px) {
+        #lifestyle .l-row-center {
+          column-gap: 2.5rem;
+        }
+      }
+
+      /* Option A: Feature rows (calm fade galleries) */
+      .feature-figure { aspect-ratio: 16/9; }
+      .feature-fader .swiper { width: 100%; height: 100%; }
+      .feature-fader .swiper-slide { background: #000; }
+      .feature-fader img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .feature-fader .swiper-pagination-bullet { width: 6px; height: 6px; background: #0f172a; opacity: .25; }
+      .feature-fader .swiper-pagination-bullet-active { opacity: .7; }
+
+      /* Subtle contrast overlay for feature images */
+      .feature-figure { position: relative; }
+      .feature-figure::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(180deg, rgba(0,0,0,0) 65%, rgba(0,0,0,0.12) 100%);
+        mix-blend-mode: multiply;
+      }
+
+      /* Feature rows — equal columns + elevated type */
+      /* (font-size for .feature-copy h4 now set above; keep font-weight if needed) */
+      .feature-copy h4 { font-weight: 600; }
+      .feature-copy p { font-size: 1rem; line-height: 1.65; color: rgb(51 65 85); }
+      @media (min-width: 768px) { .feature-copy p { font-size: 1.0625rem; } }
+
+      /* Fullscreen gallery modal */
+      .gallery-modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(15, 23, 42, 0.9);
+        z-index: 70;
+      }
+      .gallery-modal.open {
+        display: flex;
+      }
+      .gallery-modal .modal-card {
+        width: min(1400px, 98vw);
+        height: min(92vh, 900px);
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .gallery-modal .modal-head {
+        background: transparent;
+        border: 0;
+      }
+      .gallery-modal .swiper {
+        width: 100%;
+        height: 100%;
+      }
+      .gallery-modal .swiper-button-next,
+      .gallery-modal .swiper-button-prev {
+        color: #fff;
+      }
+      .gallery-modal .swiper-pagination-bullet {
+        background: #fff;
+        opacity: 0.5;
+      }
+      .gallery-modal .swiper-pagination-bullet-active {
+        opacity: 1;
+      }
 
       /* Image empty state placeholder */
-      .img-placeholder { background: linear-gradient(135deg,#eef2ff,#f0fdfa); display:grid; place-items:center; color:#94a3b8; }
-      .img-placeholder::before { content: "Add image"; font-size: .875rem; }
+      .img-placeholder {
+        background: linear-gradient(135deg, #eef2ff, #f0fdfa);
+        display: grid;
+        place-items: center;
+        color: #94a3b8;
+      }
+      .img-placeholder::before {
+        content: "Add image";
+        font-size: 0.875rem;
+      }
 
-      ul.feature-list { list-style: disc; padding-left: 1.25rem; }
-      ul.feature-list li { padding-left: .25rem; text-indent: -0.25rem; }
-      ul.feature-list li::marker { font-size: .9em; }
+      ul.feature-list {
+        list-style: disc;
+        padding-left: 1.25rem;
+      }
+      ul.feature-list li {
+        padding-left: 0.25rem;
+        text-indent: -0.25rem;
+      }
+      ul.feature-list li::marker {
+        font-size: 0.9em;
+      }
+      /* Two-column list helper for balanced bullets */
+      .two-col-list { column-gap: 1.25rem; }
+      .two-col-list li { break-inside: avoid; -webkit-column-break-inside: avoid; }
 
-      .skeleton { position:relative; overflow:hidden; background:linear-gradient(90deg,#f1f5f9 0,#f8fafc 20%,#f1f5f9 40%); background-size:200% 100%; animation:sheen 1.2s linear infinite; }
-      @keyframes sheen { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
-      .modal { position:fixed; inset:0; background:rgba(15,23,42,.6); display:none; align-items:center; justify-content:center; z-index:60; }
-      .modal.open { display:flex; }
-      .modal-card { background:#fff; width:min(920px,92vw); border-radius:1rem; box-shadow:0 20px 60px rgba(2,6,23,.2); overflow:hidden; }
-      .modal-head { display:flex; align-items:center; justify-content:space-between; padding:0.75rem 1rem; border-bottom:1px solid #e2e8f0; }
-      .toast { position:fixed; right:1rem; bottom:1rem; background:#0f172a; color:#fff; padding:.75rem 1rem; border-radius:.75rem; z-index:70; display:none; }
-      .toast.show { display:block; }
-      .sticky-nav { position:sticky; top:0; z-index:40; backdrop-filter:blur(8px); background:rgba(255,255,255,.7); border-bottom:1px solid rgba(226,232,240,.8); }
-      .sticky-bar { position:fixed; inset-inline:0; bottom:0; z-index:50; display:none; }
-      .sticky-bar.show { display:flex; }
-      @media (min-width:768px){ .sticky-bar { bottom:1rem; justify-content:center; } }
+      /* Bullet-with-gallery layout */
+      .list-item-gallery p { margin: 0; }
+      .mini-swiper { background: rgba(255,255,255,0.5); }
+      .mini-swiper .swiper { height: 100%; }
+      .mini-swiper img { width: 100%; height: 100%; object-fit: cover; display:block; }
+      /* Thumbnail-sized mini galleries */
+      .thumb-swiper { height: 140px; }
+      @media (min-width: 640px) { .thumb-swiper { height: 160px; } }
+      .mini-swiper .swiper-pagination-bullet { width: 6px; height: 6px; opacity: .4; }
+      .mini-swiper .swiper-pagination-bullet-active { opacity: 1; }
+
+      .skeleton {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(90deg, #f1f5f9 0, #f8fafc 20%, #f1f5f9 40%);
+        background-size: 200% 100%;
+        animation: sheen 1.2s linear infinite;
+      }
+      @keyframes sheen {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 60;
+      }
+      .modal.open {
+        display: flex;
+      }
+      .modal-card {
+        background: #fff;
+        width: min(920px, 92vw);
+        border-radius: 1rem;
+        box-shadow: 0 20px 60px rgba(2, 6, 23, 0.2);
+        overflow: hidden;
+      }
+      .modal-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .toast {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        background: #0f172a;
+        color: #fff;
+        padding: 0.75rem 1rem;
+        border-radius: 0.75rem;
+        z-index: 70;
+        display: none;
+      }
+      .toast.show {
+        display: block;
+      }
+      .sticky-nav {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        backdrop-filter: blur(8px);
+        background: rgba(255, 255, 255, 0.7);
+        border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      }
+      .sticky-bar {
+        position: fixed;
+        inset-inline: 0;
+        bottom: 0;
+        z-index: 50;
+        display: none;
+      }
+      .sticky-bar.show {
+        display: flex;
+      }
+      @media (min-width: 768px) {
+        .sticky-bar {
+          bottom: 1rem;
+          justify-content: center;
+        }
+      }
       /* Hide scrollbars for horizontal nav on small screens */
-      .no-scrollbar::-webkit-scrollbar { display: none; }
-      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      .btn { display:inline-flex; align-items:center; gap:.5rem; border-radius:1rem; padding:.625rem 1rem; }
-      .btn-primary { background:#0f172a; color:#fff; }
-      .btn-primary:hover { background:#111827; }
-      .btn-outline { border:1px solid #e2e8f0; }
-      .btn-ghost { background:transparent; }
-      .btn-cta { border:2px solid #0f172a; box-shadow:0 6px 14px rgba(15,23,42,.12); font-weight:600; }
-      .modal-video { width:min(1080px, 96vw); aspect-ratio:16/9; background:#000; }
-      .modal video, .modal iframe { width:100%; height:100%; display:block; }
-      .modal-close { appearance:none; border:0; background:#0f172a; color:#fff; border-radius:.5rem; padding:.4rem .6rem; font-size:.9rem; }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-radius: 1rem;
+        padding: 0.625rem 1rem;
+      }
+      .btn-primary {
+        background: #0f172a;
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: #111827;
+      }
+      .btn-outline {
+        border: 1px solid #e2e8f0;
+      }
+      .btn-ghost {
+        background: transparent;
+      }
+      .btn-cta {
+        border: 2px solid #0f172a;
+        box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
+        font-weight: 600;
+      }
+      .modal-video {
+        width: min(1080px, 96vw);
+        aspect-ratio: 16/9;
+        background: #000;
+      }
+      .modal video,
+      .modal iframe {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .modal-close {
+        appearance: none;
+        border: 0;
+        background: #0f172a;
+        color: #fff;
+        border-radius: 0.5rem;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.9rem;
+      }
     </style>
     <!-- Swiper.js CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Over+the+Rainbow&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
   </head>
   <body class="min-h-screen bg-white text-slate-800">
     <!-- Hero -->
@@ -105,14 +533,32 @@
             <h1 class="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
               77–79 Emu Road, <span class="whitespace-nowrap">Elimbah QLD</span>
             </h1>
-            <div class="mt-3 text-slate-600">4 bed • 2 bath • 7 car • 3,011 m² • Offers over $1,450,000</div>
+            <div class="mt-3 text-slate-600">
+              4 bed • 2 bath • 7 car • 3,011 m² • Offers over $1,450,000
+            </div>
             <p class="mt-4 max-w-prose text-lg text-slate-700">
-              Executive country home on ¾ acre — space, privacy, and easy city &amp; coast access.
+              Executive country home on ¾ acre — space, privacy, and easy city
+              &amp; coast access.
             </p>
-            <p class="mt-2 text-slate-600">Ideally located 30 min to Bribie Island/Sunshine Coast beaches and roughly an hour to Brisbane CBD.*</p>
+            <p class="mt-2 text-slate-600">
+              Ideally located 30 min to Bribie Island/Sunshine Coast beaches and
+              roughly an hour to Brisbane CBD.*
+            </p>
             <div class="mt-6 flex flex-wrap gap-3">
-              <a href="https://www.realestate.com.au/property-house-qld-elimbah-148472268" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Listing</a>
-              <a href="#video" class="btn btn-cta js-watch" data-video-src="https://www.youtube.com/embed/yP4cxBDrNe0"><i class="fa-regular fa-circle-play icon"></i><span>Watch Video</span></a>
+              <a
+                href="https://www.realestate.com.au/property-house-qld-elimbah-148472268"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+                >View Listing</a
+              >
+              <a
+                href="#video"
+                class="btn btn-cta js-watch"
+                data-video-src="https://www.youtube.com/embed/yP4cxBDrNe0"
+                ><i class="fa-regular fa-circle-play icon"></i
+                ><span>Watch Video</span></a
+              >
             </div>
             <div class="mt-6 text-sm text-slate-500">
               (This page complements the agent listing and includes extras
@@ -120,14 +566,24 @@
             </div>
           </div>
 
-          <div id="video" class="relative aspect-video w-full overflow-hidden rounded-3xl shadow-sm">
-            <img src="images/image-1.jpg"
-                 alt="Front hero image of 77–79 Emu Road, Elimbah"
-                 width="1600"
-                 height="900"
-                 loading="eager"
-                 decoding="async"
-                 style="width:100%;height:100%;object-fit:cover;display:block;" />
+          <div
+            id="video"
+            class="relative aspect-video w-full overflow-hidden rounded-3xl shadow-sm"
+          >
+            <img
+              src="images/image-1.jpg"
+              alt="Front hero image of 77–79 Emu Road, Elimbah"
+              width="1600"
+              height="900"
+              loading="eager"
+              decoding="async"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+              "
+            />
           </div>
         </div>
       </div>
@@ -136,9 +592,17 @@
     </header>
 
     <nav class="sticky-nav">
-      <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between gap-3 min-w-0">
-        <div class="text-sm font-medium whitespace-nowrap truncate max-w-[40vw]">77–79 Emu Rd</div>
-        <div class="flex items-center text-sm gap-3 sm:gap-4 overflow-x-auto no-scrollbar whitespace-nowrap min-w-0">
+      <div
+        class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between gap-3 min-w-0"
+      >
+        <div
+          class="text-sm font-medium whitespace-nowrap truncate max-w-[40vw]"
+        >
+          77–79 Emu Rd
+        </div>
+        <div
+          class="flex items-center text-sm gap-3 sm:gap-4 overflow-x-auto no-scrollbar whitespace-nowrap min-w-0"
+        >
           <a href="#highlights">Highlights</a>
           <a href="#gallery">Gallery</a>
           <a href="#lifestyle">Lifestyle</a>
@@ -194,98 +658,217 @@
     <section id="highlights" class="mx-auto max-w-7xl px-4 py-12">
       <div class="grid gap-10 lg:grid-cols-2">
         <div>
-          <h2 class="text-2xl font-semibold">What sets this home apart</h2>
+          <h2 class="text-2xl font-semibold">Why you’ll love living here</h2>
           <ul class="mt-6 space-y-3 text-slate-700 feature-list">
-
-
-            <li>Reserve‑side privacy; neighbours on only two sides</li>
-            <li>Dual‑living friendly layout (separate master wing + front lounge)</li>
-            <li>Stone kitchen; brand‑new Bosch oven & gas cooktop; dishwasher</li>
-            <li>Two living areas (Daikin split systems)</li>
-            <li>Master suite: WIR + ensuite with dual vanities & dual shower</li>
-            <li>9×6m powered shed (2‑car + workshop) + 9×6m 3‑car carport</li>
-            <li>Solar, rainwater tank, security screens; fully fenced yard</li>
-            <li>Veggie gardens, fruit trees, greenhouse & fire pit</li>
-            <li>Air‑conditioned garage — scope for gym/rumpus/studio conversion</li>
-
-
-            <li>Executive country living on 3,011 m², reserve outlook; neighbours on only two sides</li>
-            <li>Flexible dual‑living potential: separate master wing and front lounge with double doors</li>
-            <li>Brand‑new Bosch oven & gas cooktop, stone benchtops, breakfast bar, dishwasher</li>
-            <li>Two living areas, both air‑conditioned (Daikin split systems)</li>
-            <li>Master suite with walk‑in robe, ensuite with dual vanities and dual shower</li>
-            <li>9m × 6m powered shed (2‑car + workshop) plus 9m × 6m 3‑car carport</li>
-            <li>Solar electricity, rainwater tank, security screens; fully fenced yard</li>
-            <li>Veggie gardens, fruit trees, greenhouse, firepit; room to add a pool</li>
-            <li>High ceilings</li>
-            <li>Large, well‑proportioned rooms</li>
-            <li>Air‑conditioning in all rooms except one</li>
-            <li>Air‑conditioned garage — potential for gym, rumpus, studio, or workshop conversion</li>
+            <li>
+              <strong>Layout & flexibility</strong>
+              <ul class="feature-list mt-2">
+                <li>Private reserve outlook with neighbours on only two sides</li>
+                <li>Dual‑living friendly: separate master wing plus front lounge with double doors</li>
+                <li>High ceilings and large, well‑proportioned rooms</li>
+                <li>Air‑conditioned garage with scope for gym, rumpus, studio or workshop conversion</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Kitchen</strong>
+              <ul class="feature-list mt-2">
+                <li>Stone benchtops with breakfast bar</li>
+                <li>Brand‑new Bosch oven and gas cooktop</li>
+                <li>Dishwasher</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Bedrooms & bathrooms</strong>
+              <ul class="feature-list mt-2">
+                <li>Master suite with walk‑in robe</li>
+                <li>Ensuite with dual vanities and dual shower</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Living & comfort</strong>
+              <ul class="feature-list mt-2">
+                <li>Two living areas, both air‑conditioned (Daikin split systems)</li>
+                <li>Air‑conditioning in all rooms except one</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Shed, car accommodation & storage</strong>
+              <ul class="feature-list mt-2">
+                <li>9m × 6m powered shed (2‑car + workshop)</li>
+                <li>9m × 6m 3‑car carport</li>
+                <li>Fully fenced yard with excellent access</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Outdoors & lifestyle</strong>
+              <ul class="feature-list mt-2">
+                <li>3,011 m² (¾ acre) of executive country living</li>
+                <li>Veggie gardens, fruit trees, greenhouse and a fire pit</li>
+                <li>Room to add a pool (STCA)</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Sustainability & security</strong>
+              <ul class="feature-list mt-2">
+                <li>Solar electricity</li>
+                <li>Rainwater tank</li>
+                <li>Security screens throughout</li>
+              </ul>
+            </li>
           </ul>
         </div>
 
         <!-- Proximity grid -->
         <div id="proximity" class="rounded-3xl border p-6 card">
-          <h3 class="text-lg font-medium">Proximity &amp; travel times (approx.)</h3>
+          <h3 class="text-lg font-medium">
+            Close to home: local amenities & travel times
+          </h3>
           <div class="mt-6 grid gap-4 sm:grid-cols-2">
-            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
-              <div class="flex items-start gap-3">
-                <i class="fa-solid fa-umbrella-beach prox-icon"></i>
-                <div><div class="font-medium">Sunshine Coast beaches</div><div class="text-sm text-slate-600">≈ 30–40 min</div></div>
-              </div>
-            </div>
-            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+            <div
+              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+            >
               <div class="flex items-start gap-3">
                 <i class="fa-solid fa-bag-shopping prox-icon"></i>
-                <div><div class="font-medium">Pumicestone Village Shopping Centre</div><div class="text-sm text-slate-600">2.4 km</div></div>
+                <div>
+                  <div class="font-medium">
+                    <a target="_blank" href="https://bigfishjunction.com.au/stores/"
+                      >Big Fish Junction (Coles & Chemist Warehouse)</a
+                    >
+                  </div>
+                  <div class="text-sm text-slate-600">5 min</div>
+                </div>
               </div>
             </div>
-            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+            <div
+              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+            >
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-bag-shopping prox-icon"></i>
+                <div>
+                  <div class="font-medium">
+                    <a target="_blank" href="https://www.drakes.com.au/store/pumicestone-village-shopping-centre/">Pumicestone Village Shopping Centre (Drakes)</a>
+                  </div>
+                  <div class="text-sm text-slate-600">4 min</div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+            >
               <div class="flex items-start gap-3">
                 <i class="fa-solid fa-train prox-icon"></i>
-                <div><div class="font-medium">Elimbah train station</div><div class="text-sm text-slate-600">5.1 km</div></div>
+                <div>
+                  <div class="font-medium"><a target="_blank" href="https://translink.com.au/plan-your-journey/stops/600317">Caboolture train station</a></div>
+                  <div class="text-sm text-slate-600">8 min</div>
+                </div>
               </div>
             </div>
-            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+            <div
+              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+            >
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-bag-shopping prox-icon"></i>
-                <div><div class="font-medium">Morayfield Central Shopping Centre</div><div class="text-sm text-slate-600">7.9 km</div></div>
+                <i class="fa-solid fa-train prox-icon"></i>
+                <div>
+                  <div class="font-medium"><a target="_blank" href="https://translink.com.au/plan-your-journey/stops/600144">Elimbah train station</a></div>
+                  <div class="text-sm text-slate-600">6 min</div>
+                </div>
               </div>
             </div>
-            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+            <div
+              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+            >
               <div class="flex items-start gap-3">
                 <i class="fa-solid fa-golf-ball-tee prox-icon"></i>
-                <div><div class="font-medium">Caboolture Golf Club</div><div class="text-sm text-slate-600">8.2 km</div></div>
+                <div>
+                  <div class="font-medium"><a target="_blank" href="https://www.caboolturegolf.com.au/">Caboolture Golf Club</a></div>
+                  <div class="text-sm text-slate-600">15 min</div>
+                </div>
               </div>
             </div>
-            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
-              <div class="flex items-start gap-3">
-                <i class="fa-solid fa-city prox-icon"></i>
-                <div><div class="font-medium">Brisbane CBD</div><div class="text-sm text-slate-600">≈ 60–70 min (traffic dependent)</div></div>
-              </div>
-            </div>
-            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
-              <div class="flex items-start gap-3">
-                <i class="fa-solid fa-umbrella-beach prox-icon"></i>
-                <div><div class="font-medium">Bribie Island (Woorim beaches)</div><div class="text-sm text-slate-600">≈ 35–45 min</div></div>
-              </div>
-            </div>
-            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
-              <div class="flex items-start gap-3">
-                <i class="fa-solid fa-plane prox-icon"></i>
-                <div><div class="font-medium">Brisbane Airport</div><div class="text-sm text-slate-600">≈ 45–55 min</div></div>
-              </div>
-            </div>
-            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+            <div
+              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+            >
               <div class="flex items-start gap-3">
                 <i class="fa-solid fa-hotel prox-icon"></i>
-                <div><div class="font-medium">Sandstone Point Hotel (& proposed 5-star Resort precinct) </div><div class="text-sm text-slate-600">≈ 25–30 min</div></div>
+                <div>
+                  <div class="font-medium">
+                    <a target="_blank" href="https://sandstonepointhotel.com.au/">Sandstone Point Hotel</a> (& <a href="https://comiskey.com.au/major-news-250m-sandstone-point-expansion-announced/">proposed 5-star Resort precinct</a>)
+                  </div>
+                  <div class="text-sm text-slate-600">≈ 25–30 min</div>
+                </div>
               </div>
             </div>
-            <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+            <div
+              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+            >
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-city prox-icon"></i>
+                <div>
+                  <div class="font-medium"><a target="_blank" href="https://brisbane.qld.gov.au/">Brisbane CBD</a></div>
+                  <div class="text-sm text-slate-600">
+                    ≈ 60–70 min (traffic dependent)
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+            >
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-plane prox-icon"></i>
+                <div>
+                  <div class="font-medium"><a target="_blank" href="https://bne.com.au/">Brisbane Airport</a></div>
+                  <div class="text-sm text-slate-600">≈ 40–50 min</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+            >
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-umbrella-beach prox-icon"></i>
+                <div>
+                  <div class="font-medium"><a target="_blank" href="https://www.visitsunshinecoast.com/place/caloundra">Sunshine Coast (Caloundra)</a></div>
+                  <div class="text-sm text-slate-600">≈ 30–40 min</div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+            >
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-umbrella-beach prox-icon"></i>
+                <div>
+                  <div class="font-medium"><a target="_blank" href="https://accessiblebeaches.com/beach-directory/woorim-beach">Bribie Island (Woorim beaches)</a></div>
+                  <div class="text-sm text-slate-600">≈ 35–45 min</div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+            >
               <div class="flex items-start gap-3">
                 <i class="fa-solid fa-mountain prox-icon"></i>
-                <div><div class="font-medium">Glass House Mountains / Sunshine Coast Hinterland</div><div class="text-sm text-slate-600">≈ 10–55 min</div></div>
+                <div>
+                  <div class="font-medium">
+                    <a target="_blank" href="https://parks.des.qld.gov.au/parks/glass-house-mountains">Glass House Mountains</a>
+                  </div>
+                  <div class="text-sm text-slate-600">≈ 17 min</div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+            >
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-mountain prox-icon"></i>
+                <div>
+                  <div class="font-medium">
+                    <a target="_blank" href="https://www.visitsunshinecoast.com/places-to-see/hinterland/maleny">Sunshine Coast Hinterland (Maleny / Montville)</a>
+                  </div>
+                  <div class="text-sm text-slate-600">≈ 45–55 min</div>
+                </div>
               </div>
             </div>
           </div>
@@ -298,64 +881,203 @@
 
     <!-- Lifestyle strip -->
     <section id="lifestyle" class="relative isolate">
-      <div
-        class="absolute inset-0 -z-10 bg-gradient-to-r from-emerald-50 to-sky-50"
-      ></div>
+      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-emerald-50 to-sky-50"></div>
       <div class="mx-auto max-w-7xl px-4 py-12">
-        <div class="grid items-center gap-8 md:grid-cols-2">
-          <div class="rounded-3xl border p-6 card">
-            <h3 class="text-xl font-semibold">Lifestyle</h3>
-            <p class="mt-3 text-slate-700">
-              Weekends sorted: coastal escapes to Bribie & Sandstone Point,
-              markets and cafes nearby, and plenty of room at home for
-              entertaining under the trees.
-            </p>
-            <ul class="mt-4 grid gap-3 sm:grid-cols-2 feature-list">
-              <li>Established gardens & fernery</li>
-              <li>Reserve outlook & birdlife</li>
-              <li>Sandstone Point events</li>
-              <li>Bribie beaches day‑trip</li>
-            </ul>
-            <div class="mt-4 rounded-2xl border p-4 bg-white/70">
-              <h4 class="font-medium">Why we love living here</h4>
-              <p class="mt-2 text-sm text-slate-700">We love the space and privacy here — mornings with birdsong, evenings by the fire pit, and clear starry skies. It’s a quiet pocket with quick access to the highway for work or weekend trips. Beaches are close enough for spontaneous days on the coast, while the city is still easily reachable when needed.</p>
+        <div class="rounded-3xl border p-6 md:p-8 card bg-white/80">
+          <h3 class="text-xl font-semibold">Welcome Home to Emu Road</h3>
+          <p class="mt-3 text-slate-700 max-w-prose">Escape the everyday in a home that offers the perfect blend of relaxation, nature, and convenience.</p>
+
+          <!-- Row 1: text left, gallery right -->
+          <div class="mt-10 grid items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center">
+            <div class="md:col-span-6 feature-copy narrow-col center-right">
+              <h4 class="font-medium">Coastal adventures</h4>
+              <p class="mt-1">Bribie Island’s pristine beaches and Sandstone Point’s waterfront events are just a short drive away.</p>
+            </div>
+            <div class="md:col-span-6">
+              <div class="feature-figure polaroid narrow-col center-left overflow-hidden feature-fader" data-images="48,49,50,51,52,53" aria-label="Coastal adventures photos" data-pos="center 45%"></div>
             </div>
           </div>
-          <div
-            class="relative  w-full overflow-hidden rounded-3xl bg-slate-200 grid place-items-center text-slate-500"
-          >
-            <img
-              src="/images/gallery/036.jpg"
-              alt="Outdoor entertaining and garden at 77–79 Emu Road"
-              width="1600"
-              height="1200"
-              loading="lazy"
-              decoding="async"
-              class="w-full h-full object-cover img-placeholder"
-            />
+
+          <!-- Row 2: gallery left, text right -->
+          <div class="mt-14 grid items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center">
+            <div class="md:col-span-6 md:order-1">
+              <div class="feature-figure polaroid narrow-col center-right overflow-hidden feature-fader" data-images="32,38,44" aria-label="Local flavours photos" data-pos="center 50%"></div>
+            </div>
+            <div class="md:col-span-6 md:order-2 feature-copy narrow-col center-left">
+              <h4 class="font-medium">Local flavours</h4>
+              <p class="mt-1">Explore nearby markets, cafés, and fresh-produce stalls.</p>
+            </div>
           </div>
+
+          <!-- Row 3: text left, gallery right -->
+          <div class="mt-14 grid items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center">
+            <div class="md:col-span-6 feature-copy narrow-col center-right">
+              <h4 class="font-medium">At-home entertaining</h4>
+              <p class="mt-1">Enjoy long lunches under the trees or evenings by the fire pit with friends.</p>
+            </div>
+            <div class="md:col-span-6">
+              <div class="feature-figure polaroid narrow-col center-left overflow-hidden feature-fader" data-images="24,26,35" aria-label="Entertaining photos" data-pos="center 40%"></div>
+            </div>
+          </div>
+
+          <!-- Row 4: gallery left, text right -->
+          <div class="mt-14 grid items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center">
+            <div class="md:col-span-6 md:order-1">
+              <div class="feature-figure polaroid narrow-col center-right overflow-hidden feature-fader" data-images="2,3,41" aria-label="Gardens and fernery photos" data-pos="center 55%"></div>
+            </div>
+            <div class="md:col-span-6 md:order-2 feature-copy narrow-col center-left">
+              <h4 class="font-medium">Everyday pleasures</h4>
+              <p class="mt-1">Lush established gardens and a tranquil fernery.</p>
+            </div>
+          </div>
+
+          <!-- Row 5: text left, gallery right -->
+          <div class="mt-14 grid items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center">
+            <div class="md:col-span-6 feature-copy narrow-col center-right">
+              <h4 class="font-medium">Birdlife & outlook</h4>
+              <p class="mt-1">Reserve backdrop with abundant birdlife — wake to magpies and kookaburras.</p>
+            </div>
+            <div class="md:col-span-6">
+              <div class="feature-figure polaroid narrow-col center-left overflow-hidden feature-fader" data-images="31,22,29" aria-label="Birdlife photos" data-pos="center 35%"></div>
+            </div>
+          </div>
+
+          <!-- Row 6: gallery left, text right -->
+          <div class="mt-14 grid items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center">
+            <div class="md:col-span-6 md:order-1">
+              <div class="feature-figure polaroid narrow-col center-right overflow-hidden feature-fader" data-images="5,23,30" aria-label="Access photos" data-pos="center 50%"></div>
+            </div>
+            <div class="md:col-span-6 md:order-2 feature-copy narrow-col center-left">
+              <h4 class="font-medium">Easy access</h4>
+              <p class="mt-1">Quick highway connection for easy trips north or south.</p>
+            </div>
+          </div>
+
+          <hr class="my-10 border-slate-200" />
+          <h4 class="font-medium">Why we love living here</h4>
+          <p class="mt-2 text-sm text-slate-700">This is more than a home — it’s a retreat. We treasure the sense of space and privacy, the peaceful mornings filled with birdsong, and the crystal-clear starry skies at night. The coast is close enough for a spontaneous swim, yet the city is within easy reach when needed.</p>
         </div>
       </div>
     </section>
 
     <section id="gallery" class="mx-auto max-w-7xl px-4 py-12">
       <h2 class="text-2xl font-semibold">Photo gallery</h2>
-      <div class="swiper mySwiper mt-6">
-        <div class="swiper-wrapper">
-          <!-- Slides -->
-          <div class="swiper-slide"><img src="/images/gallery/01.jpg" alt="Front facade and driveway" width="1600" height="1200" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl img-placeholder skeleton"></div>
-          <div class="swiper-slide"><img src="/images/gallery/02.jpg" alt="Kitchen with stone benchtops and Bosch appliances" width="1600" height="1200" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl img-placeholder skeleton"></div>
-          <div class="swiper-slide"><img src="/images/gallery/03.jpg" alt="Open-plan living area with Daikin air-conditioning" width="1600" height="1200" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl img-placeholder skeleton"></div>
-          <div class="swiper-slide"><img src="/images/gallery/04.jpg" alt="Master bedroom with walk-in robe and ensuite" width="1600" height="1200" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl img-placeholder skeleton"></div>
-          <div class="swiper-slide"><img src="/images/gallery/05.jpg" alt="9×6m shed and 3-car carport" width="1600" height="1200" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl img-placeholder skeleton"></div>
-          <!-- Add all listing images -->
+
+      <!-- Horizontally scrolling thumbnail ticker -->
+      <div
+        class="gallery-ticker mt-6 rounded-2xl border p-3 bg-white card"
+        aria-label="Gallery thumbnails"
+      >
+        <div class="gallery-track">
+          <!-- Sequence A -->
+          <button class="gallery-thumb js-gallery-thumb" data-index="0">
+            <img
+              src="/images/gallery/01.jpg"
+              alt="Front facade and driveway"
+              width="320"
+              height="180"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+          <button class="gallery-thumb js-gallery-thumb" data-index="1">
+            <img
+              src="/images/gallery/02.jpg"
+              alt="Kitchen with stone benchtops and Bosch appliances"
+              width="320"
+              height="180"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+          <button class="gallery-thumb js-gallery-thumb" data-index="2">
+            <img
+              src="/images/gallery/03.jpg"
+              alt="Open-plan living area with Daikin air-conditioning"
+              width="320"
+              height="180"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+          <button class="gallery-thumb js-gallery-thumb" data-index="3">
+            <img
+              src="/images/gallery/04.jpg"
+              alt="Master bedroom with walk-in robe and ensuite"
+              width="320"
+              height="180"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+          <button class="gallery-thumb js-gallery-thumb" data-index="4">
+            <img
+              src="/images/gallery/05.jpg"
+              alt="9×6m shed and 3-car carport"
+              width="320"
+              height="180"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+
+          <!-- Sequence B (duplicate for seamless loop) -->
+          <button class="gallery-thumb js-gallery-thumb" data-index="0">
+            <img
+              src="/images/gallery/01.jpg"
+              alt="Front facade and driveway"
+              width="320"
+              height="180"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+          <button class="gallery-thumb js-gallery-thumb" data-index="1">
+            <img
+              src="/images/gallery/02.jpg"
+              alt="Kitchen with stone benchtops and Bosch appliances"
+              width="320"
+              height="180"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+          <button class="gallery-thumb js-gallery-thumb" data-index="2">
+            <img
+              src="/images/gallery/03.jpg"
+              alt="Open-plan living area with Daikin air-conditioning"
+              width="320"
+              height="180"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+          <button class="gallery-thumb js-gallery-thumb" data-index="3">
+            <img
+              src="/images/gallery/04.jpg"
+              alt="Master bedroom with walk-in robe and ensuite"
+              width="320"
+              height="180"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+          <button class="gallery-thumb js-gallery-thumb" data-index="4">
+            <img
+              src="/images/gallery/05.jpg"
+              alt="9×6m shed and 3-car carport"
+              width="320"
+              height="180"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
         </div>
-        <!-- Navigation buttons -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <!-- Pagination dots -->
-        <div class="swiper-pagination"></div>
       </div>
+
+      <p class="mt-3 text-sm text-slate-500">
+        Hover to pause. Click any thumbnail to view full-screen.
+      </p>
     </section>
 
     <!-- Privacy & Nature -->
@@ -366,18 +1088,23 @@
       <div class="mx-auto max-w-7xl px-4 py-12">
         <div class="grid gap-8 md:grid-cols-2">
           <div class="rounded-3xl border p-6 bg-white/70 backdrop-blur card">
-            <h3 class="text-xl font-semibold">Location, privacy, tranquility</h3>
+            <h3 class="text-xl font-semibold">
+              Location, privacy, tranquility
+            </h3>
             <p class="mt-3 text-slate-700">
               Not in an estate and
               <strong>neighbouring only two properties</strong>, the home enjoys
               a peaceful reserve aspect — more space, fewer fences, and room for
               the gardens to breathe.
             </p>
-            <ul class="mt-4 grid gap-3 sm:grid-cols-2 text-slate-700 feature-list">
+            <ul
+              class="mt-4 grid gap-3 sm:grid-cols-2 text-slate-700 feature-list"
+            >
               <li>Reserve-side privacy; minimal passing traffic</li>
               <li>Mature trees & fernery create natural screening</li>
               <li>
-                Regular native visitors: corellas, rainbow lorikeets, black cockatoos, sulphur-crested cockatoos, magpies, kookaburras
+                Regular native visitors: corellas, rainbow lorikeets, black
+                cockatoos, sulphur-crested cockatoos, magpies, kookaburras
               </li>
               <li>Sunset through the gums; golden afternoon light</li>
             </ul>
@@ -429,11 +1156,12 @@
           <p class="mt-3 text-slate-700">
             Minutes to the <strong>Sandstone Point Hotel</strong> — a major
             events venue hosting concerts and festivals — plus the planned
-            <strong>5‑star resort</strong> precinct. Weeknight
-            dinners, weekend gigs, and Bribie’s beaches all within an easy
-            drive.
+            <strong>5‑star resort</strong> precinct. Weeknight dinners, weekend
+            gigs, and Bribie’s beaches all within an easy drive.
           </p>
-          <ul class="mt-4 grid gap-2 sm:grid-cols-2 text-slate-700 feature-list">
+          <ul
+            class="mt-4 grid gap-2 sm:grid-cols-2 text-slate-700 feature-list"
+          >
             <li>Concerts & food festivals</li>
             <li>Marina, foreshore & island access</li>
             <li>Dining & weekend markets</li>
@@ -447,8 +1175,12 @@
     <section class="mx-auto max-w-7xl px-4 py-12">
       <div class="rounded-3xl border p-6 card">
         <h3 class="text-xl font-semibold">Moving from Sydney or Melbourne?</h3>
-        <div class="mt-3 rounded-xl bg-amber-50 border border-amber-200 p-3 text-sm text-amber-900">
-          Moving from Sydney or Melbourne? Enjoy a larger block, quieter streets, and a lower cost‑of‑living — without losing access to city amenities.
+        <div
+          class="mt-3 rounded-xl bg-amber-50 border border-amber-200 p-3 text-sm text-amber-900"
+        >
+          Moving from Sydney or Melbourne? Enjoy a larger block, quieter
+          streets, and a lower cost‑of‑living — without losing access to city
+          amenities.
         </div>
         <p class="mt-3 text-slate-700">
           Trade cramped city living for a
@@ -518,173 +1250,475 @@
               Interested? Book a private viewing
             </h3>
             <p class="mt-2 text-slate-700">
-              Contact Harcourts Connections (Agent: Melissa Brooker) to arrange a walkthrough.
+              Contact Harcourts Connections (Agent: Melissa Brooker) to arrange
+              a walkthrough.
             </p>
             <div class="mt-6 flex flex-wrap gap-3">
-              <a href="https://www.realestate.com.au/property-house-qld-elimbah-148472268" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Listing</a>
-              <a href="tel:+61XXXXXXXXX" class="btn btn-primary sm:hidden">Tap to call</a>
+              <a
+                href="https://www.realestate.com.au/property-house-qld-elimbah-148472268"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+                >View Listing</a
+              >
+              <a href="tel:+61XXXXXXXXX" class="btn btn-primary sm:hidden"
+                >Tap to call</a
+              >
             </div>
           </div>
           <div
-            class="relative aspect-[1/1] w-full overflow-hidden rounded-3xl  p-6 shadow-sm grid place-items-center text-slate-500"
+            class="relative aspect-[1/1] w-full overflow-hidden rounded-3xl p-6 shadow-sm grid place-items-center text-slate-500"
           >
-            <img src="images/melissa-brooker.jpg"
-                 alt="Profile image of agent Melissa Brooker"
-                 width="300"
-                 height="300"
-                 style="width:300px;height:300px;object-fit:cover;border-radius:50%;display:block;" />
+            <img
+              src="images/melissa-brooker.jpg"
+              alt="Profile image of agent Melissa Brooker"
+              width="300"
+              height="300"
+              style="
+                width: 300px;
+                height: 300px;
+                object-fit: cover;
+                border-radius: 50%;
+                display: block;
+              "
+            />
           </div>
         </div>
         <p class="mt-6 pb-24 text-center text-xs text-slate-500">
           This page is provided by the owners to showcase additional lifestyle
           features and local conveniences. All distances/times approximate;
-          buyers should make their own enquiries. Listing facts sourced from the agent’s published details.
+          buyers should make their own enquiries. Listing facts sourced from the
+          agent’s published details.
         </p>
       </div>
     </footer>
     <div id="stickyCta" class="sticky-bar px-4">
-      <div class="mx-auto max-w-7xl backdrop-blur bg-white/90 border shadow-sm rounded-2xl px-4 py-3 flex items-center justify-between gap-3">
-        <div class="text-sm text-slate-700 hidden sm:block">Interested in 77–79 Emu Rd?</div>
+      <div
+        class="mx-auto max-w-7xl backdrop-blur bg-white/90 border shadow-sm rounded-2xl px-4 py-3 flex items-center justify-between gap-3"
+      >
+        <div class="text-sm text-slate-700 hidden sm:block">
+          Interested in 77–79 Emu Rd?
+        </div>
         <div class="flex items-center gap-3">
-          <a href="https://www.realestate.com.au/property-house-qld-elimbah-148472268" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Listing</a>
-          <a href="#video" class="btn btn-cta js-watch" data-video-src="https://www.youtube.com/embed/yP4cxBDrNe0"><i class="fa-regular fa-circle-play icon"></i><span>Watch Video</span></a>
+          <a
+            href="https://www.realestate.com.au/property-house-qld-elimbah-148472268"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+            >View Listing</a
+          >
+          <a
+            href="#video"
+            class="btn btn-cta js-watch"
+            data-video-src="https://www.youtube.com/embed/yP4cxBDrNe0"
+            ><i class="fa-regular fa-circle-play icon"></i
+            ><span>Watch Video</span></a
+          >
         </div>
       </div>
     </div>
- 
-  <!-- Toast removed -->
-  <script>
-    // --- Configurable URLs ---
-    const VIDEO_URL = null; // e.g. "https://www.youtube.com/embed/XXXX"
 
-    // Swiper
-    const swiper = new Swiper('.mySwiper', {
-      loop: true,
-      pagination: { el: '.swiper-pagination', clickable: true },
-      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-      slidesPerView: 1,
-      spaceBetween: 10,
-    });
+    <!-- Toast removed -->
+    <script>
+      // --- Configurable URLs ---
+      const VIDEO_URL = null; // e.g. "https://www.youtube.com/embed/XXXX"
 
-    // (lucide icons removed)
+      // (Gallery swiper initialises inside the fullscreen modal when opened)
 
-    // Sticky CTA appears after hero leaves viewport
-    const heroEl = document.querySelector('header');
-    const sticky = document.getElementById('stickyCta');
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { sticky.classList.remove('show'); }
-        else { sticky.classList.add('show'); }
-      });
-    }, { threshold: 0.1 });
-    if (heroEl) io.observe(heroEl);
+      // (lucide icons removed)
 
-    // Slower, consistent smooth scrolling for on-page anchors
-    (function () {
-      const SCROLL_MARGIN = 96; // matches :target scroll-margin-top
-      const DURATION_MS = 900;  // increase to slow down
+      // Sticky CTA appears after hero leaves viewport
+      const heroEl = document.querySelector("header");
+      const sticky = document.getElementById("stickyCta");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              sticky.classList.remove("show");
+            } else {
+              sticky.classList.add("show");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      if (heroEl) io.observe(heroEl);
 
-      const easeInOutCubic = (t) =>
-        t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      // Slower, consistent smooth scrolling for on-page anchors
+      (function () {
+        const SCROLL_MARGIN = 96; // matches :target scroll-margin-top
+        const DURATION_MS = 900; // increase to slow down
 
-      document.addEventListener('click', (e) => {
-        const anchor = e.target.closest('a[href^="#"]');
-        if (!anchor) return;
+        const easeInOutCubic = (t) =>
+          t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
-        const href = anchor.getAttribute('href');
-        if (!href || href === '#' || href === '#!') return;
+        document.addEventListener("click", (e) => {
+          const anchor = e.target.closest('a[href^="#"]');
+          if (!anchor) return;
 
-        const target = document.querySelector(href);
-        if (!target) return; // allow default for non-existing targets
+          const href = anchor.getAttribute("href");
+          if (!href || href === "#" || href === "#!") return;
 
-        e.preventDefault();
+          const target = document.querySelector(href);
+          if (!target) return; // allow default for non-existing targets
 
-        const startY = window.pageYOffset;
-        const rectTop = target.getBoundingClientRect().top;
-        const destY = Math.max(0, Math.min(
-          document.documentElement.scrollHeight - window.innerHeight,
-          startY + rectTop - SCROLL_MARGIN
-        ));
+          e.preventDefault();
 
-        const startTime = performance.now();
+          const startY = window.pageYOffset;
+          const rectTop = target.getBoundingClientRect().top;
+          const destY = Math.max(
+            0,
+            Math.min(
+              document.documentElement.scrollHeight - window.innerHeight,
+              startY + rectTop - SCROLL_MARGIN
+            )
+          );
 
-        function step(now) {
-          const elapsed = now - startTime;
-          const t = Math.min(1, elapsed / DURATION_MS);
-          const eased = easeInOutCubic(t);
-          window.scrollTo(0, startY + (destY - startY) * eased);
-          if (t < 1) {
-            requestAnimationFrame(step);
-          } else {
-            // Update URL hash without jumping
-            history.replaceState(null, '', href);
-            // Optional: move focus for accessibility, without auto-scrolling
-            if (typeof target.focus === 'function') {
-              target.setAttribute('tabindex', '-1');
-              target.focus({ preventScroll: true });
+          const startTime = performance.now();
+
+          function step(now) {
+            const elapsed = now - startTime;
+            const t = Math.min(1, elapsed / DURATION_MS);
+            const eased = easeInOutCubic(t);
+            window.scrollTo(0, startY + (destY - startY) * eased);
+            if (t < 1) {
+              requestAnimationFrame(step);
+            } else {
+              // Update URL hash without jumping
+              history.replaceState(null, "", href);
+              // Optional: move focus for accessibility, without auto-scrolling
+              if (typeof target.focus === "function") {
+                target.setAttribute("tabindex", "-1");
+                target.focus({ preventScroll: true });
+              }
             }
           }
+          requestAnimationFrame(step);
+        });
+      })();
+    </script>
+    <script>
+      // Random slight tilt for a more organic polaroid layout
+      (function () {
+        function randTilt() { return (Math.random() * 4 - 2).toFixed(2) + 'deg'; }
+        document.querySelectorAll('.feature-figure.polaroid').forEach(el => {
+          if (!el.style.getPropertyValue('--tilt')) {
+            el.style.setProperty('--tilt', randTilt());
+          }
+        });
+      })();
+    </script>
+    <script>
+    // --- Lifestyle feature faders (Option A) ---
+    (function () {
+      function normaliseTokens(holder) {
+        const listAttr = holder.getAttribute('data-images');
+        if (listAttr && listAttr.trim().length) {
+          return listAttr.split(',').map(s => s.trim()).filter(Boolean);
         }
-        requestAnimationFrame(step);
+        const start = parseInt(holder.getAttribute('data-start') || '1', 10);
+        const end = parseInt(holder.getAttribute('data-end') || String(start), 10);
+        const arr = [];
+        for (let i = start; i <= end; i++) arr.push(String(i));
+        return arr;
+      }
+      function toSrc(token) {
+        // Allow full/relative paths or numeric IDs
+        const t = token.trim();
+        if (/\.(jpe?g|png|webp)$/i.test(t)) {
+          // Already a filename; prefix default folder if no slash
+          return t.includes('/') ? t : `images/home-life/${t}`;
+        }
+        if (/^\d+$/.test(t)) {
+          return `images/home-life/${t}.jpg`;
+        }
+        // Fallback: treat as filename under default folder
+        return `images/home-life/${t}`;
+      }
+
+      document.querySelectorAll('.feature-fader').forEach((holder) => {
+        const tokens = normaliseTokens(holder);
+        const shell = document.createElement('div');
+        shell.className = 'swiper';
+        const track = document.createElement('div');
+        track.className = 'swiper-wrapper';
+        shell.appendChild(track);
+
+        tokens.forEach((tok) => {
+          const slide = document.createElement('div');
+          slide.className = 'swiper-slide';
+          const img = document.createElement('img');
+          img.src = toSrc(tok);
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          img.alt = 'Lifestyle photo';
+          const pos = holder.getAttribute('data-pos');
+          if (pos) { img.style.objectPosition = pos; }
+          img.onerror = () => slide.remove();
+          slide.appendChild(img);
+          track.appendChild(slide);
+        });
+
+        const pag = document.createElement('div');
+        pag.className = 'swiper-pagination';
+        shell.appendChild(pag);
+        holder.appendChild(shell);
+
+        requestAnimationFrame(() => {
+          const slides = track.querySelectorAll('.swiper-slide');
+          if (slides.length > 0 && window.Swiper) {
+            new Swiper(shell, {
+              slidesPerView: 1,
+              loop: slides.length > 1,
+              effect: 'fade',
+              fadeEffect: { crossFade: true },
+              autoplay: slides.length > 1 ? { delay: 7500, disableOnInteraction: false } : false,
+              speed: 600,
+              pagination: { el: pag, clickable: true },
+              allowTouchMove: true,
+            });
+          } else {
+            holder.classList.add('img-placeholder');
+          }
+        });
       });
     })();
-  </script>
-  <div id="videoModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle">
-    <div class="modal-card" style="background:transparent; box-shadow:none;">
-      <div class="modal-head" style="background:transparent; border-bottom:0;">
-        <div id="videoModalTitle" class="sr-only">Video Tour</div>
-        <button type="button" class="modal-close" id="videoModalClose">Close</button>
-      </div>
-      <div class="modal-video" id="videoModalFrameWrap">
-        <iframe id="videoModalFrame" title="Video tour" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </script>
+    <div
+      id="videoModal"
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="videoModalTitle"
+    >
+      <div class="modal-card" style="background: transparent; box-shadow: none">
+        <div
+          class="modal-head"
+          style="background: transparent; border-bottom: 0"
+        >
+          <div id="videoModalTitle" class="sr-only">Video Tour</div>
+          <button type="button" class="modal-close" id="videoModalClose">
+            Close
+          </button>
+        </div>
+        <div class="modal-video" id="videoModalFrameWrap">
+          <iframe
+            id="videoModalFrame"
+            title="Video tour"
+            src=""
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
     </div>
-  </div>
-  <script>
-    // --- Video modal ---
-    (function(){
-      const openers = document.querySelectorAll('.js-watch');
-      const modal = document.getElementById('videoModal');
-      const closeBtn = document.getElementById('videoModalClose');
-      const frame = document.getElementById('videoModalFrame');
+    <div
+      id="galleryModal"
+      class="gallery-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="galleryModalTitle"
+    >
+      <div class="modal-card">
+        <div class="modal-head">
+          <div id="galleryModalTitle" class="sr-only">Photo Gallery</div>
+          <button type="button" class="modal-close" id="galleryModalClose">
+            Close
+          </button>
+        </div>
+        <div class="modal-body" style="width: 100%; height: calc(100% - 48px)">
+          <!-- Swiper for fullscreen images -->
+          <div class="swiper" id="gallerySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  src="/images/gallery/01.jpg"
+                  alt="Front facade and driveway"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    background: #000;
+                  "
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="/images/gallery/02.jpg"
+                  alt="Kitchen with stone benchtops and Bosch appliances"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    background: #000;
+                  "
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="/images/gallery/03.jpg"
+                  alt="Open-plan living area with Daikin air-conditioning"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    background: #000;
+                  "
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="/images/gallery/04.jpg"
+                  alt="Master bedroom with walk-in robe and ensuite"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    background: #000;
+                  "
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="/images/gallery/05.jpg"
+                  alt="9×6m shed and 3-car carport"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    background: #000;
+                  "
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // --- Video modal ---
+      (function () {
+        const openers = document.querySelectorAll(".js-watch");
+        const modal = document.getElementById("videoModal");
+        const closeBtn = document.getElementById("videoModalClose");
+        const frame = document.getElementById("videoModalFrame");
 
-      function youtubeAutoplayUrl(src){
-        try {
-          // Expecting an embed URL like https://www.youtube.com/embed/VIDEOID
-          const u = new URL(src, location.href);
-          const isEmbed = /\/embed\//.test(u.pathname);
-          let id = '';
-          if (isEmbed) {
-            id = u.pathname.split('/').pop();
-          } else if (u.searchParams.get('v')) {
-            id = u.searchParams.get('v');
+        function youtubeAutoplayUrl(src) {
+          try {
+            // Expecting an embed URL like https://www.youtube.com/embed/VIDEOID
+            const u = new URL(src, location.href);
+            const isEmbed = /\/embed\//.test(u.pathname);
+            let id = "";
+            if (isEmbed) {
+              id = u.pathname.split("/").pop();
+            } else if (u.searchParams.get("v")) {
+              id = u.searchParams.get("v");
+            }
+            const base = `https://www.youtube.com/embed/${id}`;
+            // Autoplay + loop require playlist param = id
+            return `${base}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=${id}`;
+          } catch {
+            return src;
           }
-          const base = `https://www.youtube.com/embed/${id}`;
-          // Autoplay + loop require playlist param = id
-          return `${base}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=${id}`;
-        } catch { return src; }
-      }
+        }
 
-      function openModal(src){
-        frame.src = youtubeAutoplayUrl(src);
-        modal.classList.add('open');
-        document.documentElement.style.overflow = 'hidden';
-      }
-      function closeModal(){
-        modal.classList.remove('open');
-        frame.src = '';
-        document.documentElement.style.overflow = '';
-      }
+        function openModal(src) {
+          frame.src = youtubeAutoplayUrl(src);
+          modal.classList.add("open");
+          document.documentElement.style.overflow = "hidden";
+        }
+        function closeModal() {
+          modal.classList.remove("open");
+          frame.src = "";
+          document.documentElement.style.overflow = "";
+        }
 
-      openers.forEach(btn => btn.addEventListener('click', e => {
-        e.preventDefault();
-        const src = btn.getAttribute('data-video-src') || '';
-        openModal(src);
-      }));
-      closeBtn.addEventListener('click', closeModal);
-      modal.addEventListener('click', (e)=> { if (e.target === modal) closeModal(); });
-      document.addEventListener('keydown', (e)=> { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
-    })();
-  </script>
+        openers.forEach((btn) =>
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const src = btn.getAttribute("data-video-src") || "";
+            openModal(src);
+          })
+        );
+        closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modal.classList.contains("open"))
+            closeModal();
+        });
+      })();
+    </script>
+    <script>
+      // --- Gallery fullscreen modal + swiper ---
+      (function () {
+        const modal = document.getElementById("galleryModal");
+        const closeBtn = document.getElementById("galleryModalClose");
+        const thumbs = document.querySelectorAll(".js-gallery-thumb");
+
+        let gallerySwiper = null;
+
+        function openModal(startIndex) {
+          if (!gallerySwiper) {
+            gallerySwiper = new Swiper("#gallerySwiper", {
+              loop: true,
+              centeredSlides: true,
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+              pagination: { el: ".swiper-pagination", clickable: true },
+              slidesPerView: 1,
+              spaceBetween: 10,
+              keyboard: { enabled: true },
+            });
+          }
+          if (typeof startIndex === "number") {
+            // Ensure we go to the matching slide index (loop-aware)
+            gallerySwiper.slideToLoop(startIndex, 0);
+          }
+          modal.classList.add("open");
+          document.documentElement.style.overflow = "hidden";
+        }
+
+        function closeModal() {
+          modal.classList.remove("open");
+          document.documentElement.style.overflow = "";
+        }
+
+        thumbs.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const idx = parseInt(btn.getAttribute("data-index"), 10) || 0;
+            openModal(idx);
+          });
+        });
+
+        closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modal.classList.contains("open"))
+            closeModal();
+        });
+      })();
+    </script>
   </body>
 </html>
+
