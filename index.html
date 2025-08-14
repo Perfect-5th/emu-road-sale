@@ -337,7 +337,6 @@
       /* Guard images from overflowing and ensure they size inside cards */
       #lifestyle img {
         max-width: 100%;
-        height: auto;
         display: block;
       }
       .feature-fader .swiper-slide {
@@ -346,7 +345,8 @@
       .feature-fader img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: cover !important;
+        object-position: center center !important;
         display: block;
       }
       .feature-fader .swiper-pagination-bullet {
@@ -357,6 +357,16 @@
       }
       .feature-fader .swiper-pagination-bullet-active {
         opacity: 0.7;
+      }
+      /* Ensure lifestyle feature-fader slides and images fill their container */
+      #lifestyle .feature-fader .swiper-wrapper { height: 100%; }
+      #lifestyle .feature-fader .swiper-slide { height: 100%; }
+      #lifestyle .feature-fader .swiper-slide img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        display: block;
       }
 
       /* Subtle contrast overlay for feature images */
@@ -650,11 +660,7 @@
   </head>
   <body class="min-h-screen bg-white text-slate-800">
     <!-- Hero -->
-    <header class="relative isolate overflow-hidden">
-      <!-- soft background -->
-      <div
-        class="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-50 via-sky-50 to-white"
-      ></div>
+    <header class="relative isolate overflow-hidden bg-gradient-to-tr from-sky-50 to-indigo-50">
 
       <div class="mx-auto max-w-7xl px-4 py-16 sm:py-20">
         <div class="grid items-center gap-10 md:grid-cols-2">
@@ -740,7 +746,7 @@
             >
               <!-- image -->
               <img
-                src="images/image-1.jpg"
+                src="images/drone/02.jpg"
                 alt="Aerial view of 77–79 Emu Road, Elimbah"
                 class="h-full w-full object-cover"
                 width="1600"
@@ -788,7 +794,8 @@
     </nav>
 
     <!-- Quick Stats -->
-    <section class="mx-auto max-w-7xl px-4 py-12" aria-labelledby="quick-stats">
+    <section class="relative isolate bg-white" aria-labelledby="quick-stats">
+      <div class="mx-auto max-w-7xl px-4 py-12">
       <h2 id="quick-stats" class="sr-only">Quick property stats</h2>
 
       <div class="grid gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-5">
@@ -868,10 +875,12 @@
           </dl>
         </div>
       </div>
+      </div>
     </section>
 
     <!-- Highlights -->
-    <section id="highlights" class="mx-auto max-w-7xl px-4 py-14">
+    <section id="highlights" class="relative isolate bg-gradient-to-br from-sky-50 to-cyan-50">
+      <div class="mx-auto max-w-7xl px-4 py-14">
       <div class="grid gap-12 lg:grid-cols-2">
         <!-- LEFT: Feature list -->
         <div>
@@ -1293,10 +1302,12 @@
           </p>
         </div>
       </div>
+      </div>
     </section>
 
     <!-- Gallery -->
-    <section id="gallery" class="mx-auto max-w-7xl px-4 py-12">
+    <section id="gallery" class="relative isolate bg-slate-50">
+      <div class="mx-auto max-w-7xl px-4 py-12">
       <h2 class="text-2xl font-semibold">Photo gallery</h2>
 
       <!-- Horizontally scrolling thumbnail ticker -->
@@ -1414,16 +1425,14 @@
       <p class="mt-3 text-sm text-slate-500">
         Hover to pause. Click any thumbnail to view full-screen.
       </p>
+      </div>
     </section>
 
     <!-- Lifestyle strip -->
-    <section id="lifestyle" class="relative isolate">
-      <div
-        class="absolute inset-0 -z-10 bg-gradient-to-r from-emerald-50 to-sky-50"
-      ></div>
+    <section id="lifestyle" class="relative isolate bg-gradient-to-br from-indigo-50 to-sky-50">
       <div class="mx-auto max-w-7xl px-4 py-12">
-        <div class="rounded-3xl border p-6 md:p-8 card bg-white/80">
-          <h3 class="text-xl font-semibold">Welcome Home to Emu Road</h3>
+        <div class=" p-6 md:p-8  ">
+          <h3 class="text-5xl font-semibold">Welcome Home to Emu Road</h3>
           <p class="mt-3 text-slate-700 max-w-prose">
             Escape the everyday in a home that offers the perfect blend of
             relaxation, nature, and convenience.
@@ -1445,63 +1454,14 @@
             <div
               class="order-2 md:order-2 w-full min-w-0 p-2 md:p-0 md:col-span-6"
             >
-              <div
-                class="feature-figure polaroid w-full narrow-col center-left overflow-hidden feature-fader"
-                data-images="48,49,50,51,52,53"
-                aria-label="Coastal adventures photos"
-                data-pos="center 45%"
-              ></div>
+            <div
+              class="feature-figure polaroid w-full narrow-col center-left overflow-hidden feature-fader"
+              data-images="48,49,50,51,52,53"
+              aria-label="Coastal adventures photos"
+            ></div>
             </div>
           </div>
 
-          <!-- Row 2: gallery left, text right -->
-          <div
-            class="mt-14 grid grid-cols-1 items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center"
-          >
-            <div
-              class="order-2 md:order-1 w-full min-w-0 p-2 md:p-0 md:col-span-6"
-            >
-              <div
-                class="feature-figure polaroid w-full narrow-col center-right overflow-hidden feature-fader"
-                data-images="32,38,44"
-                aria-label="Local flavours photos"
-                data-pos="center 50%"
-              ></div>
-            </div>
-            <div
-              class="order-1 md:order-2 w-full min-w-0 p-2 md:p-0 md:col-span-6 feature-copy narrow-col center-left"
-            >
-              <h4 class="font-medium">Local flavours</h4>
-              <p class="mt-1">
-                Explore nearby markets, cafés, and fresh-produce stalls.
-              </p>
-            </div>
-          </div>
-
-          <!-- Row 3: text left, gallery right -->
-          <div
-            class="mt-14 grid grid-cols-1 items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center"
-          >
-            <div
-              class="order-1 md:order-1 w-full min-w-0 p-2 md:p-0 md:col-span-6 feature-copy narrow-col center-right"
-            >
-              <h4 class="font-medium">At-home entertaining</h4>
-              <p class="mt-1">
-                Enjoy long lunches under the trees or evenings by the fire pit
-                with friends.
-              </p>
-            </div>
-            <div
-              class="order-2 md:order-2 w-full min-w-0 p-2 md:p-0 md:col-span-6"
-            >
-              <div
-                class="feature-figure polaroid w-full narrow-col center-left overflow-hidden feature-fader"
-                data-images="24,26,35"
-                aria-label="Entertaining photos"
-                data-pos="center 40%"
-              ></div>
-            </div>
-          </div>
 
           <!-- Row 4: gallery left, text right -->
           <div
@@ -1512,17 +1472,16 @@
             >
               <div
                 class="feature-figure polaroid w-full narrow-col center-right overflow-hidden feature-fader"
-                data-images="2,3,41"
+                data-images="20,6,31,031,9,42,5"
                 aria-label="Gardens and fernery photos"
-                data-pos="center 55%"
               ></div>
             </div>
             <div
               class="order-1 md:order-2 w-full min-w-0 p-2 md:p-0 md:col-span-6 feature-copy narrow-col center-left"
             >
-              <h4 class="font-medium">Everyday pleasures</h4>
+              <h4 class="font-medium">Gardens, fernery &amp; sunset evenings</h4>
               <p class="mt-1">
-                Lush established gardens and a tranquil fernery.
+                Established gardens and a tranquil fernery bring seasonal colour (orchids, hydrangeas, native grasses). Enjoy big‑sky sunsets and rainbows from the patio, with a generous covered alfresco for effortless outdoor entertaining.
               </p>
             </div>
           </div>
@@ -1534,50 +1493,25 @@
             <div
               class="order-1 md:order-1 w-full min-w-0 p-2 md:p-0 md:col-span-6 feature-copy narrow-col center-right"
             >
-              <h4 class="font-medium">Birdlife & outlook</h4>
+              <h4 class="font-medium">Birdlife, Wildlife & Outlook</h4>
               <p class="mt-1">
-                Reserve backdrop with abundant birdlife — wake to magpies and
-                kookaburras.
+                Reserve backdrop with abundant native wildlife — kangaroos grazing, frogs, and a rich array of birdlife. Regular native visitors: corellas, rainbow lorikeets, black &amp; sulphur-crested cockatoos, magpies, and kookaburras.
               </p>
             </div>
             <div
               class="order-2 md:order-2 w-full min-w-0 p-2 md:p-0 md:col-span-6"
             >
-              <div
-                class="feature-figure polaroid w-full narrow-col center-left overflow-hidden feature-fader"
-                data-images="31,22,29"
-                aria-label="Birdlife photos"
-                data-pos="center 35%"
-              ></div>
+            <div
+              class="feature-figure polaroid w-full narrow-col center-left overflow-hidden feature-fader"
+              data-images="2,22,18,40,30,41"
+              aria-label="Birdlife photos"
+            ></div>
             </div>
           </div>
 
-          <!-- Row 6: gallery left, text right -->
-          <div
-            class="mt-14 grid grid-cols-1 items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center"
-          >
-            <div
-              class="order-2 md:order-1 w-full min-w-0 p-2 md:p-0 md:col-span-6"
-            >
-              <div
-                class="feature-figure polaroid w-full narrow-col center-right overflow-hidden feature-fader"
-                data-images="5,23,30"
-                aria-label="Access photos"
-                data-pos="center 50%"
-              ></div>
-            </div>
-            <div
-              class="order-1 md:order-2 w-full min-w-0 p-2 md:p-0 md:col-span-6 feature-copy narrow-col center-left"
-            >
-              <h4 class="font-medium">Easy access</h4>
-              <p class="mt-1">
-                Quick highway connection for easy trips north or south.
-              </p>
-            </div>
-          </div>
 
           <hr class="my-10 border-slate-200" />
-          <h4 class="font-medium">Why we love living here</h4>
+          <h4 class="font-medium">Why we have loved living here</h4>
           <p class="mt-2 text-sm text-slate-700">
             This is more than a home — it’s a retreat. We treasure the sense of
             space and privacy, the peaceful mornings filled with birdsong, and
@@ -1590,11 +1524,7 @@
     </section>
 
     <!-- Privacy & Nature -->
-    <section class="relative isolate">
-      <!-- soft wash to separate section -->
-      <div
-        class="absolute inset-0 -z-10 bg-gradient-to-r from-emerald-50/60 to-emerald-100/20"
-      ></div>
+    <section class="relative isolate bg-white">
 
       <div class="mx-auto max-w-7xl px-4 py-14">
         <div class="grid gap-8 md:grid-cols-2">
@@ -1627,15 +1557,6 @@
                 ></span>
                 <span
                   >Mature trees &amp; fernery provide natural screening</span
-                >
-              </li>
-              <li class="flex gap-2 sm:col-span-2">
-                <span
-                  class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"
-                ></span>
-                <span
-                  >Regular native visitors: corellas, rainbow lorikeets, black
-                  &amp; sulphur-crested cockatoos, magpies, kookaburras</span
                 >
               </li>
               <li class="flex gap-2">
@@ -1673,8 +1594,9 @@
       </div>
     </section>
     <!-- Why SEQ / Investment angle -->
-    <section class="mx-auto max-w-7xl px-4 py-12">
-      <div class="grid gap-8 md:grid-cols-2">
+    <section class="relative isolate bg-gradient-to-br from-sky-50 to-indigo-50">
+      <div class="mx-auto max-w-7xl px-4 py-12">
+        <div class="grid gap-8 md:grid-cols-2">
         <!-- SEQ value case -->
         <div class="rounded-3xl border p-6 card">
           <h3 class="text-xl font-semibold">
@@ -1707,7 +1629,7 @@
           <h3 class="text-xl font-semibold">Sandstone Point lifestyle</h3>
 
           <p class="mt-3 text-slate-700">
-            Minutes to the <strong>Sandstone Point Hotel</strong> — a major
+            Just a short drive to the <strong>Sandstone Point Hotel</strong> — a major
             events venue for concerts and festivals — plus a proposed
             <strong>5-star resort</strong> precinct. Easy weeknight dining,
             weekend gigs, and Bribie’s beaches all close by.
@@ -1723,16 +1645,19 @@
           </ul>
         </div>
       </div>
+        </div>
+      </div>
     </section>
 
     <!-- For interstate movers -->
-    <section class="mx-auto max-w-7xl px-4 py-12">
-      <div class="rounded-3xl border p-6 card">
+    <section class="relative isolate bg-slate-50">
+      <div class="mx-auto max-w-7xl px-4 py-12">
+        <div class="rounded-3xl border p-6 card">
         <h3 class="text-xl font-semibold">
           Moving from Sydney, Melbourne or beyond?
         </h3>
         <div
-          class="mt-3 rounded-xl bg-amber-50 border border-amber-200 p-3 text-sm text-amber-900"
+          class="mt-3 rounded-xl bg-sky-50 border border-sky-200 p-3 text-sm text-sky-900"
         >
           Relocating from Sydney, Melbourne, Canberra — or anywhere else in
           Australia? Enjoy a larger block, quieter streets, and a lower
@@ -1751,72 +1676,73 @@
           <li>Space for a pool, veggie gardens, pets</li>
         </ul>
       </div>
+        </div>
+      </div>
     </section>
 
     <!-- Map / Location -->
-    <section id="location" class="mx-auto max-w-7xl px-4 py-12">
-      <h2 class="text-2xl font-semibold">Location</h2>
-      <p class="mt-2 max-w-prose text-slate-700">
-        Quiet pocket of Elimbah with fast north–south highway access. Quality
-        homes nearby and everyday essentials just minutes away.
-      </p>
+    <section id="location" class="relative isolate bg-gradient-to-tr from-sky-50 to-indigo-50">
+      <div class="mx-auto max-w-7xl px-4 py-12">
+        <h2 class="text-2xl font-semibold">Location</h2>
+        <p class="mt-2 max-w-prose text-slate-700">
+          Quiet pocket of Elimbah with fast north–south highway access. Quality
+          homes nearby and everyday essentials just minutes away.
+        </p>
 
-      <div class="mt-6 grid gap-6 md:grid-cols-2">
-        <!-- Address / bullets -->
-        <div class="rounded-3xl border p-6 card">
-          <h3 class="text-lg font-medium">Address</h3>
-          <p class="mt-2 text-slate-900">77–79 Emu Road, Elimbah QLD 4516</p>
+        <div class="mt-6 grid gap-6 md:grid-cols-2">
+          <!-- Address / bullets -->
+          <div class="rounded-3xl border p-6 card">
+            <h3 class="text-lg font-medium">Address</h3>
+            <p class="mt-2 text-slate-900">77–79 Emu Road, Elimbah QLD 4516</p>
 
-          <ul class="mt-4 space-y-2 text-slate-700 feature-list">
-            <li>Neighbour on only two sides; reserve outlook</li>
-            <li>Quiet, low-traffic street</li>
-            <li>School bus stop at the front (confirm route &amp; times)</li>
-            <li>Fast highway access north/south</li>
-            <li>Shops, schools and services within ~5–10 min</li>
-            <li>Aerial/boundary overlay (coming soon)</li>
-          </ul>
+            <ul class="mt-4 space-y-2 text-slate-700 feature-list">
+              <li>Neighbour on only two sides; reserve outlook</li>
+              <li>Quiet, low-traffic street</li>
+              <li>School bus stop at the front (confirm route &amp; times)</li>
+              <li>Fast highway access north/south</li>
+              <li>Shops, schools and services within ~5–10 min</li>
+              <li>Aerial/boundary overlay (coming soon)</li>
+            </ul>
 
-          <!-- Directions CTA -->
-          <div class="mt-6">
-            <a
-              href="https://www.google.com/maps/dir/?api=1&destination=77-79+Emu+Road+Elimbah+QLD+4516"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-slate-900 ring-1 ring-slate-900/10 hover:bg-white/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/30"
-            >
-              <i class="fa-solid fa-location-arrow text-slate-700"></i>
-              Open in Google Maps
-            </a>
+            <!-- Directions CTA -->
+            <div class="mt-6">
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=77-79+Emu+Road+Elimbah+QLD+4516"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-slate-900 ring-1 ring-slate-900/10 hover:bg-white/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/30"
+              >
+                <i class="fa-solid fa-location-arrow text-slate-700"></i>
+                Open in Google Maps
+              </a>
+            </div>
           </div>
-        </div>
 
-        <!-- Map -->
-        <div class="rounded-3xl border p-2 card">
-          <div
-            class="aspect-[4/3] w-full overflow-hidden rounded-2xl ring-1 ring-black/5 shadow-sm"
-          >
-            <iframe
-              title="Map: 77–79 Emu Road, Elimbah QLD 4516"
-              width="100%"
-              height="100%"
-              class="block"
-              style="border: 0"
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=77-79+Emu+Road+Elimbah+QLD+4516&output=embed"
+          <!-- Map -->
+          <div class="rounded-3xl border p-2 card">
+            <div
+              class="aspect-[4/3] w-full overflow-hidden rounded-2xl ring-1 ring-black/5 shadow-sm"
             >
-            </iframe>
+              <iframe
+                title="Map: 77–79 Emu Road, Elimbah QLD 4516"
+                width="100%"
+                height="100%"
+                class="block"
+                style="border: 0"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=77-79+Emu+Road+Elimbah+QLD+4516&output=embed"
+              >
+              </iframe>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact / CTA -->
-    <footer id="enquire" class="relative isolate">
-      <div
-        class="absolute inset-0 -z-10 bg-gradient-to-br from-slate-50 to-emerald-50"
-      ></div>
+    <footer id="enquire" class="relative isolate bg-white">
 
       <div class="mx-auto max-w-7xl px-4 py-16">
         <div
@@ -1824,9 +1750,7 @@
         >
           <!-- LEFT: copy + CTAs -->
           <div class="md:col-span-7 flex flex-col justify-center">
-            <h3 class="text-3xl font-semibold tracking-tight">
-              Interested? 
-            </h3>
+            <h3 class="text-3xl font-semibold tracking-tight">Interested?</h3>
 
             <p class="mt-3 text-slate-700 max-w-prose">
               Contact <strong>Harcourts Connections</strong> (Agent:
@@ -2079,10 +2003,9 @@
             img.loading = "lazy";
             img.decoding = "async";
             img.alt = "Lifestyle photo";
-            const pos = holder.getAttribute("data-pos");
-            if (pos) {
-              img.style.objectPosition = pos;
-            }
+            // Always set object-fit and center position
+            img.style.objectFit = "cover";
+            img.style.objectPosition = "center center";
             img.onerror = () => slide.remove();
             slide.appendChild(img);
             track.appendChild(slide);
@@ -2179,8 +2102,7 @@
               </div>
               <div class="swiper-slide">
                 <img
-                  src="/images/gallery/02.jpg"
-                  alt="Kitchen with stone benchtops and Bosch appliances"
+                  src="/images/gallery/043.jpg"
                   style="
                     width: 100%;
                     height: 100%;
@@ -2193,8 +2115,7 @@
               </div>
               <div class="swiper-slide">
                 <img
-                  src="/images/gallery/03.jpg"
-                  alt="Open-plan living area with Daikin air-conditioning"
+                  src="/images/gallery/042.jpg"
                   style="
                     width: 100%;
                     height: 100%;
@@ -2207,8 +2128,7 @@
               </div>
               <div class="swiper-slide">
                 <img
-                  src="/images/gallery/04.jpg"
-                  alt="Master bedroom with walk-in robe and ensuite"
+                  src="/images/gallery/036.jpg"
                   style="
                     width: 100%;
                     height: 100%;
@@ -2221,8 +2141,7 @@
               </div>
               <div class="swiper-slide">
                 <img
-                  src="/images/gallery/05.jpg"
-                  alt="9×6m shed and 3-car carport"
+                  src="/images/gallery/029.jpg"
                   style="
                     width: 100%;
                     height: 100%;
@@ -2233,6 +2152,87 @@
                   decoding="async"
                 />
               </div>
+              <div class="swiper-slide">
+                <img
+                  src="/images/gallery/028.jpg"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    background: #000;
+                  "
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="/images/gallery/027.jpg"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    background: #000;
+                  "
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="/images/gallery/024.jpg"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    background: #000;
+                  "
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="swiper-slide">
+                <img
+                  src="/images/gallery/023.jpg"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    background: #000;
+                  "
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="swiper-slide">
+                <img
+                  src="/images/gallery/022.jpg"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    background: #000;
+                  "
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="/images/gallery/022.jpg"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    background: #000;
+                  "
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -2351,5 +2351,162 @@
         });
       })();
     </script>
+
+    <script>
+  // --- Config-driven gallery ---
+  const GALLERY_BASE = "/images/gallery/";
+
+  // Ordered configuration (edit to add/remove/reorder)
+  const GALLERY_CONFIG = [
+    {"filename":"041.jpg","description":"Contemporary front facade with double garage, wide driveway, and manicured lawn.","location":"Front Exterior"},
+    {"filename":"042.jpg","description":"Front elevation showcasing clean architectural lines, welcoming entryway, and landscaped garden beds.","location":"Front Exterior"},
+    {"filename":"043.jpg","description":"Inviting driveway approach with sculptural feature mailbox, established gardens, and lush lawn.","location":"Front Exterior"},
+    {"filename":"015.jpg","description":"Spacious open-plan living area with large leather sectional, feature rug, and seamless flow to dining and kitchen.","location":"Living / Dining Room"},
+    {"filename":"016.jpg","description":"Living space with oversized TV, entertainment unit, and comfortable layout ideal for family gatherings.","location":"Living / Dining Room"},
+    {"filename":"017.jpg","description":"Light-filled living zone with stylish console table, decorative mirror, and easy connection to the outdoor patio.","location":"Living / Dining Room"},
+    {"filename":"020.jpg","description":"Wide-angle view of the open-plan layout combining living, dining, and kitchen, designed for effortless entertaining.","location":"Living / Dining Room"},
+    {"filename":"021.jpg","description":"Dining room with elegant timber table, crisp white tablecloth, and feature artwork, opening to the patio.","location":"Dining Room"},
+    {"filename":"024.jpg","description":"Dining area flowing into the modern kitchen, with sliding doors leading to outdoor living.","location":"Dining Room / Kitchen"},
+    {"filename":"025.jpg","description":"Stylish dining space with fresh flowers, warm timber finishes, and a welcoming atmosphere.","location":"Dining Room / Kitchen"},
+    {"filename":"026.jpg","description":"Contemporary kitchen with stone benchtops, breakfast bar seating, and stainless steel appliances.","location":"Kitchen"},
+    {"filename":"027.jpg","description":"Kitchen with double-door pantry, ample cabinetry, and sleek stainless steel fridge.","location":"Kitchen"},
+    {"filename":"028.jpg","description":"Functional kitchen design with quality appliances, gas cooktop, and generous storage space.","location":"Kitchen"},
+    {"filename":"029.jpg","description":"Bright and spacious kitchen featuring clean lines and a practical layout for everyday living.","location":"Kitchen"},
+    {"filename":"010.jpg","description":"Guest bedroom with soft neutral tones, ceiling fan, and charming framed artwork.","location":"Bedroom"},
+    {"filename":"014.jpg","description":"Serene bedroom with floral bedding, timber and wrought iron bed frame, and garden outlook.","location":"Bedroom"},
+    {"filename":"013.jpg","description":"Flexible guest room or home office with daybed, desk, dual monitors, and plenty of natural light.","location":"Home Office / Guest Room"},
+    {"filename":"01.jpg","description":"Expansive master suite with plush carpeting, abundant natural light, and direct access to ensuite.","location":"Master Bedroom"},
+    {"filename":"02.jpg","description":"Master bedroom retreat featuring split-system air conditioning, ceiling fan, and ample space.","location":"Master Bedroom"},
+    {"filename":"04.jpg","description":"Walk-in wardrobe with custom shelving, drawers, and hanging space for organised storage.","location":"Walk-in Wardrobe"},
+    {"filename":"05.jpg","description":"Ensuite with dual vanities, wide mirror, and sleek cabinetry, offering a touch of luxury.","location":"Ensuite Bathroom"},
+    {"filename":"06.jpg","description":"Double walk-in shower with floor-to-ceiling tiles and twin showerheads.","location":"Ensuite Bathroom"},
+    {"filename":"011.jpg","description":"Main bathroom with separate bathtub and shower, complemented by contemporary finishes.","location":"Bathroom"},
+    {"filename":"012.jpg","description":"Vanity area in main bathroom with wide mirror, stone-look benchtop, and twin towel rails.","location":"Bathroom"},
+    {"filename":"09.jpg","description":"Practical laundry with built-in cabinetry, sink, and pet door to the backyard.","location":"Laundry"},
+    {"filename":"07.jpg","description":"Comfortable media room with leather recliners, large TV, and display cabinets.","location":"Media Room"},
+    {"filename":"08.jpg","description":"Media room alternative view with antique dresser and relaxed seating arrangement.","location":"Media Room"},
+    {"filename":"030.jpg","description":"Covered deck with wicker lounge setting, outdoor rugs, and leafy garden outlook.","location":"Outdoor Entertaining Area"},
+    {"filename":"031.jpg","description":"Patio entertaining area with seating and tranquil views of the backyard.","location":"Outdoor Entertaining Area"},
+    {"filename":"032.jpg","description":"Outdoor lounge area with comfortable seating and easy access from the dining room.","location":"Outdoor Entertaining Area"},
+    {"filename":"033.jpg","description":"Outdoor space with BBQ, potted plants, and inviting seating area.","location":"Outdoor Entertaining Area"},
+    {"filename":"034.jpg","description":"Relaxed alfresco dining setting with round glass table and garden views.","location":"Outdoor Entertaining Area"},
+    {"filename":"035.jpg","description":"Patio conversation area with stylish wicker chairs and natural outlook.","location":"Outdoor Entertaining Area"},
+    {"filename":"036.jpg","description":"Backyard view of covered entertaining area and seating spaces.","location":"Backyard"},
+    {"filename":"037.jpg","description":"Fire pit feature surrounded by lush lawn and bamboo screening.","location":"Backyard"},
+    {"filename":"038.jpg","description":"Greenhouse with shade cloth roof, perfect for nurturing plants year-round.","location":"Greenhouse / Garden"},
+    {"filename":"039.jpg","description":"Inside greenhouse showcasing potted plants, hanging baskets, and well-planned layout.","location":"Greenhouse / Garden"},
+    {"filename":"040.jpg","description":"Alternate view inside greenhouse with organised plant displays and workbench area.","location":"Greenhouse / Garden"},
+    {"filename":"044.jpg","description":"Large powered shed with double roller doors and attached carport.","location":"Backyard / Shed"},
+    {"filename":"045.jpg","description":"Backyard fruit trees including bananas and citrus, with small rustic garden shed.","location":"Backyard / Garden"},
+    {"filename":"046.jpg","description":"Hedged garden beds and open lawn space with shed in the background.","location":"Backyard"},
+    {"filename":"047.jpg","description":"Expansive lawn leading to shed and greenhouse, ideal for outdoor activities.","location":"Backyard"},
+    {"filename":"048.jpg","description":"Rear elevation of the home with solar panels and sprawling lawn.","location":"Backyard / Rear Exterior"},
+    {"filename":"03.jpg","description":"Garden with raised vegetable beds, mature citrus tree in fruit, and shaded structure.","location":"Backyard / Garden"}
+  ];
+
+  // Build ticker thumbnails (duplicate sequence for seamless scroll)
+  (function buildTicker() {
+    const track = document.getElementById('galleryTrack');
+    if (!track) return;
+
+    function makeThumb(idx, item) {
+      const btn = document.createElement('button');
+      btn.className = 'gallery-thumb js-gallery-thumb';
+      btn.type = 'button';
+      btn.setAttribute('data-index', idx);
+
+      const img = document.createElement('img');
+      img.src = GALLERY_BASE + item.filename;
+      img.alt = item.description || 'Gallery image';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+
+      btn.appendChild(img);
+      return btn;
+    }
+
+    GALLERY_CONFIG.forEach((item, i) => track.appendChild(makeThumb(i, item)));
+    GALLERY_CONFIG.forEach((item, i) => track.appendChild(makeThumb(i, item))); // duplicate
+  })();
+
+  // Build fullscreen modal slides & interactions
+  (function galleryModalSetup() {
+    const modal = document.getElementById('galleryModal');
+    const closeBtn = document.getElementById('galleryModalClose');
+    const swiperRoot = document.getElementById('gallerySwiper');
+    const wrapper = swiperRoot ? swiperRoot.querySelector('.swiper-wrapper') : null;
+    if (!wrapper) return;
+
+    // Populate slides
+    GALLERY_CONFIG.forEach((item) => {
+      const slide = document.createElement('div');
+      slide.className = 'swiper-slide';
+      const img = document.createElement('img');
+      img.src = GALLERY_BASE + item.filename;
+      img.alt = item.description || 'Photo';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'contain';
+      img.style.background = '#000';
+      slide.appendChild(img);
+      wrapper.appendChild(slide);
+    });
+
+    // Ensure nav/pagination exist
+    function ensure(selector, create) {
+      let el = swiperRoot.querySelector(selector);
+      if (!el) { el = create(); swiperRoot.appendChild(el); }
+      return el;
+    }
+    const prevEl = ensure('.swiper-button-prev', () => {
+      const d = document.createElement('div'); d.className = 'swiper-button-prev'; return d;
+    });
+    const nextEl = ensure('.swiper-button-next', () => {
+      const d = document.createElement('div'); d.className = 'swiper-button-next'; return d;
+    });
+    const pagEl  = ensure('.swiper-pagination', () => {
+      const d = document.createElement('div'); d.className = 'swiper-pagination'; return d;
+    });
+
+    // Init Swiper
+    let swiperInstance = new Swiper('#gallerySwiper', {
+      slidesPerView: 1,
+      loop: false,
+      speed: 300,
+      spaceBetween: 0,
+      navigation: { nextEl, prevEl },
+      pagination: { el: pagEl, clickable: true },
+      keyboard: { enabled: true },
+    });
+
+    function openModalAt(index) {
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      swiperInstance.slideTo(index, 0);
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close handlers
+    closeBtn && closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    // Open from ticker
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.js-gallery-thumb');
+      if (!btn) return;
+      const idx = parseInt(btn.getAttribute('data-index') || '0', 10);
+      openModalAt(isNaN(idx) ? 0 : idx);
+    });
+  })();
+</script>
   </body>
 </html>
