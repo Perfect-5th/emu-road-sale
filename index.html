@@ -44,17 +44,23 @@
         font-size: 1.75rem;
       }
       @media (min-width: 768px) {
-        h2 { font-size: 2.5rem; }
-        h3 { font-size: 2.25rem; }
+        h2 {
+          font-size: 2.5rem;
+        }
+        h3 {
+          font-size: 2.25rem;
+        }
       }
 
       /* Subheadings in feature-copy (e.g. lifestyle rows) use Over the Rainbow */
       .feature-copy h4 {
-        font-family: 'Over the Rainbow', cursive;
+        font-family: "Over the Rainbow", cursive;
         font-size: 1.5rem;
       }
       @media (min-width: 768px) {
-        .feature-copy h4 { font-size: 1.75rem; }
+        .feature-copy h4 {
+          font-size: 1.75rem;
+        }
       }
       .chip {
         display: inline-flex;
@@ -165,8 +171,13 @@
         max-width: 90%;
       }
       /* Ensure pagination is visible on light/dark images */
-      #homeLifeSwiper .swiper-pagination-bullet { background: #fff; opacity: 0.5; }
-      #homeLifeSwiper .swiper-pagination-bullet-active { opacity: 1; }
+      #homeLifeSwiper .swiper-pagination-bullet {
+        background: #fff;
+        opacity: 0.5;
+      }
+      #homeLifeSwiper .swiper-pagination-bullet-active {
+        opacity: 1;
+      }
 
       /* Gallery ticker */
       .gallery-ticker {
@@ -217,10 +228,22 @@
         }
       }
       /* Lifestyle alternating rows */
-      .l-row .gallery-track { animation-duration: 36s; }
-      .l-row .gallery-thumb img { height: 110px; }
-      @media (min-width: 640px) { .l-row .gallery-thumb img { height: 120px; } }
-      @media (min-width: 1024px) { .l-row .gallery-thumb img { height: 140px; } }
+      .l-row .gallery-track {
+        animation-duration: 36s;
+      }
+      .l-row .gallery-thumb img {
+        height: 110px;
+      }
+      @media (min-width: 640px) {
+        .l-row .gallery-thumb img {
+          height: 120px;
+        }
+      }
+      @media (min-width: 1024px) {
+        .l-row .gallery-thumb img {
+          height: 140px;
+        }
+      }
 
       /* Polaroid styling for feature galleries */
       .feature-figure.polaroid {
@@ -229,11 +252,18 @@
         border: 1px solid #e5e7eb;
         border-bottom-width: 3px;
         border-radius: 10px;
-        box-shadow: 0 8px 28px rgba(2, 6, 23, 0.12), 0 2px 6px rgba(2, 6, 23, 0.06);
+        box-shadow: 0 8px 28px rgba(2, 6, 23, 0.12),
+          0 2px 6px rgba(2, 6, 23, 0.06);
         aspect-ratio: 4/5; /* polaroid aspect */
         position: relative;
         transform: rotate(var(--tilt, 0deg));
-        transition: transform .2s ease;
+        transition: transform 0.2s ease;
+      }
+      @media (max-width: 767.98px) {
+        .feature-figure.polaroid {
+          padding: 10px 10px 34px; /* slightly lighter chrome on small screens */
+          aspect-ratio: 3 / 4; /* a touch shorter for phones */
+        }
       }
       .feature-figure.polaroid:hover {
         transform: rotate(var(--tilt, 0deg)) scale(1.01);
@@ -250,14 +280,22 @@
 
       /* Narrower, centred column content for Lifestyle rows */
       .narrow-col {
-        max-width: 70%;
+        max-width: 100%; /* Full width on mobile for proper responsiveness */
         margin-inline: auto;
       }
       @media (min-width: 768px) {
-        .narrow-col { max-width: 65%; }
+        .narrow-col {
+          max-width: 65%;
+        }
         /* Helpers to hug the centre line on desktop */
-        .center-left { margin-left: 0; margin-right: auto; }
-        .center-right { margin-left: auto; margin-right: 0; }
+        .center-left {
+          margin-left: 0;
+          margin-right: auto;
+        }
+        .center-right {
+          margin-left: auto;
+          margin-right: 0;
+        }
       }
 
       /* Add extra horizontal gap between text and gallery in Lifestyle section */
@@ -270,30 +308,89 @@
         }
       }
 
+      /* Ensure Lifestyle section never exceeds viewport width */
+      #lifestyle {
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+      #lifestyle .card {
+        max-width: 100%;
+      }
+
       /* Option A: Feature rows (calm fade galleries) */
-      .feature-figure { aspect-ratio: 16/9; }
-      .feature-fader .swiper { width: 100%; height: 100%; }
-      .feature-fader .swiper-slide { background: #000; }
-      .feature-fader img { width: 100%; height: 100%; object-fit: cover; display: block; }
-      .feature-fader .swiper-pagination-bullet { width: 6px; height: 6px; background: #0f172a; opacity: .25; }
-      .feature-fader .swiper-pagination-bullet-active { opacity: .7; }
+      .feature-figure {
+        aspect-ratio: 16/9;
+      }
+      .feature-fader .swiper {
+        width: 100%;
+        height: 100%;
+      }
+      /* Ensure polaroid keeps its aspect (override generic) */
+      .feature-figure.polaroid {
+        aspect-ratio: 3/4;
+      }
+      @media (min-width: 768px) {
+        .feature-figure.polaroid {
+          aspect-ratio: 4/5;
+        }
+      }
+      /* Guard images from overflowing and ensure they size inside cards */
+      #lifestyle img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      .feature-fader .swiper-slide {
+        background: #000;
+      }
+      .feature-fader img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .feature-fader .swiper-pagination-bullet {
+        width: 6px;
+        height: 6px;
+        background: #0f172a;
+        opacity: 0.25;
+      }
+      .feature-fader .swiper-pagination-bullet-active {
+        opacity: 0.7;
+      }
 
       /* Subtle contrast overlay for feature images */
-      .feature-figure { position: relative; }
+      .feature-figure {
+        position: relative;
+      }
       .feature-figure::after {
         content: "";
         position: absolute;
         inset: 0;
         pointer-events: none;
-        background: linear-gradient(180deg, rgba(0,0,0,0) 65%, rgba(0,0,0,0.12) 100%);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0) 65%,
+          rgba(0, 0, 0, 0.12) 100%
+        );
         mix-blend-mode: multiply;
       }
 
       /* Feature rows — equal columns + elevated type */
       /* (font-size for .feature-copy h4 now set above; keep font-weight if needed) */
-      .feature-copy h4 { font-weight: 600; }
-      .feature-copy p { font-size: 1rem; line-height: 1.65; color: rgb(51 65 85); }
-      @media (min-width: 768px) { .feature-copy p { font-size: 1.0625rem; } }
+      .feature-copy h4 {
+        font-weight: 600;
+      }
+      .feature-copy p {
+        font-size: 1rem;
+        line-height: 1.65;
+        color: rgb(51 65 85);
+      }
+      @media (min-width: 768px) {
+        .feature-copy p {
+          font-size: 1.0625rem;
+        }
+      }
 
       /* Fullscreen gallery modal */
       .gallery-modal {
@@ -359,19 +456,47 @@
         font-size: 0.9em;
       }
       /* Two-column list helper for balanced bullets */
-      .two-col-list { column-gap: 1.25rem; }
-      .two-col-list li { break-inside: avoid; -webkit-column-break-inside: avoid; }
+      .two-col-list {
+        column-gap: 1.25rem;
+      }
+      .two-col-list li {
+        break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+      }
 
       /* Bullet-with-gallery layout */
-      .list-item-gallery p { margin: 0; }
-      .mini-swiper { background: rgba(255,255,255,0.5); }
-      .mini-swiper .swiper { height: 100%; }
-      .mini-swiper img { width: 100%; height: 100%; object-fit: cover; display:block; }
+      .list-item-gallery p {
+        margin: 0;
+      }
+      .mini-swiper {
+        background: rgba(255, 255, 255, 0.5);
+      }
+      .mini-swiper .swiper {
+        height: 100%;
+      }
+      .mini-swiper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
       /* Thumbnail-sized mini galleries */
-      .thumb-swiper { height: 140px; }
-      @media (min-width: 640px) { .thumb-swiper { height: 160px; } }
-      .mini-swiper .swiper-pagination-bullet { width: 6px; height: 6px; opacity: .4; }
-      .mini-swiper .swiper-pagination-bullet-active { opacity: 1; }
+      .thumb-swiper {
+        height: 140px;
+      }
+      @media (min-width: 640px) {
+        .thumb-swiper {
+          height: 160px;
+        }
+      }
+      .mini-swiper .swiper-pagination-bullet {
+        width: 6px;
+        height: 6px;
+        opacity: 0.4;
+      }
+      .mini-swiper .swiper-pagination-bullet-active {
+        opacity: 1;
+      }
 
       .skeleton {
         position: relative;
@@ -507,9 +632,12 @@
       }
     </style>
     <!-- Swiper.js CSS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Over+the+Rainbow&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Over+the+Rainbow&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -523,74 +651,120 @@
   <body class="min-h-screen bg-white text-slate-800">
     <!-- Hero -->
     <header class="relative isolate overflow-hidden">
+      <!-- soft background -->
       <div
         class="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-50 via-sky-50 to-white"
       ></div>
+
       <div class="mx-auto max-w-7xl px-4 py-16 sm:py-20">
-        <div class="grid items-center gap-8 md:grid-cols-2">
+        <div class="grid items-center gap-10 md:grid-cols-2">
+          <!-- LEFT: copy -->
           <div>
-            <span class="chip">Additional property highlights</span>
-            <h1 class="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-              77–79 Emu Road, <span class="whitespace-nowrap">Elimbah QLD</span>
+            <span
+              class="chip inline-flex items-center rounded-full bg-emerald-600/10 px-3 py-1 text-sm font-medium text-emerald-700 ring-1 ring-emerald-600/15"
+            >
+              Executive acreage beside a nature reserve
+            </span>
+
+            <h1
+              class="mt-5 text-5xl font-semibold tracking-tight text-slate-900 sm:text-6xl md:text-7xl"
+            >
+              77–79 Emu Road,<br class="hidden sm:block" /><span
+                class="whitespace-nowrap"
+                >Elimbah QLD</span
+              >
             </h1>
-            <div class="mt-3 text-slate-600">
-              4 bed • 2 bath • 7 car • 3,011 m² • Offers over $1,450,000
+
+            <h2 class="mt-4 text-2xl sm:text-3xl font-medium text-slate-800">
+              Space, privacy &amp; easy coast–city access on 3,011&nbsp;m²
+            </h2>
+
+            <!-- spec strip (more prominent, better scan) -->
+            <div
+              class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-base sm:text-lg text-slate-700"
+            >
+              <span>4&nbsp;bed</span><span aria-hidden="true">•</span>
+              <span>2&nbsp;bath</span><span aria-hidden="true">•</span>
+              <span>7&nbsp;car</span><span aria-hidden="true">•</span>
+              <span>3,011&nbsp;m²</span><span aria-hidden="true">•</span>
+              <span
+                class="rounded-full bg-slate-900 px-3 py-1 text-white shadow-sm"
+                >Offers over $1,450,000</span
+              >
             </div>
-            <p class="mt-4 max-w-prose text-lg text-slate-700">
-              Executive country home on ¾ acre — space, privacy, and easy city
-              &amp; coast access.
+
+            <p class="mt-5 max-w-prose text-lg sm:text-xl text-slate-700">
+              Enjoy the best of both worlds — a private ¾-acre sanctuary with
+              quick links to Brisbane, Bribie, and the Sunshine Coast.
             </p>
-            <p class="mt-2 text-slate-600">
-              Ideally located 30 min to Bribie Island/Sunshine Coast beaches and
-              roughly an hour to Brisbane CBD.*
+
+            <p class="mt-2 text-slate-500">
+              ~30 mins to Bribie Island/Sunshine Coast beaches &amp; ~60 mins to
+              Brisbane CBD*
             </p>
-            <div class="mt-6 flex flex-wrap gap-3">
+
+            <!-- CTAs -->
+            <div class="mt-8 flex flex-wrap items-center gap-4">
               <a
                 href="https://www.realestate.com.au/property-house-qld-elimbah-148472268"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn btn-primary"
-                >View Listing</a
+                class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:shadow-slate-900/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/40"
               >
+                View Listing
+              </a>
+
               <a
                 href="#video"
-                class="btn btn-cta js-watch"
+                class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-semibold text-slate-900 ring-1 ring-slate-900/10 backdrop-blur transition hover:bg-white/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/30 js-watch"
                 data-video-src="https://www.youtube.com/embed/yP4cxBDrNe0"
-                ><i class="fa-regular fa-circle-play icon"></i
-                ><span>Watch Video</span></a
               >
+                <i class="fa-regular fa-circle-play mr-2 text-lg"></i>
+                <span>Watch Video Tour</span>
+              </a>
             </div>
+
             <div class="mt-6 text-sm text-slate-500">
               (This page complements the agent listing and includes extras
               buyers often ask about.)
             </div>
+            <div class="mt-1 text-xs text-slate-400">
+              *Travel times approximate; please verify.
+            </div>
           </div>
 
-          <div
-            id="video"
-            class="relative aspect-video w-full overflow-hidden rounded-3xl shadow-sm"
-          >
-            <img
-              src="images/image-1.jpg"
-              alt="Front hero image of 77–79 Emu Road, Elimbah"
-              width="1600"
-              height="900"
-              loading="eager"
-              decoding="async"
-              style="
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
-              "
-            />
+          <!-- RIGHT: image card with depth & subtle overlay -->
+          <div class="relative">
+            <div
+              class="relative aspect-video w-full overflow-hidden rounded-3xl ring-1 ring-black/5 shadow-2xl"
+            >
+              <!-- image -->
+              <img
+                src="images/image-1.jpg"
+                alt="Aerial view of 77–79 Emu Road, Elimbah"
+                class="h-full w-full object-cover"
+                width="1600"
+                height="900"
+                loading="eager"
+                decoding="async"
+              />
+              <!-- vignette/gradient for punch & legibility if text ever overlaps -->
+              <div
+                class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/0"
+              ></div>
+            </div>
+
+            <!-- subtle floating effect on large screens -->
+            <div
+              class="pointer-events-none absolute -inset-x-6 -inset-y-6 hidden rounded-[2rem] bg-sky-100/0 blur-2xl sm:block"
+            ></div>
           </div>
         </div>
       </div>
+
       <div class="blob blob-1"></div>
       <div class="blob blob-2"></div>
     </header>
-
     <nav class="sticky-nav">
       <div
         class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between gap-3 min-w-0"
@@ -614,102 +788,195 @@
     </nav>
 
     <!-- Quick Stats -->
-    <section class="mx-auto max-w-7xl px-4 py-10">
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-        <div class="flex items-center gap-3 rounded-3xl border p-4">
-          <i class="fa-solid fa-bed icon"></i>
-          <div>
-            <div class="text-sm text-slate-500">Bedrooms</div>
-            <div class="text-lg font-medium">4</div>
-          </div>
+    <section class="mx-auto max-w-7xl px-4 py-12" aria-labelledby="quick-stats">
+      <h2 id="quick-stats" class="sr-only">Quick property stats</h2>
+
+      <div class="grid gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-5">
+        <!-- Card -->
+        <div
+          class="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-md"
+        >
+          <span
+            class="grid h-10 w-10 place-items-center rounded-xl bg-slate-50 text-xl text-slate-700"
+          >
+            <i class="fa-solid fa-bed" aria-hidden="true"></i>
+          </span>
+          <dl class="leading-tight">
+            <dt class="text-sm text-slate-500">Bedrooms</dt>
+            <dd class="text-xl font-semibold text-slate-900">4</dd>
+          </dl>
         </div>
-        <div class="flex items-center gap-3 rounded-3xl border p-4">
-          <i class="fa-solid fa-bath icon"></i>
-          <div>
-            <div class="text-sm text-slate-500">Bathrooms</div>
-            <div class="text-lg font-medium">2</div>
-          </div>
+
+        <div
+          class="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-md"
+        >
+          <span
+            class="grid h-10 w-10 place-items-center rounded-xl bg-slate-50 text-xl text-slate-700"
+          >
+            <i class="fa-solid fa-bath" aria-hidden="true"></i>
+          </span>
+          <dl class="leading-tight">
+            <dt class="text-sm text-slate-500">Bathrooms</dt>
+            <dd class="text-xl font-semibold text-slate-900">2</dd>
+          </dl>
         </div>
-        <div class="flex items-center gap-3 rounded-3xl border p-4">
-          <i class="fa-solid fa-car-side icon"></i>
-          <div>
-            <div class="text-sm text-slate-500">Parking</div>
-            <div class="text-lg font-medium">7 (4 garage + 3 carport)</div>
-          </div>
+
+        <div
+          class="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-md"
+        >
+          <span
+            class="grid h-10 w-10 place-items-center rounded-xl bg-slate-50 text-xl text-slate-700"
+          >
+            <i class="fa-solid fa-car-side" aria-hidden="true"></i>
+          </span>
+          <dl class="leading-tight">
+            <dt class="text-sm text-slate-500">Parking</dt>
+            <dd class="text-xl font-semibold text-slate-900">
+              7
+              <span class="text-base font-medium text-slate-700"
+                >(4 garage&nbsp;+&nbsp;3 carport)</span
+              >
+            </dd>
+          </dl>
         </div>
-        <div class="flex items-center gap-3 rounded-3xl border p-4">
-          <i class="fa-regular fa-square icon"></i>
-          <div>
-            <div class="text-sm text-slate-500">Land size</div>
-            <div class="text-lg font-medium">3,011 m²</div>
-          </div>
+
+        <div
+          class="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-md"
+        >
+          <span
+            class="grid h-10 w-10 place-items-center rounded-xl bg-slate-50 text-xl text-slate-700"
+          >
+            <i class="fa-regular fa-square" aria-hidden="true"></i>
+          </span>
+          <dl class="leading-tight">
+            <dt class="text-sm text-slate-500">Land size</dt>
+            <dd class="text-xl font-semibold text-slate-900">3,011&nbsp;m²</dd>
+          </dl>
         </div>
-        <div class="flex items-center gap-3 rounded-3xl border p-4">
-          <i class="fa-solid fa-wifi icon"></i>
-          <div>
-            <div class="text-sm text-slate-500">NBN</div>
-            <div class="text-lg font-medium">FTTP connected</div>
-          </div>
+
+        <div
+          class="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-md"
+        >
+          <span
+            class="grid h-10 w-10 place-items-center rounded-xl bg-slate-50 text-xl text-slate-700"
+          >
+            <i class="fa-solid fa-wifi" aria-hidden="true"></i>
+          </span>
+          <dl class="leading-tight">
+            <dt class="text-sm text-slate-500">NBN</dt>
+            <dd class="text-xl font-semibold text-slate-900">FTTP connected</dd>
+          </dl>
         </div>
       </div>
     </section>
 
     <!-- Highlights -->
-    <section id="highlights" class="mx-auto max-w-7xl px-4 py-12">
-      <div class="grid gap-10 lg:grid-cols-2">
+    <section id="highlights" class="mx-auto max-w-7xl px-4 py-14">
+      <div class="grid gap-12 lg:grid-cols-2">
+        <!-- LEFT: Feature list -->
         <div>
-          <h2 class="text-2xl font-semibold">Why you’ll love living here</h2>
-          <ul class="mt-6 space-y-3 text-slate-700 feature-list">
+          <h2 class="text-2xl font-semibold tracking-tight text-slate-900">
+            Why you’ll love living here
+          </h2>
+
+          <ul role="list" class="mt-6 space-y-6 text-slate-800">
             <li>
-              <strong>Layout & flexibility</strong>
-              <ul class="feature-list mt-2">
-                <li>Private reserve outlook with neighbours on only two sides</li>
-                <li>Dual‑living friendly: separate master wing plus front lounge with double doors</li>
-                <li>High ceilings and large, well‑proportioned rooms</li>
-                <li>Air‑conditioned garage with scope for gym, rumpus, studio or workshop conversion</li>
+              <h3 class="text-base font-semibold text-slate-900">
+                Layout &amp; flexibility
+              </h3>
+              <ul
+                role="list"
+                class="mt-2 list-disc space-y-1 pl-5 marker:text-slate-400"
+              >
+                <li>Private reserve outlook; neighbours on only two sides</li>
+                <li>
+                  Dual-living friendly: separate master wing + front lounge
+                  (double doors)
+                </li>
+                <li>High ceilings; large, well-proportioned rooms</li>
+                <li>
+                  Air-conditioned garage with scope for gym, rumpus, studio or
+                  workshop conversion
+                </li>
               </ul>
             </li>
+
             <li>
-              <strong>Kitchen</strong>
-              <ul class="feature-list mt-2">
+              <h3 class="text-base font-semibold text-slate-900">Kitchen</h3>
+              <ul
+                role="list"
+                class="mt-2 list-disc space-y-1 pl-5 marker:text-slate-400"
+              >
                 <li>Stone benchtops with breakfast bar</li>
-                <li>Brand‑new Bosch oven and gas cooktop</li>
+                <li>Brand-new Bosch oven &amp; gas cooktop</li>
                 <li>Dishwasher</li>
               </ul>
             </li>
+
             <li>
-              <strong>Bedrooms & bathrooms</strong>
-              <ul class="feature-list mt-2">
-                <li>Master suite with walk‑in robe</li>
-                <li>Ensuite with dual vanities and dual shower</li>
+              <h3 class="text-base font-semibold text-slate-900">
+                Bedrooms &amp; bathrooms
+              </h3>
+              <ul
+                role="list"
+                class="mt-2 list-disc space-y-1 pl-5 marker:text-slate-400"
+              >
+                <li>Master suite with walk-in robe</li>
+                <li>Ensuite with dual vanities &amp; dual shower</li>
               </ul>
             </li>
+
             <li>
-              <strong>Living & comfort</strong>
-              <ul class="feature-list mt-2">
-                <li>Two living areas, both air‑conditioned (Daikin split systems)</li>
-                <li>Air‑conditioning in all rooms except one</li>
+              <h3 class="text-base font-semibold text-slate-900">
+                Living &amp; comfort
+              </h3>
+              <ul
+                role="list"
+                class="mt-2 list-disc space-y-1 pl-5 marker:text-slate-400"
+              >
+                <li>
+                  Two living areas, both air-conditioned (Daikin split systems)
+                </li>
+                <li>Air-conditioning in all rooms except one</li>
               </ul>
             </li>
+
             <li>
-              <strong>Shed, car accommodation & storage</strong>
-              <ul class="feature-list mt-2">
-                <li>9m × 6m powered shed (2‑car + workshop)</li>
-                <li>9m × 6m 3‑car carport</li>
+              <h3 class="text-base font-semibold text-slate-900">
+                Shed, car accommodation &amp; storage
+              </h3>
+              <ul
+                role="list"
+                class="mt-2 list-disc space-y-1 pl-5 marker:text-slate-400"
+              >
+                <li>9m × 6m powered shed (2-car + workshop)</li>
+                <li>9m × 6m 3-car carport</li>
                 <li>Fully fenced yard with excellent access</li>
               </ul>
             </li>
+
             <li>
-              <strong>Outdoors & lifestyle</strong>
-              <ul class="feature-list mt-2">
+              <h3 class="text-base font-semibold text-slate-900">
+                Outdoors &amp; lifestyle
+              </h3>
+              <ul
+                role="list"
+                class="mt-2 list-disc space-y-1 pl-5 marker:text-slate-400"
+              >
                 <li>3,011 m² (¾ acre) of executive country living</li>
-                <li>Veggie gardens, fruit trees, greenhouse and a fire pit</li>
+                <li>Veggie gardens, fruit trees, greenhouse &amp; fire pit</li>
                 <li>Room to add a pool (STCA)</li>
               </ul>
             </li>
+
             <li>
-              <strong>Sustainability & security</strong>
-              <ul class="feature-list mt-2">
+              <h3 class="text-base font-semibold text-slate-900">
+                Sustainability &amp; security
+              </h3>
+              <ul
+                role="list"
+                class="mt-2 list-disc space-y-1 pl-5 marker:text-slate-400"
+              >
                 <li>Solar electricity</li>
                 <li>Rainwater tank</li>
                 <li>Security screens throughout</li>
@@ -718,160 +985,309 @@
           </ul>
         </div>
 
-        <!-- Proximity grid -->
-        <div id="proximity" class="rounded-3xl border p-6 card">
-          <h3 class="text-lg font-medium">
-            Close to home: local amenities & travel times
+        <!-- RIGHT: Proximity grid -->
+        <div
+          id="proximity"
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+        >
+          <h3 class="text-lg font-medium text-slate-900">
+            Close to home: local amenities &amp; travel times
           </h3>
+
           <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            <!-- Item -->
             <div
-              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+              class="rounded-2xl bg-white p-4 ring-1 ring-slate-100 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-bag-shopping prox-icon"></i>
+                <span
+                  class="mt-0.5 grid h-9 w-9 place-items-center rounded-lg bg-slate-50 text-slate-700"
+                >
+                  <i
+                    class="fa-solid fa-bag-shopping prox-icon"
+                    aria-hidden="true"
+                  ></i>
+                </span>
                 <div>
-                  <div class="font-medium">
-                    <a target="_blank" href="https://bigfishjunction.com.au/stores/"
-                      >Big Fish Junction (Coles & Chemist Warehouse)</a
-                    >
-                  </div>
+                  <a
+                    class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                    target="_blank"
+                    href="https://bigfishjunction.com.au/stores/"
+                  >
+                    Big Fish Junction (Coles &amp; Chemist Warehouse)
+                  </a>
                   <div class="text-sm text-slate-600">5 min</div>
                 </div>
               </div>
             </div>
+
             <div
-              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+              class="rounded-2xl bg-white p-4 ring-1 ring-slate-100 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-bag-shopping prox-icon"></i>
+                <span
+                  class="mt-0.5 grid h-9 w-9 place-items-center rounded-lg bg-slate-50 text-slate-700"
+                >
+                  <i
+                    class="fa-solid fa-bag-shopping prox-icon"
+                    aria-hidden="true"
+                  ></i>
+                </span>
                 <div>
-                  <div class="font-medium">
-                    <a target="_blank" href="https://www.drakes.com.au/store/pumicestone-village-shopping-centre/">Pumicestone Village Shopping Centre (Drakes)</a>
-                  </div>
+                  <a
+                    class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                    target="_blank"
+                    href="https://www.drakes.com.au/store/pumicestone-village-shopping-centre/"
+                  >
+                    Pumicestone Village Shopping Centre (Drakes)
+                  </a>
                   <div class="text-sm text-slate-600">4 min</div>
                 </div>
               </div>
             </div>
+
             <div
-              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+              class="rounded-2xl bg-white p-4 ring-1 ring-slate-100 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-train prox-icon"></i>
+                <span
+                  class="mt-0.5 grid h-9 w-9 place-items-center rounded-lg bg-slate-50 text-slate-700"
+                >
+                  <i class="fa-solid fa-train prox-icon" aria-hidden="true"></i>
+                </span>
                 <div>
-                  <div class="font-medium"><a target="_blank" href="https://translink.com.au/plan-your-journey/stops/600317">Caboolture train station</a></div>
+                  <a
+                    class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                    target="_blank"
+                    href="https://translink.com.au/plan-your-journey/stops/600317"
+                  >
+                    Caboolture train station
+                  </a>
                   <div class="text-sm text-slate-600">8 min</div>
                 </div>
               </div>
             </div>
+
             <div
-              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+              class="rounded-2xl bg-white p-4 ring-1 ring-slate-100 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-train prox-icon"></i>
+                <span
+                  class="mt-0.5 grid h-9 w-9 place-items-center rounded-lg bg-slate-50 text-slate-700"
+                >
+                  <i class="fa-solid fa-train prox-icon" aria-hidden="true"></i>
+                </span>
                 <div>
-                  <div class="font-medium"><a target="_blank" href="https://translink.com.au/plan-your-journey/stops/600144">Elimbah train station</a></div>
+                  <a
+                    class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                    target="_blank"
+                    href="https://translink.com.au/plan-your-journey/stops/600144"
+                  >
+                    Elimbah train station
+                  </a>
                   <div class="text-sm text-slate-600">6 min</div>
                 </div>
               </div>
             </div>
+
             <div
-              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+              class="rounded-2xl bg-white p-4 ring-1 ring-slate-100 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-golf-ball-tee prox-icon"></i>
+                <span
+                  class="mt-0.5 grid h-9 w-9 place-items-center rounded-lg bg-slate-50 text-slate-700"
+                >
+                  <i
+                    class="fa-solid fa-golf-ball-tee prox-icon"
+                    aria-hidden="true"
+                  ></i>
+                </span>
                 <div>
-                  <div class="font-medium"><a target="_blank" href="https://www.caboolturegolf.com.au/">Caboolture Golf Club</a></div>
+                  <a
+                    class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                    target="_blank"
+                    href="https://www.caboolturegolf.com.au/"
+                  >
+                    Caboolture Golf Club
+                  </a>
                   <div class="text-sm text-slate-600">15 min</div>
                 </div>
               </div>
             </div>
+
             <div
-              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+              class="rounded-2xl bg-white p-4 ring-1 ring-slate-100 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-hotel prox-icon"></i>
+                <span
+                  class="mt-0.5 grid h-9 w-9 place-items-center rounded-lg bg-slate-50 text-slate-700"
+                >
+                  <i class="fa-solid fa-hotel prox-icon" aria-hidden="true"></i>
+                </span>
                 <div>
                   <div class="font-medium">
-                    <a target="_blank" href="https://sandstonepointhotel.com.au/">Sandstone Point Hotel</a> (& <a href="https://comiskey.com.au/major-news-250m-sandstone-point-expansion-announced/">proposed 5-star Resort precinct</a>)
+                    <a
+                      class="text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                      target="_blank"
+                      href="https://sandstonepointhotel.com.au/"
+                      >Sandstone Point Hotel</a
+                    >
+                    &nbsp;(&nbsp;<a
+                      class="text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                      href="https://comiskey.com.au/major-news-250m-sandstone-point-expansion-announced/"
+                      >proposed 5-star Resort precinct</a
+                    >&nbsp;)
                   </div>
                   <div class="text-sm text-slate-600">≈ 25–30 min</div>
                 </div>
               </div>
             </div>
+
             <div
-              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+              class="rounded-2xl bg-white p-4 ring-1 ring-slate-100 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-city prox-icon"></i>
+                <span
+                  class="mt-0.5 grid h-9 w-9 place-items-center rounded-lg bg-slate-50 text-slate-700"
+                >
+                  <i class="fa-solid fa-city prox-icon" aria-hidden="true"></i>
+                </span>
                 <div>
-                  <div class="font-medium"><a target="_blank" href="https://brisbane.qld.gov.au/">Brisbane CBD</a></div>
+                  <a
+                    class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                    target="_blank"
+                    href="https://brisbane.qld.gov.au/"
+                    >Brisbane CBD</a
+                  >
                   <div class="text-sm text-slate-600">
                     ≈ 60–70 min (traffic dependent)
                   </div>
                 </div>
               </div>
             </div>
+
             <div
-              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+              class="rounded-2xl bg-white p-4 ring-1 ring-slate-100 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-plane prox-icon"></i>
+                <span
+                  class="mt-0.5 grid h-9 w-9 place-items-center rounded-lg bg-slate-50 text-slate-700"
+                >
+                  <i class="fa-solid fa-plane prox-icon" aria-hidden="true"></i>
+                </span>
                 <div>
-                  <div class="font-medium"><a target="_blank" href="https://bne.com.au/">Brisbane Airport</a></div>
+                  <a
+                    class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                    target="_blank"
+                    href="https://bne.com.au/"
+                    >Brisbane Airport</a
+                  >
                   <div class="text-sm text-slate-600">≈ 40–50 min</div>
                 </div>
               </div>
             </div>
 
             <div
-              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+              class="rounded-2xl bg-white p-4 ring-1 ring-slate-100 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-umbrella-beach prox-icon"></i>
+                <span
+                  class="mt-0.5 grid h-9 w-9 place-items-center rounded-lg bg-slate-50 text-slate-700"
+                >
+                  <i
+                    class="fa-solid fa-umbrella-beach prox-icon"
+                    aria-hidden="true"
+                  ></i>
+                </span>
                 <div>
-                  <div class="font-medium"><a target="_blank" href="https://www.visitsunshinecoast.com/place/caloundra">Sunshine Coast (Caloundra)</a></div>
+                  <a
+                    class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                    target="_blank"
+                    href="https://www.visitsunshinecoast.com/place/caloundra"
+                  >
+                    Sunshine Coast (Caloundra)
+                  </a>
                   <div class="text-sm text-slate-600">≈ 30–40 min</div>
                 </div>
               </div>
             </div>
+
             <div
-              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+              class="rounded-2xl bg-white p-4 ring-1 ring-slate-100 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-umbrella-beach prox-icon"></i>
+                <span
+                  class="mt-0.5 grid h-9 w-9 place-items-center rounded-lg bg-slate-50 text-slate-700"
+                >
+                  <i
+                    class="fa-solid fa-umbrella-beach prox-icon"
+                    aria-hidden="true"
+                  ></i>
+                </span>
                 <div>
-                  <div class="font-medium"><a target="_blank" href="https://accessiblebeaches.com/beach-directory/woorim-beach">Bribie Island (Woorim beaches)</a></div>
+                  <a
+                    class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                    target="_blank"
+                    href="https://accessiblebeaches.com/beach-directory/woorim-beach"
+                  >
+                    Bribie Island (Woorim beaches)
+                  </a>
                   <div class="text-sm text-slate-600">≈ 35–45 min</div>
                 </div>
               </div>
             </div>
+
             <div
-              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+              class="rounded-2xl bg-white p-4 ring-1 ring-slate-100 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-mountain prox-icon"></i>
+                <span
+                  class="mt-0.5 grid h-9 w-9 place-items-center rounded-lg bg-slate-50 text-slate-700"
+                >
+                  <i
+                    class="fa-solid fa-mountain prox-icon"
+                    aria-hidden="true"
+                  ></i>
+                </span>
                 <div>
-                  <div class="font-medium">
-                    <a target="_blank" href="https://parks.des.qld.gov.au/parks/glass-house-mountains">Glass House Mountains</a>
-                  </div>
+                  <a
+                    class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                    target="_blank"
+                    href="https://parks.des.qld.gov.au/parks/glass-house-mountains"
+                  >
+                    Glass House Mountains
+                  </a>
                   <div class="text-sm text-slate-600">≈ 17 min</div>
                 </div>
               </div>
             </div>
+
             <div
-              class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100"
+              class="rounded-2xl bg-white p-4 ring-1 ring-slate-100 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <div class="flex items-start gap-3">
-                <i class="fa-solid fa-mountain prox-icon"></i>
+                <span
+                  class="mt-0.5 grid h-9 w-9 place-items-center rounded-lg bg-slate-50 text-slate-700"
+                >
+                  <i
+                    class="fa-solid fa-mountain prox-icon"
+                    aria-hidden="true"
+                  ></i>
+                </span>
                 <div>
-                  <div class="font-medium">
-                    <a target="_blank" href="https://www.visitsunshinecoast.com/places-to-see/hinterland/maleny">Sunshine Coast Hinterland (Maleny / Montville)</a>
-                  </div>
+                  <a
+                    class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                    target="_blank"
+                    href="https://www.visitsunshinecoast.com/places-to-see/hinterland/maleny"
+                  >
+                    Sunshine Coast Hinterland (Maleny / Montville)
+                  </a>
                   <div class="text-sm text-slate-600">≈ 45–55 min</div>
                 </div>
               </div>
             </div>
           </div>
+
           <p class="mt-4 text-sm text-slate-500">
             Times/distances are approximate; check current traffic and routes.
           </p>
@@ -879,87 +1295,7 @@
       </div>
     </section>
 
-    <!-- Lifestyle strip -->
-    <section id="lifestyle" class="relative isolate">
-      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-emerald-50 to-sky-50"></div>
-      <div class="mx-auto max-w-7xl px-4 py-12">
-        <div class="rounded-3xl border p-6 md:p-8 card bg-white/80">
-          <h3 class="text-xl font-semibold">Welcome Home to Emu Road</h3>
-          <p class="mt-3 text-slate-700 max-w-prose">Escape the everyday in a home that offers the perfect blend of relaxation, nature, and convenience.</p>
-
-          <!-- Row 1: text left, gallery right -->
-          <div class="mt-10 grid items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center">
-            <div class="md:col-span-6 feature-copy narrow-col center-right">
-              <h4 class="font-medium">Coastal adventures</h4>
-              <p class="mt-1">Bribie Island’s pristine beaches and Sandstone Point’s waterfront events are just a short drive away.</p>
-            </div>
-            <div class="md:col-span-6">
-              <div class="feature-figure polaroid narrow-col center-left overflow-hidden feature-fader" data-images="48,49,50,51,52,53" aria-label="Coastal adventures photos" data-pos="center 45%"></div>
-            </div>
-          </div>
-
-          <!-- Row 2: gallery left, text right -->
-          <div class="mt-14 grid items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center">
-            <div class="md:col-span-6 md:order-1">
-              <div class="feature-figure polaroid narrow-col center-right overflow-hidden feature-fader" data-images="32,38,44" aria-label="Local flavours photos" data-pos="center 50%"></div>
-            </div>
-            <div class="md:col-span-6 md:order-2 feature-copy narrow-col center-left">
-              <h4 class="font-medium">Local flavours</h4>
-              <p class="mt-1">Explore nearby markets, cafés, and fresh-produce stalls.</p>
-            </div>
-          </div>
-
-          <!-- Row 3: text left, gallery right -->
-          <div class="mt-14 grid items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center">
-            <div class="md:col-span-6 feature-copy narrow-col center-right">
-              <h4 class="font-medium">At-home entertaining</h4>
-              <p class="mt-1">Enjoy long lunches under the trees or evenings by the fire pit with friends.</p>
-            </div>
-            <div class="md:col-span-6">
-              <div class="feature-figure polaroid narrow-col center-left overflow-hidden feature-fader" data-images="24,26,35" aria-label="Entertaining photos" data-pos="center 40%"></div>
-            </div>
-          </div>
-
-          <!-- Row 4: gallery left, text right -->
-          <div class="mt-14 grid items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center">
-            <div class="md:col-span-6 md:order-1">
-              <div class="feature-figure polaroid narrow-col center-right overflow-hidden feature-fader" data-images="2,3,41" aria-label="Gardens and fernery photos" data-pos="center 55%"></div>
-            </div>
-            <div class="md:col-span-6 md:order-2 feature-copy narrow-col center-left">
-              <h4 class="font-medium">Everyday pleasures</h4>
-              <p class="mt-1">Lush established gardens and a tranquil fernery.</p>
-            </div>
-          </div>
-
-          <!-- Row 5: text left, gallery right -->
-          <div class="mt-14 grid items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center">
-            <div class="md:col-span-6 feature-copy narrow-col center-right">
-              <h4 class="font-medium">Birdlife & outlook</h4>
-              <p class="mt-1">Reserve backdrop with abundant birdlife — wake to magpies and kookaburras.</p>
-            </div>
-            <div class="md:col-span-6">
-              <div class="feature-figure polaroid narrow-col center-left overflow-hidden feature-fader" data-images="31,22,29" aria-label="Birdlife photos" data-pos="center 35%"></div>
-            </div>
-          </div>
-
-          <!-- Row 6: gallery left, text right -->
-          <div class="mt-14 grid items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center">
-            <div class="md:col-span-6 md:order-1">
-              <div class="feature-figure polaroid narrow-col center-right overflow-hidden feature-fader" data-images="5,23,30" aria-label="Access photos" data-pos="center 50%"></div>
-            </div>
-            <div class="md:col-span-6 md:order-2 feature-copy narrow-col center-left">
-              <h4 class="font-medium">Easy access</h4>
-              <p class="mt-1">Quick highway connection for easy trips north or south.</p>
-            </div>
-          </div>
-
-          <hr class="my-10 border-slate-200" />
-          <h4 class="font-medium">Why we love living here</h4>
-          <p class="mt-2 text-sm text-slate-700">This is more than a home — it’s a retreat. We treasure the sense of space and privacy, the peaceful mornings filled with birdsong, and the crystal-clear starry skies at night. The coast is close enough for a spontaneous swim, yet the city is within easy reach when needed.</p>
-        </div>
-      </div>
-    </section>
-
+    <!-- Gallery -->
     <section id="gallery" class="mx-auto max-w-7xl px-4 py-12">
       <h2 class="text-2xl font-semibold">Photo gallery</h2>
 
@@ -1080,91 +1416,309 @@
       </p>
     </section>
 
-    <!-- Privacy & Nature -->
-    <section class="relative isolate">
+    <!-- Lifestyle strip -->
+    <section id="lifestyle" class="relative isolate">
       <div
-        class="absolute inset-0 -z-10 bg-gradient-to-r from-emerald-50/60 to-emerald-100/20"
+        class="absolute inset-0 -z-10 bg-gradient-to-r from-emerald-50 to-sky-50"
       ></div>
       <div class="mx-auto max-w-7xl px-4 py-12">
-        <div class="grid gap-8 md:grid-cols-2">
-          <div class="rounded-3xl border p-6 bg-white/70 backdrop-blur card">
-            <h3 class="text-xl font-semibold">
-              Location, privacy, tranquility
-            </h3>
-            <p class="mt-3 text-slate-700">
-              Not in an estate and
-              <strong>neighbouring only two properties</strong>, the home enjoys
-              a peaceful reserve aspect — more space, fewer fences, and room for
-              the gardens to breathe.
-            </p>
-            <ul
-              class="mt-4 grid gap-3 sm:grid-cols-2 text-slate-700 feature-list"
-            >
-              <li>Reserve-side privacy; minimal passing traffic</li>
-              <li>Mature trees & fernery create natural screening</li>
-              <li>
-                Regular native visitors: corellas, rainbow lorikeets, black
-                cockatoos, sulphur-crested cockatoos, magpies, kookaburras
-              </li>
-              <li>Sunset through the gums; golden afternoon light</li>
-            </ul>
-          </div>
+        <div class="rounded-3xl border p-6 md:p-8 card bg-white/80">
+          <h3 class="text-xl font-semibold">Welcome Home to Emu Road</h3>
+          <p class="mt-3 text-slate-700 max-w-prose">
+            Escape the everyday in a home that offers the perfect blend of
+            relaxation, nature, and convenience.
+          </p>
+
+          <!-- Row 1: text left, gallery right -->
           <div
-            class="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-slate-200 grid place-items-center text-slate-500"
+            class="mt-10 grid grid-cols-1 items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center"
           >
-            <img
-              src="/images/drone/03.jpg"
-              alt="Reserve outlook with native birdlife"
-              width="1600"
-              height="1200"
-              loading="lazy"
-              decoding="async"
-              class="w-full h-full object-cover img-placeholder"
-            />
+            <div
+              class="order-1 md:order-1 w-full min-w-0 p-2 md:p-0 md:col-span-6 feature-copy narrow-col center-right"
+            >
+              <h4 class="font-medium">Coastal adventures</h4>
+              <p class="mt-1">
+                Bribie Island’s pristine beaches and Sandstone Point’s
+                waterfront events are just a short drive away.
+              </p>
+            </div>
+            <div
+              class="order-2 md:order-2 w-full min-w-0 p-2 md:p-0 md:col-span-6"
+            >
+              <div
+                class="feature-figure polaroid w-full narrow-col center-left overflow-hidden feature-fader"
+                data-images="48,49,50,51,52,53"
+                aria-label="Coastal adventures photos"
+                data-pos="center 45%"
+              ></div>
+            </div>
           </div>
+
+          <!-- Row 2: gallery left, text right -->
+          <div
+            class="mt-14 grid grid-cols-1 items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center"
+          >
+            <div
+              class="order-2 md:order-1 w-full min-w-0 p-2 md:p-0 md:col-span-6"
+            >
+              <div
+                class="feature-figure polaroid w-full narrow-col center-right overflow-hidden feature-fader"
+                data-images="32,38,44"
+                aria-label="Local flavours photos"
+                data-pos="center 50%"
+              ></div>
+            </div>
+            <div
+              class="order-1 md:order-2 w-full min-w-0 p-2 md:p-0 md:col-span-6 feature-copy narrow-col center-left"
+            >
+              <h4 class="font-medium">Local flavours</h4>
+              <p class="mt-1">
+                Explore nearby markets, cafés, and fresh-produce stalls.
+              </p>
+            </div>
+          </div>
+
+          <!-- Row 3: text left, gallery right -->
+          <div
+            class="mt-14 grid grid-cols-1 items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center"
+          >
+            <div
+              class="order-1 md:order-1 w-full min-w-0 p-2 md:p-0 md:col-span-6 feature-copy narrow-col center-right"
+            >
+              <h4 class="font-medium">At-home entertaining</h4>
+              <p class="mt-1">
+                Enjoy long lunches under the trees or evenings by the fire pit
+                with friends.
+              </p>
+            </div>
+            <div
+              class="order-2 md:order-2 w-full min-w-0 p-2 md:p-0 md:col-span-6"
+            >
+              <div
+                class="feature-figure polaroid w-full narrow-col center-left overflow-hidden feature-fader"
+                data-images="24,26,35"
+                aria-label="Entertaining photos"
+                data-pos="center 40%"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Row 4: gallery left, text right -->
+          <div
+            class="mt-14 grid grid-cols-1 items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center"
+          >
+            <div
+              class="order-2 md:order-1 w-full min-w-0 p-2 md:p-0 md:col-span-6"
+            >
+              <div
+                class="feature-figure polaroid w-full narrow-col center-right overflow-hidden feature-fader"
+                data-images="2,3,41"
+                aria-label="Gardens and fernery photos"
+                data-pos="center 55%"
+              ></div>
+            </div>
+            <div
+              class="order-1 md:order-2 w-full min-w-0 p-2 md:p-0 md:col-span-6 feature-copy narrow-col center-left"
+            >
+              <h4 class="font-medium">Everyday pleasures</h4>
+              <p class="mt-1">
+                Lush established gardens and a tranquil fernery.
+              </p>
+            </div>
+          </div>
+
+          <!-- Row 5: text left, gallery right -->
+          <div
+            class="mt-14 grid grid-cols-1 items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center"
+          >
+            <div
+              class="order-1 md:order-1 w-full min-w-0 p-2 md:p-0 md:col-span-6 feature-copy narrow-col center-right"
+            >
+              <h4 class="font-medium">Birdlife & outlook</h4>
+              <p class="mt-1">
+                Reserve backdrop with abundant birdlife — wake to magpies and
+                kookaburras.
+              </p>
+            </div>
+            <div
+              class="order-2 md:order-2 w-full min-w-0 p-2 md:p-0 md:col-span-6"
+            >
+              <div
+                class="feature-figure polaroid w-full narrow-col center-left overflow-hidden feature-fader"
+                data-images="31,22,29"
+                aria-label="Birdlife photos"
+                data-pos="center 35%"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Row 6: gallery left, text right -->
+          <div
+            class="mt-14 grid grid-cols-1 items-center gap-4 md:gap-3 md:grid-cols-12 l-row-center"
+          >
+            <div
+              class="order-2 md:order-1 w-full min-w-0 p-2 md:p-0 md:col-span-6"
+            >
+              <div
+                class="feature-figure polaroid w-full narrow-col center-right overflow-hidden feature-fader"
+                data-images="5,23,30"
+                aria-label="Access photos"
+                data-pos="center 50%"
+              ></div>
+            </div>
+            <div
+              class="order-1 md:order-2 w-full min-w-0 p-2 md:p-0 md:col-span-6 feature-copy narrow-col center-left"
+            >
+              <h4 class="font-medium">Easy access</h4>
+              <p class="mt-1">
+                Quick highway connection for easy trips north or south.
+              </p>
+            </div>
+          </div>
+
+          <hr class="my-10 border-slate-200" />
+          <h4 class="font-medium">Why we love living here</h4>
+          <p class="mt-2 text-sm text-slate-700">
+            This is more than a home — it’s a retreat. We treasure the sense of
+            space and privacy, the peaceful mornings filled with birdsong, and
+            the crystal-clear starry skies at night. The coast is close enough
+            for a spontaneous swim, yet the city is within easy reach when
+            needed.
+          </p>
         </div>
       </div>
     </section>
 
+    <!-- Privacy & Nature -->
+    <section class="relative isolate">
+      <!-- soft wash to separate section -->
+      <div
+        class="absolute inset-0 -z-10 bg-gradient-to-r from-emerald-50/60 to-emerald-100/20"
+      ></div>
+
+      <div class="mx-auto max-w-7xl px-4 py-14">
+        <div class="grid gap-8 md:grid-cols-2">
+          <!-- LEFT: copy -->
+          <div
+            class="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm backdrop-blur"
+          >
+            <h3 class="text-2xl font-semibold tracking-tight text-slate-900">
+              Location, privacy, tranquillity
+            </h3>
+
+            <p class="mt-3 text-lg text-slate-700">
+              Outside an estate and
+              <strong>neighbouring only two properties</strong>, this home
+              enjoys a quiet reserve outlook — more space, fewer fences, and
+              room for the gardens to breathe.
+            </p>
+
+            <!-- two-column bullets on sm+, single column on mobile -->
+            <ul class="mt-6 grid gap-3 text-slate-800 sm:grid-cols-2">
+              <li class="flex gap-2">
+                <span
+                  class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"
+                ></span>
+                <span>Reserve-side privacy; minimal passing traffic</span>
+              </li>
+              <li class="flex gap-2">
+                <span
+                  class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"
+                ></span>
+                <span
+                  >Mature trees &amp; fernery provide natural screening</span
+                >
+              </li>
+              <li class="flex gap-2 sm:col-span-2">
+                <span
+                  class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"
+                ></span>
+                <span
+                  >Regular native visitors: corellas, rainbow lorikeets, black
+                  &amp; sulphur-crested cockatoos, magpies, kookaburras</span
+                >
+              </li>
+              <li class="flex gap-2">
+                <span
+                  class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"
+                ></span>
+                <span>Sunset through the gums; golden afternoon light</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- RIGHT: image with subtle caption pin -->
+          <figure
+            class="relative aspect-[4/3] w-full overflow-hidden rounded-3xl ring-1 ring-black/5 shadow-2xl"
+          >
+            <img
+              src="/images/drone/03.jpg"
+              alt="Elevated outlook with reserve and distant Glass House Mountains"
+              width="1600"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover"
+            />
+
+            <!-- optional label pin; hide on very small screens -->
+            <figcaption
+              class="pointer-events-none absolute left-6 top-6 hidden sm:flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-sm font-medium text-slate-800 ring-1 ring-slate-200 backdrop-blur"
+            >
+              <span class="inline-block h-2 w-2 rounded-full bg-sky-500"></span>
+              Glass House Mountains
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
     <!-- Why SEQ / Investment angle -->
     <section class="mx-auto max-w-7xl px-4 py-12">
       <div class="grid gap-8 md:grid-cols-2">
+        <!-- SEQ value case -->
         <div class="rounded-3xl border p-6 card">
           <h3 class="text-xl font-semibold">
             Why South East Queensland — and why now
           </h3>
+
           <p class="mt-3 text-slate-700">
-            Greater Brisbane remains undersupplied, with strong population
-            growth and constrained new builds. With the
-            <strong>2032 Olympics</strong> catalysing infrastructure and ongoing
-            migration from southern states, quality lifestyle properties are
-            expected to remain in demand.
+            Greater Brisbane remains <strong>undersupplied</strong> with strong
+            population growth and constrained new builds. The
+            <strong>2032 Olympics</strong> are accelerating infrastructure,
+            while lifestyle migration from southern states continues. Quality
+            acreage and family homes are set to stay in demand.
           </p>
+
           <ul class="mt-4 space-y-2 text-slate-700 feature-list">
             <li>Low comparable stock in the acreage segment</li>
             <li>
-              Strong lifestyle migration to SEQ (value vs Sydney/Melbourne)
+              Ongoing lifestyle migration to SEQ (value vs Sydney/Melbourne)
             </li>
-            <li>Improving buyer sentiment as rates ease</li>
+            <li>Buyer confidence improving as rates stabilise</li>
           </ul>
+
           <p class="mt-3 text-sm text-slate-600">
-            (General information only; buyers should seek independent advice.)
+            (General information only — seek independent advice.)
           </p>
         </div>
+
+        <!-- Sandstone Point lifestyle -->
         <div class="rounded-3xl border p-6 card">
           <h3 class="text-xl font-semibold">Sandstone Point lifestyle</h3>
+
           <p class="mt-3 text-slate-700">
             Minutes to the <strong>Sandstone Point Hotel</strong> — a major
-            events venue hosting concerts and festivals — plus the planned
-            <strong>5‑star resort</strong> precinct. Weeknight dinners, weekend
-            gigs, and Bribie’s beaches all within an easy drive.
+            events venue for concerts and festivals — plus a proposed
+            <strong>5-star resort</strong> precinct. Easy weeknight dining,
+            weekend gigs, and Bribie’s beaches all close by.
           </p>
+
           <ul
             class="mt-4 grid gap-2 sm:grid-cols-2 text-slate-700 feature-list"
           >
-            <li>Concerts & food festivals</li>
-            <li>Marina, foreshore & island access</li>
-            <li>Dining & weekend markets</li>
+            <li>Concerts &amp; food festivals</li>
+            <li>Marina, foreshore &amp; island access</li>
+            <li>Dining &amp; weekend markets</li>
             <li>Resort precinct (in planning)</li>
           </ul>
         </div>
@@ -1174,13 +1728,15 @@
     <!-- For interstate movers -->
     <section class="mx-auto max-w-7xl px-4 py-12">
       <div class="rounded-3xl border p-6 card">
-        <h3 class="text-xl font-semibold">Moving from Sydney or Melbourne?</h3>
+        <h3 class="text-xl font-semibold">
+          Moving from Sydney, Melbourne or beyond?
+        </h3>
         <div
           class="mt-3 rounded-xl bg-amber-50 border border-amber-200 p-3 text-sm text-amber-900"
         >
-          Moving from Sydney or Melbourne? Enjoy a larger block, quieter
-          streets, and a lower cost‑of‑living — without losing access to city
-          amenities.
+          Relocating from Sydney, Melbourne, Canberra — or anywhere else in
+          Australia? Enjoy a larger block, quieter streets, and a lower
+          cost-of-living — without losing access to city amenities.
         </div>
         <p class="mt-3 text-slate-700">
           Trade cramped city living for a
@@ -1190,7 +1746,7 @@
           everyday convenience.
         </p>
         <ul class="mt-4 grid gap-2 sm:grid-cols-2 text-slate-700 feature-list">
-          <li>Off‑street parking for multiple vehicles, caravan or boat</li>
+          <li>Off-street parking for multiple vehicles, caravan or boat</li>
           <li>FTTP fibre internet for hybrid work</li>
           <li>Space for a pool, veggie gardens, pets</li>
         </ul>
@@ -1201,29 +1757,49 @@
     <section id="location" class="mx-auto max-w-7xl px-4 py-12">
       <h2 class="text-2xl font-semibold">Location</h2>
       <p class="mt-2 max-w-prose text-slate-700">
-        Quiet pocket of Elimbah with fast highway access north/south. Surrounded
-        by quality homes and just minutes to everyday essentials.
+        Quiet pocket of Elimbah with fast north–south highway access. Quality
+        homes nearby and everyday essentials just minutes away.
       </p>
+
       <div class="mt-6 grid gap-6 md:grid-cols-2">
+        <!-- Address / bullets -->
         <div class="rounded-3xl border p-6 card">
-          <h3 class="flex items-center gap-2 text-lg font-medium">Address</h3>
-          <p class="mt-2">77–79 Emu Road, Elimbah QLD 4516</p>
-          <ul class="mt-4 feature-list text-slate-700">
-            <li>Neighbour on only two sides; reserve aspect</li>
-            <li>Quiet, low‑traffic street</li>
-            <li>School bus stop at the front (confirm route & times)</li>
-            <li>Quiet residential pocket beside a nature reserve</li>
+          <h3 class="text-lg font-medium">Address</h3>
+          <p class="mt-2 text-slate-900">77–79 Emu Road, Elimbah QLD 4516</p>
+
+          <ul class="mt-4 space-y-2 text-slate-700 feature-list">
+            <li>Neighbour on only two sides; reserve outlook</li>
+            <li>Quiet, low-traffic street</li>
+            <li>School bus stop at the front (confirm route &amp; times)</li>
             <li>Fast highway access north/south</li>
             <li>Shops, schools and services within ~5–10 min</li>
             <li>Aerial/boundary overlay (coming soon)</li>
           </ul>
+
+          <!-- Directions CTA -->
+          <div class="mt-6">
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=77-79+Emu+Road+Elimbah+QLD+4516"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-slate-900 ring-1 ring-slate-900/10 hover:bg-white/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/30"
+            >
+              <i class="fa-solid fa-location-arrow text-slate-700"></i>
+              Open in Google Maps
+            </a>
+          </div>
         </div>
+
+        <!-- Map -->
         <div class="rounded-3xl border p-2 card">
-          <div class="aspect-[4/3] w-full rounded-2xl overflow-hidden">
+          <div
+            class="aspect-[4/3] w-full overflow-hidden rounded-2xl ring-1 ring-black/5 shadow-sm"
+          >
             <iframe
-              title="Map"
+              title="Map: 77–79 Emu Road, Elimbah QLD 4516"
               width="100%"
               height="100%"
+              class="block"
               style="border: 0"
               loading="lazy"
               allowfullscreen
@@ -1241,49 +1817,92 @@
       <div
         class="absolute inset-0 -z-10 bg-gradient-to-br from-slate-50 to-emerald-50"
       ></div>
-      <div class="mx-auto max-w-7xl px-4 py-14">
+
+      <div class="mx-auto max-w-7xl px-4 py-16">
         <div
-          class="grid items-center gap-8 rounded-3xl border p-6 md:grid-cols-2 card"
+          class="grid gap-10 rounded-3xl border p-6 md:grid-cols-12 card bg-white/80 backdrop-blur"
         >
-          <div>
-            <h3 class="text-2xl font-semibold">
-              Interested? Book a private viewing
+          <!-- LEFT: copy + CTAs -->
+          <div class="md:col-span-7 flex flex-col justify-center">
+            <h3 class="text-3xl font-semibold tracking-tight">
+              Interested? 
             </h3>
-            <p class="mt-2 text-slate-700">
-              Contact Harcourts Connections (Agent: Melissa Brooker) to arrange
-              a walkthrough.
-            </p>
-            <div class="mt-6 flex flex-wrap gap-3">
+
+            <p class="mt-3 text-slate-700 max-w-prose">
+              Contact <strong>Harcourts Connections</strong> (Agent:
+              <strong>Melissa Brooker</strong>) to arrange a walkthrough.
+              Private inspections available — or
               <a
                 href="https://www.realestate.com.au/property-house-qld-elimbah-148472268"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn btn-primary"
-                >View Listing</a
+                class="text-blue-600 underline hover:text-blue-800"
+                >view the listing</a
               >
-              <a href="tel:+61XXXXXXXXX" class="btn btn-primary sm:hidden"
-                >Tap to call</a
+              for upcoming open home times.
+            </p>
+
+            <!-- CTAs -->
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <a
+                href="https://www.realestate.com.au/property-house-qld-elimbah-148472268"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:shadow-slate-900/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/40"
               >
+                View Listing
+              </a>
+
+              <a
+                href="#video"
+                class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-semibold text-slate-900 ring-1 ring-slate-900/10 backdrop-blur transition hover:bg-white/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/30 js-watch"
+                data-video-src="https://www.youtube.com/embed/yP4cxBDrNe0"
+              >
+                <i class="fa-regular fa-circle-play mr-2 text-lg"></i>
+                Watch Video Tour
+              </a>
+
+              <a
+                href="tel:+61XXXXXXXXX"
+                class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-semibold text-slate-900 ring-1 ring-slate-900/10 hover:bg-white/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/30"
+              >
+                <i class="fa-solid fa-phone mr-2"></i>
+                Call Melissa
+              </a>
+            </div>
+
+            <!-- micro note -->
+            <p class="mt-3 text-xs text-slate-500">
+              Times may vary; please confirm with the agent.
+            </p>
+          </div>
+
+          <!-- RIGHT: agent image -->
+          <div class="md:col-span-5">
+            <div class="relative mx-auto grid place-items-center">
+              <!-- soft halo -->
+              <div
+                class="pointer-events-none absolute h-64 w-64 rounded-full bg-emerald-200/30 blur-3xl"
+              ></div>
+
+              <figure class="relative z-10 grid place-items-center">
+                <img
+                  src="images/melissa-brooker.jpg"
+                  alt="Agent Melissa Brooker — Harcourts Connections"
+                  class="h-64 w-64 rounded-full object-cover shadow-xl ring-1 ring-black/10"
+                  width="256"
+                  height="256"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption class="mt-3 text-center text-sm text-slate-600">
+                  Melissa Brooker &middot; Harcourts Connections
+                </figcaption>
+              </figure>
             </div>
           </div>
-          <div
-            class="relative aspect-[1/1] w-full overflow-hidden rounded-3xl p-6 shadow-sm grid place-items-center text-slate-500"
-          >
-            <img
-              src="images/melissa-brooker.jpg"
-              alt="Profile image of agent Melissa Brooker"
-              width="300"
-              height="300"
-              style="
-                width: 300px;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 50%;
-                display: block;
-              "
-            />
-          </div>
         </div>
+
         <p class="mt-6 pb-24 text-center text-xs text-slate-500">
           This page is provided by the owners to showcase additional lifestyle
           features and local conveniences. All distances/times approximate;
@@ -1400,89 +2019,102 @@
     <script>
       // Random slight tilt for a more organic polaroid layout
       (function () {
-        function randTilt() { return (Math.random() * 4 - 2).toFixed(2) + 'deg'; }
-        document.querySelectorAll('.feature-figure.polaroid').forEach(el => {
-          if (!el.style.getPropertyValue('--tilt')) {
-            el.style.setProperty('--tilt', randTilt());
+        function randTilt() {
+          return (Math.random() * 4 - 2).toFixed(2) + "deg";
+        }
+        document.querySelectorAll(".feature-figure.polaroid").forEach((el) => {
+          if (!el.style.getPropertyValue("--tilt")) {
+            el.style.setProperty("--tilt", randTilt());
           }
         });
       })();
     </script>
     <script>
-    // --- Lifestyle feature faders (Option A) ---
-    (function () {
-      function normaliseTokens(holder) {
-        const listAttr = holder.getAttribute('data-images');
-        if (listAttr && listAttr.trim().length) {
-          return listAttr.split(',').map(s => s.trim()).filter(Boolean);
-        }
-        const start = parseInt(holder.getAttribute('data-start') || '1', 10);
-        const end = parseInt(holder.getAttribute('data-end') || String(start), 10);
-        const arr = [];
-        for (let i = start; i <= end; i++) arr.push(String(i));
-        return arr;
-      }
-      function toSrc(token) {
-        // Allow full/relative paths or numeric IDs
-        const t = token.trim();
-        if (/\.(jpe?g|png|webp)$/i.test(t)) {
-          // Already a filename; prefix default folder if no slash
-          return t.includes('/') ? t : `images/home-life/${t}`;
-        }
-        if (/^\d+$/.test(t)) {
-          return `images/home-life/${t}.jpg`;
-        }
-        // Fallback: treat as filename under default folder
-        return `images/home-life/${t}`;
-      }
-
-      document.querySelectorAll('.feature-fader').forEach((holder) => {
-        const tokens = normaliseTokens(holder);
-        const shell = document.createElement('div');
-        shell.className = 'swiper';
-        const track = document.createElement('div');
-        track.className = 'swiper-wrapper';
-        shell.appendChild(track);
-
-        tokens.forEach((tok) => {
-          const slide = document.createElement('div');
-          slide.className = 'swiper-slide';
-          const img = document.createElement('img');
-          img.src = toSrc(tok);
-          img.loading = 'lazy';
-          img.decoding = 'async';
-          img.alt = 'Lifestyle photo';
-          const pos = holder.getAttribute('data-pos');
-          if (pos) { img.style.objectPosition = pos; }
-          img.onerror = () => slide.remove();
-          slide.appendChild(img);
-          track.appendChild(slide);
-        });
-
-        const pag = document.createElement('div');
-        pag.className = 'swiper-pagination';
-        shell.appendChild(pag);
-        holder.appendChild(shell);
-
-        requestAnimationFrame(() => {
-          const slides = track.querySelectorAll('.swiper-slide');
-          if (slides.length > 0 && window.Swiper) {
-            new Swiper(shell, {
-              slidesPerView: 1,
-              loop: slides.length > 1,
-              effect: 'fade',
-              fadeEffect: { crossFade: true },
-              autoplay: slides.length > 1 ? { delay: 7500, disableOnInteraction: false } : false,
-              speed: 600,
-              pagination: { el: pag, clickable: true },
-              allowTouchMove: true,
-            });
-          } else {
-            holder.classList.add('img-placeholder');
+      // --- Lifestyle feature faders (Option A) ---
+      (function () {
+        function normaliseTokens(holder) {
+          const listAttr = holder.getAttribute("data-images");
+          if (listAttr && listAttr.trim().length) {
+            return listAttr
+              .split(",")
+              .map((s) => s.trim())
+              .filter(Boolean);
           }
+          const start = parseInt(holder.getAttribute("data-start") || "1", 10);
+          const end = parseInt(
+            holder.getAttribute("data-end") || String(start),
+            10
+          );
+          const arr = [];
+          for (let i = start; i <= end; i++) arr.push(String(i));
+          return arr;
+        }
+        function toSrc(token) {
+          // Allow full/relative paths or numeric IDs
+          const t = token.trim();
+          if (/\.(jpe?g|png|webp)$/i.test(t)) {
+            // Already a filename; prefix default folder if no slash
+            return t.includes("/") ? t : `images/home-life/${t}`;
+          }
+          if (/^\d+$/.test(t)) {
+            return `images/home-life/${t}.jpg`;
+          }
+          // Fallback: treat as filename under default folder
+          return `images/home-life/${t}`;
+        }
+
+        document.querySelectorAll(".feature-fader").forEach((holder) => {
+          const tokens = normaliseTokens(holder);
+          const shell = document.createElement("div");
+          shell.className = "swiper";
+          const track = document.createElement("div");
+          track.className = "swiper-wrapper";
+          shell.appendChild(track);
+
+          tokens.forEach((tok) => {
+            const slide = document.createElement("div");
+            slide.className = "swiper-slide";
+            const img = document.createElement("img");
+            img.src = toSrc(tok);
+            img.loading = "lazy";
+            img.decoding = "async";
+            img.alt = "Lifestyle photo";
+            const pos = holder.getAttribute("data-pos");
+            if (pos) {
+              img.style.objectPosition = pos;
+            }
+            img.onerror = () => slide.remove();
+            slide.appendChild(img);
+            track.appendChild(slide);
+          });
+
+          const pag = document.createElement("div");
+          pag.className = "swiper-pagination";
+          shell.appendChild(pag);
+          holder.appendChild(shell);
+
+          requestAnimationFrame(() => {
+            const slides = track.querySelectorAll(".swiper-slide");
+            if (slides.length > 0 && window.Swiper) {
+              new Swiper(shell, {
+                slidesPerView: 1,
+                loop: slides.length > 1,
+                effect: "fade",
+                fadeEffect: { crossFade: true },
+                autoplay:
+                  slides.length > 1
+                    ? { delay: 7500, disableOnInteraction: false }
+                    : false,
+                speed: 600,
+                pagination: { el: pag, clickable: true },
+                allowTouchMove: true,
+              });
+            } else {
+              holder.classList.add("img-placeholder");
+            }
+          });
         });
-      });
-    })();
+      })();
     </script>
     <div
       id="videoModal"
@@ -1721,4 +2353,3 @@
     </script>
   </body>
 </html>
-
