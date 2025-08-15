@@ -665,20 +665,6 @@
         padding: 0.4rem 0.6rem;
         font-size: 0.9rem;
       }
-      .unmute-btn {
-        position: absolute;
-        right: 0.75rem;
-        bottom: 0.75rem;
-        z-index: 2;
-        appearance: none;
-        border: 0;
-        border-radius: 9999px;
-        padding: 0.5rem 0.75rem;
-        font-size: 0.9rem;
-        background: rgba(15,23,42,0.85);
-        color: #fff;
-      }
-      .unmute-btn:hover { background: rgba(15,23,42,0.95); }
     </style>
     <!-- Swiper.js CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -2043,7 +2029,6 @@
           </button>
         </div>
         <div class="modal-video" id="videoModalFrameWrap">
-          <button type="button" id="unmuteBtn" class="unmute-btn" aria-label="Unmute video">Unmute</button>
           <iframe
             id="videoModalFrame"
             title="Video tour"
@@ -2088,7 +2073,6 @@
         const modal = document.getElementById("videoModal");
         const closeBtn = document.getElementById("videoModalClose");
         const frame = document.getElementById("videoModalFrame");
-        const unmuteBtn = document.getElementById("unmuteBtn");
 
         function youtubeAutoplayUrl(src) {
           try {
@@ -2102,8 +2086,8 @@
               id = u.searchParams.get("v");
             }
             const base = `https://www.youtube.com/embed/${id}`;
-            // Autoplay + loop require playlist param = id
-            return `${base}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=${id}&enablejsapi=1`;
+            // Autoplay with sound (mute=0), no loop, enablejsapi for future control
+            return `${base}?autoplay=1&mute=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1`;
           } catch {
             return src;
           }
@@ -2111,7 +2095,6 @@
 
         function openModal(src) {
           frame.src = youtubeAutoplayUrl(src);
-          if (unmuteBtn) unmuteBtn.style.display = "inline-flex";
           modal.classList.add("open");
           document.documentElement.style.overflow = "hidden";
         }
@@ -2136,23 +2119,6 @@
           if (e.key === "Escape" && modal.classList.contains("open"))
             closeModal();
         });
-        // Unmute control (requires enablejsapi=1). Works on user gesture.
-        if (unmuteBtn) {
-          unmuteBtn.addEventListener("click", () => {
-            try {
-              const cmd = (func, args = []) => {
-                frame.contentWindow.postMessage(
-                  JSON.stringify({ event: "command", func, args }),
-                  "*"
-                );
-              };
-              cmd("unMute");
-              cmd("setVolume", [100]);
-              cmd("playVideo");
-              unmuteBtn.style.display = "none";
-            } catch {}
-          });
-        }
       })();
     </script>
     <script>
