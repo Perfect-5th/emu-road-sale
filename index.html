@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-QRVBE86CSQ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-QRVBE86CSQ");
+    </script>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
@@ -665,7 +680,7 @@
   <body class="min-h-screen bg-white text-slate-800">
     <!-- Hero -->
     <header
-      class="relative isolate overflow-hidden bg-gradient-to-tr from-sky-50 to-indigo-50"
+      class="relative isolate bg-gradient-to-tr from-sky-50 to-indigo-50"
     >
       <div class="mx-auto max-w-7xl px-4 py-16 sm:py-20">
         <div class="grid items-center gap-10 md:grid-cols-2">
@@ -680,8 +695,8 @@
             <h1
               class="mt-5 text-5xl font-semibold tracking-tight text-slate-900 sm:text-6xl md:text-7xl"
             >
-              77–79 Emu Road,<br class="hidden sm:block" /><span
-                class="whitespace-nowrap"
+              77–79 Emu Road,<span class="sm:hidden"> </span><br class="hidden sm:block" /><span
+                class="sm:whitespace-nowrap"
                 >Elimbah QLD</span
               >
             </h1>
@@ -745,7 +760,7 @@
           </div>
 
           <!-- RIGHT: image card with depth & subtle overlay -->
-          <div class="relative">
+          <div class="relative overflow-x-hidden">
             <div
               class="relative aspect-video w-full overflow-hidden rounded-3xl ring-1 ring-black/5 shadow-2xl"
             >
@@ -773,8 +788,10 @@
         </div>
       </div>
 
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
+      <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+      </div>
     </header>
     <nav class="sticky-nav">
       <div
@@ -791,7 +808,6 @@
           <a href="#highlights">Highlights</a>
           <a href="#gallery">Gallery</a>
           <a href="#lifestyle">Lifestyle</a>
-          <a href="#proximity">Proximity</a>
           <a href="#location">Location</a>
           <a href="#enquire" class="btn btn-primary">Enquire</a>
         </div>
@@ -1061,7 +1077,7 @@
                     <a
                       class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
                       target="_blank"
-                      href="https://www.drakes.com.au/store/pumicestone-village-shopping-centre/"
+                      href="https://pumicestone.drakes.com.au/"
                     >
                       Pumicestone Village Shopping Centre (Drakes)
                     </a>
@@ -1086,7 +1102,7 @@
                     <a
                       class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
                       target="_blank"
-                      href="https://translink.com.au/plan-your-journey/stops/600317"
+                      href="https://jp.translink.com.au/plan-your-journey/stops/caboolture-station"
                     >
                       Caboolture train station
                     </a>
@@ -1111,7 +1127,7 @@
                     <a
                       class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
                       target="_blank"
-                      href="https://translink.com.au/plan-your-journey/stops/600144"
+                      href="https://jp.translink.com.au/plan-your-journey/stops/elimbah-station"
                     >
                       Elimbah train station
                     </a>
@@ -1166,6 +1182,7 @@
                         >Sandstone Point Hotel</a
                       >
                       &nbsp;(&nbsp;<a
+                        target="_blank"
                         class="text-sky-700 underline underline-offset-2 hover:text-sky-800"
                         href="https://comiskey.com.au/major-news-250m-sandstone-point-expansion-announced/"
                         >proposed 5-star Resort precinct</a
@@ -1269,7 +1286,7 @@
                       target="_blank"
                       href="https://accessiblebeaches.com/beach-directory/woorim-beach"
                     >
-                      Bribie Island (Woorim beaches)
+                      Bribie Island (Woorim Beach)
                     </a>
                     <div class="text-sm text-slate-600">≈ 35–45 min</div>
                   </div>
@@ -1317,7 +1334,7 @@
                     <a
                       class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
                       target="_blank"
-                      href="https://www.visitsunshinecoast.com/places-to-see/hinterland/maleny"
+                      href="https://www.visitsunshinecoast.com/guide/things-to-do-in-maleny"
                     >
                       Sunshine Coast Hinterland (Maleny / Montville)
                     </a>
@@ -1566,9 +1583,15 @@
 
             <p class="mt-3 text-slate-700">
               Just a short drive to the <strong>Sandstone Point Hotel</strong> —
-              a major events venue for concerts and festivals — plus a proposed
-              <strong>5-star resort</strong> precinct. Easy weeknight dining,
-              weekend gigs, and Bribie’s beaches all close by.
+              a major events venue for concerts and festivals — plus a
+              <a
+                target="_blank"
+                class="text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                href="https://comiskey.com.au/major-news-250m-sandstone-point-expansion-announced/"
+                >proposed <strong>5-star resort</strong> precinct</a
+              >
+              . Easy weeknight dining, weekend gigs, and Bribie’s beaches all
+              close by.
             </p>
 
             <ul
@@ -1692,8 +1715,14 @@
 
             <p class="mt-3 text-slate-700 max-w-prose">
               Contact <strong>Harcourts Connections</strong> (Agent:
-              <strong>Melissa Brooker</strong>) to arrange a walkthrough.
-              Private inspections available — or
+              <strong
+                ><a
+                  class="text-blue-600 underline hover:text-blue-800"
+                  target="_blank"
+                  href="https://harcourts.net/au/office/connections-caboolture/people/melissa-brooker"
+                  >Melissa Brooker</a
+                ></strong
+              >) to arrange a walkthrough. Private inspections available — or
               <a
                 href="https://www.realestate.com.au/property-house-qld-elimbah-148472268"
                 target="_blank"
@@ -1725,7 +1754,7 @@
               </a>
 
               <a
-                href="tel:+61XXXXXXXXX"
+                href="tel:+61494140659"
                 class="inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-semibold text-slate-900 ring-1 ring-slate-900/10 hover:bg-white/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/30"
               >
                 <i class="fa-solid fa-phone mr-2"></i>
@@ -1768,8 +1797,7 @@
         <p class="mt-6 pb-24 text-center text-xs text-slate-500">
           This page is provided by the owners to showcase additional lifestyle
           features and local conveniences. All distances/times approximate;
-          buyers should make their own enquiries. Listing facts sourced from the
-          agent’s published details.
+          buyers should make their own enquiries.
         </p>
       </div>
     </footer>
