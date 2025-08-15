@@ -643,11 +643,12 @@
         width: min(1080px, 96vw);
         aspect-ratio: 16/9;
         background: #000;
-        border-radius: 0;      /* square corners */
-        overflow: hidden;      /* keep overflow hidden for cleanliness */
+        border-radius: 0; /* square corners */
+        overflow: hidden; /* keep overflow hidden for cleanliness */
       }
       /* WebKit/Safari fallback removed: keep square corners */
-      .modal-video,-webkit .modal-video {
+      .modal-video,
+      -webkit .modal-video {
         -webkit-mask-image: none;
       }
       .modal video,
@@ -685,9 +686,7 @@
   </head>
   <body class="min-h-screen bg-white text-slate-800">
     <!-- Hero -->
-    <header
-      class="relative isolate bg-gradient-to-tr from-sky-50 to-indigo-50"
-    >
+    <header class="relative isolate bg-gradient-to-tr from-sky-50 to-indigo-50">
       <div class="mx-auto max-w-7xl px-4 py-16 sm:py-20">
         <div class="grid items-center gap-10 md:grid-cols-2">
           <!-- LEFT: copy -->
@@ -701,8 +700,8 @@
             <h1
               class="mt-5 text-5xl font-semibold tracking-tight text-slate-900 sm:text-6xl md:text-7xl"
             >
-              77–79 Emu Road,<span class="sm:hidden"> </span><br class="hidden sm:block" /><span
-                class="sm:whitespace-nowrap"
+              77–79 Emu Road,<span class="sm:hidden"> </span
+              ><br class="hidden sm:block" /><span class="sm:whitespace-nowrap"
                 >Elimbah QLD</span
               >
             </h1>
@@ -1088,6 +1087,61 @@
                       Pumicestone Village Shopping Centre (Drakes)
                     </a>
                     <div class="text-sm text-slate-600">4 min</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Schools -->
+              <div
+                class="rounded-2xl bg-white p-4 ring-1 ring-slate-100 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              >
+                <div class="flex items-start gap-3">
+                  <span
+                    class="mt-0.5 grid h-9 w-9 place-items-center rounded-lg bg-slate-50 text-slate-700"
+                  >
+                    <i
+                      class="fa-solid fa-school prox-icon"
+                      aria-hidden="true"
+                    ></i>
+                  </span>
+                  <div>
+                    <a
+                      class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                      target="_blank"
+                      href="https://moreton.acc.edu.au/"
+                    >
+                      Australian Christian College – Moreton
+                    </a>
+                    <div class="text-sm text-slate-600">
+                      (P–12, independent) &middot; ≈ 4–6 min
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="rounded-2xl bg-white p-4 ring-1 ring-slate-100 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              >
+                <div class="flex items-start gap-3">
+                  <span
+                    class="mt-0.5 grid h-9 w-9 place-items-center rounded-lg bg-slate-50 text-slate-700"
+                  >
+                    <i
+                      class="fa-solid fa-school prox-icon"
+                      aria-hidden="true"
+                    ></i>
+                  </span>
+                  <div>
+                    <a
+                      class="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-800"
+                      target="_blank"
+                      href="https://pumicestoness.eq.edu.au/"
+                    >
+                      Pumicestone State School
+                    </a>
+                    <div class="text-sm text-slate-600">
+                      (Prep–6, state) &middot; ≈ 4–5 min
+                    </div>
                   </div>
                 </div>
               </div>
