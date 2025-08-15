@@ -686,7 +686,7 @@
   </head>
   <body class="min-h-screen bg-white text-slate-800">
     <!-- Hero -->
-    <header class="relative isolate bg-gradient-to-tr from-sky-50 to-indigo-50">
+    <header class="relative isolate overflow-hidden bg-gradient-to-tr from-sky-50 to-indigo-50">
       <div class="mx-auto max-w-7xl px-4 py-16 sm:py-20">
         <div class="grid items-center gap-10 md:grid-cols-2">
           <!-- LEFT: copy -->
@@ -765,7 +765,7 @@
           </div>
 
           <!-- RIGHT: image card with depth & subtle overlay -->
-          <div class="relative overflow-x-hidden">
+          <div class="relative overflow-hidden">
             <div
               class="relative aspect-video w-full overflow-hidden rounded-3xl ring-1 ring-black/5 shadow-2xl"
             >
@@ -787,7 +787,7 @@
 
             <!-- subtle floating effect on large screens -->
             <div
-              class="pointer-events-none absolute -inset-x-6 -inset-y-6 hidden rounded-[2rem] bg-sky-100/0 blur-2xl sm:block"
+              class="pointer-events-none absolute inset-0 hidden rounded-[2rem] bg-sky-100/0 blur-2xl sm:block"
             ></div>
           </div>
         </div>
@@ -797,6 +797,16 @@
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
       </div>
+      <!-- Scroll cue (mobile only) -->
+      <a
+        href="#highlights"
+        class="absolute bottom-4 left-1/2 -translate-x-1/2 inline-flex items-center justify-center h-10 w-10 rounded-full bg-white/80 ring-1 ring-black/10 backdrop-blur text-slate-900 shadow-sm md:hidden animate-bounce"
+        aria-label="Scroll to highlights"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+          <path fill-rule="evenodd" d="M12 16a1 1 0 0 1-.707-.293l-5-5a1 1 0 1 1 1.414-1.414L12 13.586l4.293-4.293a1 1 0 1 1 1.414 1.414l-5 5A1 1 0 0 1 12 16z" clip-rule="evenodd"/>
+        </svg>
+      </a>
     </header>
     <!-- Next Open Home band (renders via JS; hidden if no upcoming) -->
     <section id="openHomeBand" class="relative isolate bg-slate-900 text-white hidden">
@@ -820,7 +830,7 @@
         </div>
       </div>
     </section>
-    <nav class="sticky-nav">
+    <nav class="sticky-nav hidden md:block">
       <div
         class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between gap-3 min-w-0"
       >
@@ -832,11 +842,11 @@
         <div
           class="flex items-center text-sm gap-3 sm:gap-4 overflow-x-auto no-scrollbar whitespace-nowrap min-w-0"
         >
-          <a href="#highlights">Highlights</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#lifestyle">Lifestyle</a>
-          <a href="#location">Location</a>
-          <a href="#enquire" class="btn btn-primary">Enquire</a>
+          <a href="#highlights">Overview</a>
+          <a href="#gallery">Photo Gallery</a>
+          <a href="#lifestyle">Welcome Home</a>
+          <a href="#location">Map & Location</a>
+          <a href="#enquire" class="btn btn-primary">Contact</a>
         </div>
       </div>
     </nav>
@@ -2844,6 +2854,38 @@
           if (!btn) return;
           const idx = parseInt(btn.getAttribute("data-index") || "0", 10);
           openModalAt(isNaN(idx) ? 0 : idx);
+        });
+      })();
+    </script>
+    <!-- Back to top (mobile-first) -->
+    <button
+      id="backToTop"
+      type="button"
+      aria-label="Back to top"
+      class="fixed bottom-24 right-4 z-40 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 ring-1 ring-black/10 shadow-md text-slate-900 transition opacity-0 pointer-events-none md:hidden"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+        <path fill-rule="evenodd" d="M12 8a1 1 0 0 1 .707.293l5 5a1 1 0 0 1-1.414 1.414L12 10.414l-4.293 4.293A1 1 0 0 1 6.293 13.293l5-5A1 1 0 0 1 12 8z" clip-rule="evenodd"/>
+      </svg>
+    </button>
+    <script>
+      // Back-to-top toggle (appears after ~1.5 screens)
+      (function () {
+        const btn = document.getElementById('backToTop');
+        if (!btn) return;
+        function update() {
+          const threshold = window.innerHeight * 1.5;
+          if (window.scrollY > threshold) {
+            btn.classList.remove('opacity-0', 'pointer-events-none');
+          } else {
+            btn.classList.add('opacity-0', 'pointer-events-none');
+          }
+        }
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        update();
+        btn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       })();
     </script>
