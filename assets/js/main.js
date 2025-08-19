@@ -92,6 +92,7 @@ class EmuRoadApp {
       const SCROLL_MARGIN = CONFIG.scroll.margin;
       const DURATION_MS = CONFIG.scroll.duration;
 
+      // Easing function for smooth animation
       const easeInOutCubic = (t) =>
         t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
@@ -103,10 +104,13 @@ class EmuRoadApp {
         if (!href || href === "#" || href === "#!") return;
 
         const target = document.querySelector(href);
-        if (!target) return; // allow default for non-existing targets
+        if (!target) {
+          console.warn(`Smooth scroll target not found: ${href}`);
+          return; // allow default for non-existing targets
+        }
 
         e.preventDefault();
-        this.smoothScrollTo(target, SCROLL_MARGIN, DURATION_MS, href);
+        this.smoothScrollTo(target, SCROLL_MARGIN, DURATION_MS, href, easeInOutCubic);
       });
     } catch (error) {
       console.error("Failed to setup smooth scrolling:", error);
@@ -116,7 +120,7 @@ class EmuRoadApp {
   /**
    * Smooth scroll to a target element
    */
-  smoothScrollTo(target, margin, duration, hash) {
+  smoothScrollTo(target, margin, duration, hash, easingFunction) {
     try {
       const startY = window.pageYOffset;
       const rectTop = target.getBoundingClientRect().top;
@@ -133,9 +137,10 @@ class EmuRoadApp {
       const step = (now) => {
         const elapsed = now - startTime;
         const t = Math.min(1, elapsed / duration);
-        const eased = easeInOutCubic(t);
+        const eased = easingFunction(t);
         
-        window.scrollTo(0, startY + (destY - startY) * eased);
+        const currentY = startY + (destY - startY) * eased;
+        window.scrollTo(0, currentY);
         
         if (t < 1) {
           requestAnimationFrame(step);
@@ -408,6 +413,16 @@ const app = new EmuRoadApp();
 
 // Make app available globally for debugging
 window.emuRoadApp = app;
+
+// Add test function for smooth scroll debugging
+window.testSmoothScroll = function(targetId) {
+  const target = document.querySelector(targetId);
+  if (target) {
+    app.smoothScrollTo(target, 96, 900, targetId, (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  } else {
+    console.error(`Target not found: ${targetId}`);
+  }
+};
 
 // Auto-initialize
 app.init().catch(error => {

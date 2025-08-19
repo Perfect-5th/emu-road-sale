@@ -12,7 +12,6 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-QRVBE86CSQ");
     </script>
 
@@ -56,21 +55,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="canonical" href="https://77-79-emu-rd-elimbah.netlify.app/" />
+    
+    <!-- SEO Meta Tags -->
     <title>
       77–79 Emu Road, Elimbah QLD — ¾‑acre executive home | dual‑living friendly
       | close to coast & city
     </title>
-    <link
-      rel="preload"
-      as="image"
-      href="/.netlify/images?url=/images/drone/02.jpg&w=1600&fit=cover&q=60"
-      imagesizes="(min-width:768px) 50vw, 100vw"
-      imagesrcset="/.netlify/images?url=/images/drone/02.jpg&w=640&q=60 640w, /.netlify/images?url=/images/drone/02.jpg&w=960&q=60 960w, /.netlify/images?url=/images/drone/02.jpg&w=1200&q=60 1200w, /.netlify/images?url=/images/drone/02.jpg&w=1600&q=60 1600w, /.netlify/images?url=/images/drone/02.jpg&w=2000&q=60 2000w"
-    />
     <meta
       name="description"
       content="Executive country home on ¾ acre (3,011 m²) with dual‑living friendly layout, FTTP, solar, shed & reserve outlook. Around 30–40 min to Sunshine Coast beaches and roughly an hour to Brisbane CBD."
     />
+    <meta name="keywords" content="Elimbah, Queensland, property, acreage, executive home, dual-living, Sunshine Coast, Brisbane" />
+    <meta name="author" content="Harcourts Connections" />
+    
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="77–79 Emu Road, Elimbah" />
     <meta
@@ -96,6 +94,8 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_AU" />
+    
+    <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
@@ -109,105 +109,59 @@
       name="twitter:image"
       content="https://77-79-emu-rd-elimbah.netlify.app/.netlify/images?url=/images/drone/02.jpg&w=1200&h=630&fit=cover&q=70&fm=jpg"
     />
-    <!-- Tailwind Play CDN for quick deploy -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      // Netlify Image CDN helpers (no deprecated nf_resize; uses /.netlify/images)
-      window.NIMG = (function () {
-        const CDN_PATH = "/.netlify/images";
-        function toCdnUrl(src, params = {}) {
-          if (!src) return src;
-          // Ensure relative paths start with a slash
-          const isAbs = /^https?:\/\//i.test(src);
-          const clean = isAbs ? src : src.startsWith("/") ? src : "/" + src;
-          const u = new URL(CDN_PATH, location.origin);
-          u.searchParams.set("url", clean);
-          if (params.w) u.searchParams.set("w", params.w);
-          if (params.h) u.searchParams.set("h", params.h);
-          if (params.fit) u.searchParams.set("fit", params.fit);
-          if (params.q) u.searchParams.set("q", params.q);
-          // Do not set fm — allow CDN content negotiation per docs (webp/avif/original)
-          return u.pathname + "?" + u.searchParams.toString();
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateListing",
+      "name": "77–79 Emu Road, Elimbah QLD",
+      "description": "Executive country home on ¾ acre with dual‑living friendly layout, FTTP, solar, shed & reserve outlook.",
+      "url": "https://77-79-emu-rd-elimbah.netlify.app/",
+      "image": "https://77-79-emu-rd-elimbah.netlify.app/.netlify/images?url=/images/drone/02.jpg&w=1200&h=630&fit=cover&q=70&fm=jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "77–79 Emu Road",
+        "addressLocality": "Elimbah",
+        "addressRegion": "QLD",
+        "postalCode": "4516",
+        "addressCountry": "AU"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "1450000",
+        "priceCurrency": "AUD",
+        "availability": "https://schema.org/InStock"
+      },
+      "numberOfBedrooms": 4,
+      "numberOfBathroomsTotal": 2,
+      "floorSize": {
+        "@type": "QuantitativeValue",
+        "value": "3011",
+        "unitCode": "MTK"
+      },
+      "agent": {
+        "@type": "RealEstateAgent",
+        "name": "Melissa Brooker",
+        "worksFor": {
+          "@type": "RealEstateAgent",
+          "name": "Harcourts Connections"
         }
-        function buildSrcSet(src, widths, params = {}) {
-          return widths
-            .map((w) => `${toCdnUrl(src, { ...params, w })} ${w}w`)
-            .join(", ");
-        }
-        function optimise(img, opts = {}) {
-          if (!img || img.dataset.nimgOptimised) return;
-          const raw =
-            img.getAttribute("data-rawsrc") || img.getAttribute("src");
-          if (!raw) return;
-          const kind = opts.kind || img.dataset.kind || "generic";
-          // Reasonable defaults by kind
-          let widths = [480, 768, 1024, 1280, 1600];
-          let sizes =
-            img.getAttribute("sizes") ||
-            img.dataset.sizes ||
-            "(min-width:768px) 50vw, 100vw";
-          let params = { q: 60 };
-          if (kind === "avatar") {
-            widths = [128, 192, 256, 320];
-            sizes = img.getAttribute("sizes") || img.dataset.sizes || "160px";
-            params.fit = "cover";
-          } else if (kind === "hero") {
-            widths = [640, 960, 1200, 1600, 2000];
-            sizes =
-              img.getAttribute("sizes") ||
-              img.dataset.sizes ||
-              "(min-width:768px) 50vw, 100vw";
-          } else if (kind === "feature") {
-            widths = [640, 960, 1200, 1440];
-            sizes =
-              img.getAttribute("sizes") ||
-              img.dataset.sizes ||
-              "(min-width:768px) 50vw, 100vw";
-          }
-          // Apply responsive sources
-          img.setAttribute("srcset", buildSrcSet(raw, widths, params));
-          img.setAttribute("sizes", sizes);
-          // Pick a sensible default src (middle of the pack)
-          const fallbackW = widths[Math.min(2, widths.length - 1)];
-          img.setAttribute("src", toCdnUrl(raw, { ...params, w: fallbackW }));
-          img.setAttribute("loading", img.getAttribute("loading") || "lazy");
-          img.setAttribute("decoding", img.getAttribute("decoding") || "async");
-          img.dataset.nimgOptimised = "true";
-        }
-        function optimiseAll(root = document) {
-          root
-            .querySelectorAll(
-              "img[data-rawsrc], img[src^='images/'], img[src^='/images/']"
-            )
-            .forEach((img) => optimise(img));
-        }
-        // Optimise existing images on DOM ready
-        if (document.readyState !== "loading") {
-          optimiseAll();
-        } else {
-          document.addEventListener("DOMContentLoaded", () => optimiseAll());
-        }
-        // Watch for dynamically inserted images (e.g., galleries)
-        const mo = new MutationObserver((muts) => {
-          muts.forEach((m) => {
-            m.addedNodes.forEach((n) => {
-              if (n.nodeType === 1) {
-                if (n.tagName === "IMG") optimise(n);
-                else optimiseAll(n);
-              }
-            });
-          });
-        });
-        mo.observe(document.documentElement, {
-          childList: true,
-          subtree: true,
-        });
-        return { toCdnUrl, buildSrcSet, optimise, optimiseAll };
-      })();
+      }
+    }
     </script>
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <!-- Swiper.js CSS -->
+
+    <!-- Preload Critical Resources -->
+    <link
+      rel="preload"
+      as="image"
+      href="/.netlify/images?url=/images/drone/02.jpg&w=1600&fit=cover&q=60"
+      imagesizes="(min-width:768px) 50vw, 100vw"
+      imagesrcset="/.netlify/images?url=/images/drone/02.jpg&w=640&q=60 640w, /.netlify/images?url=/images/drone/02.jpg&w=960&q=60 960w, /.netlify/images?url=/images/drone/02.jpg&w=1200&q=60 1200w, /.netlify/images?url=/images/drone/02.jpg&w=1600&q=60 1600w, /.netlify/images?url=/images/drone/02.jpg&w=2000&q=60 2000w"
+    />
+    
+    <!-- External Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -223,11 +177,23 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    
+    <!-- Image Optimization Script -->
+    <script src="assets/js/imageOptimization.js"></script>
   </head>
   <body class="min-h-screen bg-white text-slate-800">
-    <!-- Hero -->
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-slate-900 text-white px-4 py-2 rounded z-50">
+      Skip to main content
+    </a>
+
+    <!-- Hero Section -->
     <header
       class="relative isolate overflow-hidden bg-gradient-to-tr from-sky-50 to-indigo-50"
+      role="banner"
     >
       <div class="mx-auto max-w-7xl px-4 py-16 sm:py-20">
         <div class="grid items-center gap-10 md:grid-cols-2">
@@ -368,57 +334,63 @@
         </svg>
       </a>
     </header>
-    <!-- Next Open Home band (renders via JS; hidden if no upcoming) -->
-    <section
-      id="openHomeBand"
-      class="relative isolate bg-slate-900 text-white hidden"
-    >
-      <div class="mx-auto max-w-7xl px-4 py-3">
-        <div
-          class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between"
-        >
-          <div class="min-w-0">
-            <div class="text-xs uppercase tracking-wide text-white/70">
-              Next open home
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+      <!-- Next Open Home band (renders via JS; hidden if no upcoming) -->
+      <section
+        id="openHomeBand"
+        class="relative isolate bg-slate-900 text-white hidden"
+        aria-label="Next open home information"
+      >
+        <div class="mx-auto max-w-7xl px-4 py-3">
+          <div
+            class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between"
+          >
+            <div class="min-w-0">
+              <div class="text-xs uppercase tracking-wide text-white/70">
+                Next open home
+              </div>
+              <div
+                id="openHomeWhen"
+                class="mt-0.5 text-lg font-semibold"
+                aria-live="polite"
+              ></div>
             </div>
-            <div
-              id="openHomeWhen"
-              class="mt-0.5 text-lg font-semibold"
-              aria-live="polite"
-            ></div>
-          </div>
-          <div class="flex flex-wrap items-center gap-2 md:gap-3">
-            <a
-              id="ohAddCal"
-              href="#"
-              class="btn rounded-xl bg-white text-slate-900 font-semibold px-4 py-2"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fa-regular fa-calendar mr-2"></i>Add to Calendar
-            </a>
-            <a
-              id="ohGCal"
-              href="#"
-              class="btn rounded-xl bg-white/10 ring-1 ring-white/30 text-white hover:bg-white/15 px-4 py-2"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fa-brands fa-google mr-2"></i>Google Calendar
-            </a>
-            <a
-              id="ohDirections"
-              href="https://www.google.com/maps/dir/?api=1&amp;destination=77-79+Emu+Road+Elimbah+QLD+4516"
-              class="btn rounded-xl bg-transparent ring-1 ring-white/40 text-white hover:bg-white/10 px-4 py-2"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fa-solid fa-location-arrow mr-2"></i>Get Directions
-            </a>
+            <div class="flex flex-wrap items-center gap-2 md:gap-3">
+              <a
+                id="ohAddCal"
+                href="#"
+                class="btn rounded-xl bg-white text-slate-900 font-semibold px-4 py-2"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Add open home to calendar"
+              >
+                <i class="fa-regular fa-calendar mr-2" aria-hidden="true"></i>Add to Calendar
+              </a>
+              <a
+                id="ohGCal"
+                href="#"
+                class="btn rounded-xl bg-white/10 ring-1 ring-white/30 text-white hover:bg-white/15 px-4 py-2"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Add to Google Calendar"
+              >
+                <i class="fa-brands fa-google mr-2" aria-hidden="true"></i>Google Calendar
+              </a>
+              <a
+                id="ohDirections"
+                href="https://www.google.com/maps/dir/?api=1&amp;destination=77-79+Emu+Road+Elimbah+QLD+4516"
+                class="btn rounded-xl bg-transparent ring-1 ring-white/40 text-white hover:bg-white/10 px-4 py-2"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Get directions to property"
+              >
+                <i class="fa-solid fa-location-arrow mr-2" aria-hidden="true"></i>Get Directions
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     <nav class="sticky-nav hidden md:block">
       <div
         class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between gap-3 min-w-0"
@@ -1500,7 +1472,10 @@
         </p>
       </div>
     </footer>
-    <div id="stickyCta" class="sticky-bar px-4">
+    </main>
+    
+    <!-- Sticky CTA Bar -->
+    <div id="stickyCta" class="sticky-bar px-4" aria-label="Quick actions">
       <div
         class="mx-auto max-w-7xl backdrop-blur bg-white/90 border shadow-sm rounded-2xl px-4 py-3 flex items-center justify-between gap-3"
       >
@@ -1513,204 +1488,21 @@
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-primary"
+            aria-label="View property listing"
             >View Listing</a
           >
           <a
             href="#video"
             class="btn btn-cta js-watch"
             data-video-src="https://www.youtube.com/embed/yP4cxBDrNe0"
-            ><i class="fa-regular fa-circle-play icon"></i
+            aria-label="Watch video tour"
+            ><i class="fa-regular fa-circle-play icon" aria-hidden="true"></i
             ><span>Watch Video</span></a
           >
         </div>
       </div>
     </div>
-
-    <!-- Toast removed -->
-    <script>
-      // --- Configurable URLs ---
-      const VIDEO_URL = null; // e.g. "https://www.youtube.com/embed/XXXX"
-
-      // (Gallery swiper initialises inside the fullscreen modal when opened)
-
-      // (lucide icons removed)
-
-      // Sticky CTA appears after hero leaves viewport
-      const heroEl = document.querySelector("header");
-      const sticky = document.getElementById("stickyCta");
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              sticky.classList.remove("show");
-            } else {
-              sticky.classList.add("show");
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-      if (heroEl) io.observe(heroEl);
-
-      // Slower, consistent smooth scrolling for on-page anchors
-      (function () {
-        const SCROLL_MARGIN = 96; // matches :target scroll-margin-top
-        const DURATION_MS = 900; // increase to slow down
-
-        const easeInOutCubic = (t) =>
-          t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-
-        document.addEventListener("click", (e) => {
-          const anchor = e.target.closest('a[href^="#"]');
-          if (!anchor) return;
-
-          const href = anchor.getAttribute("href");
-          if (!href || href === "#" || href === "#!") return;
-
-          const target = document.querySelector(href);
-          if (!target) return; // allow default for non-existing targets
-
-          e.preventDefault();
-
-          const startY = window.pageYOffset;
-          const rectTop = target.getBoundingClientRect().top;
-          const destY = Math.max(
-            0,
-            Math.min(
-              document.documentElement.scrollHeight - window.innerHeight,
-              startY + rectTop - SCROLL_MARGIN
-            )
-          );
-
-          const startTime = performance.now();
-
-          function step(now) {
-            const elapsed = now - startTime;
-            const t = Math.min(1, elapsed / DURATION_MS);
-            const eased = easeInOutCubic(t);
-            window.scrollTo(0, startY + (destY - startY) * eased);
-            if (t < 1) {
-              requestAnimationFrame(step);
-            } else {
-              // Update URL hash without jumping
-              history.replaceState(null, "", href);
-              // Optional: move focus for accessibility, without auto-scrolling
-              if (typeof target.focus === "function") {
-                target.setAttribute("tabindex", "-1");
-                target.focus({ preventScroll: true });
-              }
-            }
-          }
-          requestAnimationFrame(step);
-        });
-      })();
-    </script>
-    <script>
-      // Random slight tilt for a more organic polaroid layout
-      (function () {
-        function randTilt() {
-          return (Math.random() * 4 - 2).toFixed(2) + "deg";
-        }
-        document.querySelectorAll(".feature-figure.polaroid").forEach((el) => {
-          if (!el.style.getPropertyValue("--tilt")) {
-            el.style.setProperty("--tilt", randTilt());
-          }
-        });
-      })();
-    </script>
-    <script>
-      // --- Lifestyle feature faders (Option A) ---
-      (function () {
-        function normaliseTokens(holder) {
-          const listAttr = holder.getAttribute("data-images");
-          if (listAttr && listAttr.trim().length) {
-            return listAttr
-              .split(",")
-              .map((s) => s.trim())
-              .filter(Boolean);
-          }
-          const start = parseInt(holder.getAttribute("data-start") || "1", 10);
-          const end = parseInt(
-            holder.getAttribute("data-end") || String(start),
-            10
-          );
-          const arr = [];
-          for (let i = start; i <= end; i++) arr.push(String(i));
-          return arr;
-        }
-        function toSrc(token) {
-          // Allow full/relative paths or numeric IDs
-          const t = token.trim();
-          if (/\.(jpe?g|png|webp)$/i.test(t)) {
-            // Already a filename; prefix default folder if no slash
-            return t.includes("/") ? t : `images/home-life/${t}`;
-          }
-          if (/^\d+$/.test(t)) {
-            return `images/home-life/${t}.jpg`;
-          }
-          // Fallback: treat as filename under default folder
-          return `images/home-life/${t}`;
-        }
-
-        document.querySelectorAll(".feature-fader").forEach((holder) => {
-          const tokens = normaliseTokens(holder);
-          const shell = document.createElement("div");
-          shell.className = "swiper";
-          const track = document.createElement("div");
-          track.className = "swiper-wrapper";
-          shell.appendChild(track);
-
-          tokens.forEach((tok) => {
-            const slide = document.createElement("div");
-            slide.className = "swiper-slide";
-            const img = document.createElement("img");
-            img.setAttribute("data-rawsrc", toSrc(tok));
-            img.setAttribute("loading", "lazy");
-            img.setAttribute("decoding", "async");
-            img.alt = "Lifestyle photo";
-            img.style.objectFit = "cover";
-            img.style.objectPosition = "center center";
-            img.onerror = () => slide.remove();
-            slide.appendChild(img);
-            track.appendChild(slide);
-            // Optimise immediately via Netlify Image CDN
-            if (window.NIMG) window.NIMG.optimise(img, { kind: "feature" });
-          });
-
-          const pag = document.createElement("div");
-          pag.className = "swiper-pagination";
-          shell.appendChild(pag);
-          holder.appendChild(shell);
-
-          requestAnimationFrame(() => {
-            const slides = track.querySelectorAll(".swiper-slide");
-            if (slides.length > 0 && window.Swiper) {
-              new Swiper(shell, {
-                slidesPerView: 1,
-                loop: slides.length > 1,
-                effect: "fade",
-                fadeEffect: { crossFade: true },
-                autoplay:
-                  slides.length > 1
-                    ? { delay: 7500, disableOnInteraction: false }
-                    : false,
-                speed: 600,
-                pagination: { el: pag, clickable: true },
-                allowTouchMove: true,
-              });
-            } else {
-              holder.classList.add("img-placeholder");
-            }
-          });
-        });
-      })();
-    </script>
-    <script>
-      // Final pass once everything is initialised
-      window.addEventListener("load", function () {
-        if (window.NIMG) window.NIMG.optimiseAll();
-      });
-    </script>
+    <!-- Video Modal -->
     <div
       id="videoModal"
       class="modal"
@@ -1724,7 +1516,7 @@
           style="background: transparent; border-bottom: 0"
         >
           <div id="videoModalTitle" class="sr-only">Video Tour</div>
-          <button type="button" class="modal-close" id="videoModalClose">
+          <button type="button" class="modal-close" id="videoModalClose" aria-label="Close video">
             Close
           </button>
         </div>
@@ -1740,6 +1532,8 @@
         </div>
       </div>
     </div>
+    
+    <!-- Gallery Modal -->
     <div
       id="galleryModal"
       class="gallery-modal"
@@ -1750,792 +1544,20 @@
       <div class="modal-card">
         <div class="modal-head">
           <div id="galleryModalTitle" class="sr-only">Photo Gallery</div>
-          <button type="button" class="modal-close" id="galleryModalClose">
+          <button type="button" class="modal-close" id="galleryModalClose" aria-label="Close gallery">
             Close
           </button>
         </div>
         <div class="modal-body" style="width: 100%; height: calc(100% - 48px)">
-          <!-- Swiper for fullscreen images -->
-
           <div class="swiper" id="gallerySwiper">
             <div class="swiper-wrapper"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev" aria-label="Previous image"></div>
+            <div class="swiper-button-next" aria-label="Next image"></div>
             <div class="swiper-pagination"></div>
           </div>
         </div>
       </div>
     </div>
-    <script>
-      // --- Video modal ---
-      (function () {
-        const openers = document.querySelectorAll(".js-watch");
-        const modal = document.getElementById("videoModal");
-        const closeBtn = document.getElementById("videoModalClose");
-        const frame = document.getElementById("videoModalFrame");
-
-        function youtubeAutoplayUrl(src) {
-          try {
-            // Expecting an embed URL like https://www.youtube.com/embed/VIDEOID
-            const u = new URL(src, location.href);
-            const isEmbed = /\/embed\//.test(u.pathname);
-            let id = "";
-            if (isEmbed) {
-              id = u.pathname.split("/").pop();
-            } else if (u.searchParams.get("v")) {
-              id = u.searchParams.get("v");
-            }
-            const base = `https://www.youtube.com/embed/${id}`;
-            // Autoplay with sound (mute=0), no loop, enablejsapi for future control
-            return `${base}?autoplay=1&mute=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1`;
-          } catch {
-            return src;
-          }
-        }
-
-        function openModal(src) {
-          frame.src = youtubeAutoplayUrl(src);
-          modal.classList.add("open");
-          document.documentElement.style.overflow = "hidden";
-        }
-        function closeModal() {
-          modal.classList.remove("open");
-          frame.src = "";
-          document.documentElement.style.overflow = "";
-        }
-
-        openers.forEach((btn) =>
-          btn.addEventListener("click", (e) => {
-            e.preventDefault();
-            const src = btn.getAttribute("data-video-src") || "";
-            openModal(src);
-          })
-        );
-        closeBtn.addEventListener("click", closeModal);
-        modal.addEventListener("click", (e) => {
-          if (e.target === modal) closeModal();
-        });
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape" && modal.classList.contains("open"))
-            closeModal();
-        });
-      })();
-    </script>
-    <script>
-      // --- Gallery fullscreen modal + swiper ---
-      (function () {
-        const modal = document.getElementById("galleryModal");
-        const closeBtn = document.getElementById("galleryModalClose");
-        const thumbs = document.querySelectorAll(".js-gallery-thumb");
-
-        let gallerySwiper = null;
-
-        function openModal(startIndex) {
-          if (!gallerySwiper) {
-            gallerySwiper = new Swiper("#gallerySwiper", {
-              loop: true,
-              centeredSlides: true,
-              navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-              },
-              pagination: { el: ".swiper-pagination", clickable: true },
-              slidesPerView: 1,
-              spaceBetween: 10,
-              keyboard: { enabled: true },
-            });
-          }
-          if (typeof startIndex === "number") {
-            // Ensure we go to the matching slide index (loop-aware)
-            gallerySwiper.slideToLoop(startIndex, 0);
-          }
-          modal.classList.add("open");
-          document.documentElement.style.overflow = "hidden";
-        }
-
-        function closeModal() {
-          modal.classList.remove("open");
-          document.documentElement.style.overflow = "";
-        }
-
-        thumbs.forEach((btn) => {
-          btn.addEventListener("click", (e) => {
-            e.preventDefault();
-            const idx = parseInt(btn.getAttribute("data-index"), 10) || 0;
-            openModal(idx);
-          });
-        });
-
-        closeBtn.addEventListener("click", closeModal);
-        modal.addEventListener("click", (e) => {
-          if (e.target === modal) closeModal();
-        });
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape" && modal.classList.contains("open"))
-            closeModal();
-        });
-      })();
-    </script>
-
-    <script>
-      // --- Config-driven gallery ---
-      const GALLERY_BASE = "/images/gallery/";
-    </script>
-    <script>
-      // --- Open Home configuration (Brisbane time) ---
-      // Add/modify future open homes here. 
-      // 
-      // TWO TYPES OF EVENTS SUPPORTED:
-      // 1. Timed events: Use "start" and "end" fields with ISO datetime strings
-      //    Example: { start: "2025-08-16T10:00:00+10:00", end: "2025-08-16T10:30:00+10:00" }
-      //    Display: "Sat 16 Aug, 10:00–10:30 AEST"
-      //
-      // 2. Date-only events: Use "date" field with YYYY-MM-DD format
-      //    Example: { date: "2025-08-23" }
-      //    Display: "Sat 23 Aug, Time TBC"
-      //
-      // The system automatically detects the type and displays appropriately.
-      // Events are sorted by date and the next upcoming event is shown.
-      // Open Home configuration moved to assets/js/config.js
-
-      (function () {
-        const band = document.getElementById("openHomeBand");
-        if (
-          !band ||
-          !OPEN_HOME_CONFIG ||
-          !Array.isArray(OPEN_HOME_CONFIG.events)
-        )
-          return;
-
-        // Utilities
-        const tz = OPEN_HOME_CONFIG.timezone || "Australia/Brisbane"; // QLD does not observe DST
-        const AEST_LABEL = "AEST";
-
-        function parseISOWithOffset(iso) {
-          // Safe parse for ISO with explicit offset like 2025-08-16T10:00:00+10:00
-          return new Date(iso);
-        }
-
-
-
-        function addMinutes(date, mins) {
-          return new Date(date.getTime() + mins * 60000);
-        }
-
-        function toGoogleDateUTC(d) {
-          // Returns YYYYMMDDTHHmmssZ for Google Calendar
-          const z = new Date(d.getTime());
-          const iso = z
-            .toISOString()
-            .replace(/[-:]/g, "")
-            .replace(/\.\d{3}Z$/, "Z");
-          return iso;
-        }
-
-        function buildICS({ start, end, title, description, location, isAllDay = false }) {
-          const uid = `openhome-${start.toISOString()}@emu-rd`;
-          
-          const ics = [
-            "BEGIN:VCALENDAR",
-            "VERSION:2.0",
-            "PRODID:-//Emu Rd Open Home//AU",
-            "CALSCALE:GREGORIAN",
-            "METHOD:PUBLISH",
-            "BEGIN:VEVENT",
-            `UID:${uid}`,
-            `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z")}`,
-          ];
-          
-          if (isAllDay) {
-            // All-day event (date-only)
-            const dateOnly = start.toISOString().split('T')[0].replace(/-/g, '');
-            ics.push(
-              `DTSTART;VALUE=DATE:${dateOnly}`,
-              `DTEND;VALUE=DATE:${dateOnly}`
-            );
-          } else {
-            // Timed event
-            const dtfmt = (dt) =>
-              dt
-                .toISOString()
-                .replace(/[-:]/g, "")
-                .replace(/\.\d{3}Z$/, "Z"); // UTC with Z for broad compatibility
-            ics.push(
-              `DTSTART:${dtfmt(start)}`,
-              `DTEND:${dtfmt(end)}`
-            );
-          }
-          
-          ics.push(
-            `SUMMARY:${title}`,
-            `LOCATION:${location}`,
-            `DESCRIPTION:${description} (Time zone: ${AEST_LABEL})`,
-            "END:VEVENT",
-            "END:VCALENDAR"
-          );
-          
-          return "data:text/calendar;charset=utf-8," + encodeURIComponent(ics.join("\r\n"));
-        }
-
-        function nextEvent() {
-          const now = new Date(); // now in local, OK since we compare on UTC epoch
-          
-          // Process events - handle both timed and date-only events
-          const events = OPEN_HOME_CONFIG.events
-            .map((e) => {
-              if (e.date) {
-                // Date-only event - create a full day event
-                const dateOnly = new Date(e.date + 'T00:00:00+10:00');
-                const endOfDay = new Date(e.date + 'T23:59:59+10:00');
-                return { 
-                  start: dateOnly, 
-                  end: endOfDay, 
-                  isDateOnly: true,
-                  originalDate: e.date 
-                };
-              } else if (e.start) {
-                // Timed event
-                const s = parseISOWithOffset(e.start);
-                const en = e.end ? parseISOWithOffset(e.end) : addMinutes(s, 30);
-                return { start: s, end: en, isDateOnly: false };
-              }
-              return null;
-            })
-            .filter((e) => e && !isNaN(e.start) && !isNaN(e.end))
-            .sort((a, b) => a.start - b.start);
-
-          // Find first with end in the future
-          for (const e of events) {
-            if (e.end.getTime() > now.getTime()) {
-              return e;
-            }
-          }
-          return null;
-        }
-
-        const ev = nextEvent();
-        if (!ev) {
-          // No upcoming -> keep hidden and exit
-          band.classList.add("hidden");
-          return;
-        }
-
-        // Populate UI
-        const whenEl = document.getElementById("openHomeWhen");
-        const addCalEl = document.getElementById("ohAddCal");
-        const gcalEl = document.getElementById("ohGCal");
-        const dirEl = document.getElementById("ohDirections");
-
-        // Display string - handle both timed and date-only events
-        const startStrDate = new Intl.DateTimeFormat("en-AU", {
-          timeZone: tz,
-          weekday: "short",
-          day: "2-digit",
-          month: "short",
-        }).format(ev.start);
-        
-        if (ev.isDateOnly) {
-          // Date-only event: "Sat 16 Aug, Time: TBC"
-          whenEl.textContent = `${startStrDate}, Time: TBC`;
-        } else {
-          // Timed event: "Sat 16 Aug, 10:00–10:30 AEST"
-          const startStrTime = new Intl.DateTimeFormat("en-AU", {
-            timeZone: tz,
-            hour: "numeric",
-            minute: "2-digit",
-            hour12: false,
-          }).format(ev.start);
-          const endStrTime = new Intl.DateTimeFormat("en-AU", {
-            timeZone: tz,
-            hour: "numeric",
-            minute: "2-digit",
-            hour12: false,
-          }).format(ev.end);
-          whenEl.textContent = `${startStrDate}, ${startStrTime}–${endStrTime} ${AEST_LABEL}`;
-        }
-
-        // Calendar links
-        const title = "Open Home — 77–79 Emu Rd, Elimbah";
-        const details =
-          "Open Home for 77–79 Emu Rd, Elimbah. View details: https://www.realestate.com.au/property-house-qld-elimbah-148472268";
-        const location = OPEN_HOME_CONFIG.address;
-
-        // Calendar links - handle both timed and date-only events
-        if (ev.isDateOnly) {
-          // Date-only event - create all-day calendar entry
-          const dateOnly = ev.originalDate; // YYYY-MM-DD format
-          
-          // ICS for all-day event
-          const icsHref = buildICS({
-            start: new Date(dateOnly + 'T00:00:00+10:00'),
-            end: new Date(dateOnly + 'T23:59:59+10:00'),
-            title: title + ' (Time: TBC)',
-            description: details + ' - Time to be confirmed',
-            location,
-            isAllDay: true,
-          });
-          addCalEl.setAttribute("href", icsHref);
-          addCalEl.setAttribute("download", "open-home.ics");
-          
-          // Google Calendar for all-day event
-          const gq = new URL("https://calendar.google.com/calendar/render");
-          gq.searchParams.set("action", "TEMPLATE");
-          gq.searchParams.set("text", title + ' (Time: TBC)');
-          gq.searchParams.set("dates", `${dateOnly}/${dateOnly}`);
-          gq.searchParams.set(
-            "details",
-            details + ' - Time to be confirmed (Time zone: ' + AEST_LABEL + ')'
-          );
-          gq.searchParams.set("location", location);
-          gq.searchParams.set("ctz", tz);
-          gcalEl.setAttribute("href", gq.toString());
-        } else {
-          // Timed event - use existing logic
-          const icsHref = buildICS({
-            start: ev.start,
-            end: ev.end,
-            title,
-            description: details,
-            location,
-          });
-          addCalEl.setAttribute("href", icsHref);
-          addCalEl.setAttribute("download", "open-home.ics");
-
-          // Google Calendar
-          const gStart = toGoogleDateUTC(ev.start);
-          const gEnd = toGoogleDateUTC(ev.end);
-          const gq = new URL("https://calendar.google.com/calendar/render");
-          gq.searchParams.set("action", "TEMPLATE");
-          gq.searchParams.set("text", title);
-          gq.searchParams.set("dates", `${gStart}/${gEnd}`);
-          gq.searchParams.set(
-            "details",
-            details + " (Time zone: " + AEST_LABEL + ")"
-          );
-          gq.searchParams.set("location", location);
-          gq.searchParams.set("ctz", tz);
-          gcalEl.setAttribute("href", gq.toString());
-        }
-
-        // Directions already set via href above, but ensure it exists
-        if (dirEl && !dirEl.getAttribute("href")) {
-          dirEl.setAttribute(
-            "href",
-            "https://www.google.com/maps/dir/?api=1&destination=" +
-              encodeURIComponent(location)
-          );
-        }
-
-        // Reveal the band
-        band.classList.remove("hidden");
-
-        // Optional: auto-refresh the band state shortly after the event ends
-        const millisUntilEnd = ev.end.getTime() - Date.now();
-        if (millisUntilEnd > 0 && millisUntilEnd < 6 * 60 * 60 * 1000) {
-          setTimeout(() => {
-            // If the event has now passed, re-run the logic to move to the next one or hide.
-            try {
-              // Simple approach: reload the page segment by toggling visibility.
-              // In a fuller app we would refactor into a re-render function.
-              const followUp = nextEvent();
-              if (!followUp || followUp.end.getTime() < Date.now()) {
-                band.classList.add("hidden");
-              }
-            } catch (e) {}
-          }, millisUntilEnd + 1000);
-        }
-      })();
-
-      // Ordered configuration (edit to add/remove/reorder)
-      const GALLERY_CONFIG = [
-        {
-          filename: "041.jpg",
-          description:
-            "Contemporary front facade with double garage, wide driveway, and manicured lawn.",
-          location: "Front Exterior",
-        },
-        {
-          filename: "042.jpg",
-          description:
-            "Front elevation showcasing clean architectural lines, welcoming entryway, and landscaped garden beds.",
-          location: "Front Exterior",
-        },
-        {
-          filename: "043.jpg",
-          description:
-            "Inviting driveway approach with sculptural feature mailbox, established gardens, and lush lawn.",
-          location: "Front Exterior",
-        },
-        {
-          filename: "015.jpg",
-          description:
-            "Spacious open-plan living area with large leather sectional, feature rug, and seamless flow to dining and kitchen.",
-          location: "Living / Dining Room",
-        },
-        {
-          filename: "016.jpg",
-          description:
-            "Living space with oversized TV, entertainment unit, and comfortable layout ideal for family gatherings.",
-          location: "Living / Dining Room",
-        },
-        {
-          filename: "017.jpg",
-          description:
-            "Light-filled living zone with stylish console table, decorative mirror, and easy connection to the outdoor patio.",
-          location: "Living / Dining Room",
-        },
-        {
-          filename: "020.jpg",
-          description:
-            "Wide-angle view of the open-plan layout combining living, dining, and kitchen, designed for effortless entertaining.",
-          location: "Living / Dining Room",
-        },
-        {
-          filename: "021.jpg",
-          description:
-            "Dining room with elegant timber table, crisp white tablecloth, and feature artwork, opening to the patio.",
-          location: "Dining Room",
-        },
-        {
-          filename: "024.jpg",
-          description:
-            "Dining area flowing into the modern kitchen, with sliding doors leading to outdoor living.",
-          location: "Dining Room / Kitchen",
-        },
-        {
-          filename: "025.jpg",
-          description:
-            "Stylish dining space with fresh flowers, warm timber finishes, and a welcoming atmosphere.",
-          location: "Dining Room / Kitchen",
-        },
-        {
-          filename: "026.jpg",
-          description:
-            "Contemporary kitchen with stone benchtops, breakfast bar seating, and stainless steel appliances.",
-          location: "Kitchen",
-        },
-        {
-          filename: "027.jpg",
-          description:
-            "Kitchen with double-door pantry, ample cabinetry, and sleek stainless steel fridge.",
-          location: "Kitchen",
-        },
-        {
-          filename: "028.jpg",
-          description:
-            "Functional kitchen design with quality appliances, gas cooktop, and generous storage space.",
-          location: "Kitchen",
-        },
-        {
-          filename: "029.jpg",
-          description:
-            "Bright and spacious kitchen featuring clean lines and a practical layout for everyday living.",
-          location: "Kitchen",
-        },
-        {
-          filename: "010.jpg",
-          description:
-            "Guest bedroom with soft neutral tones, ceiling fan, and charming framed artwork.",
-          location: "Bedroom",
-        },
-        {
-          filename: "014.jpg",
-          description:
-            "Serene bedroom with floral bedding, timber and wrought iron bed frame, and garden outlook.",
-          location: "Bedroom",
-        },
-        {
-          filename: "013.jpg",
-          description:
-            "Flexible guest room or home office with daybed, desk, dual monitors, and plenty of natural light.",
-          location: "Home Office / Guest Room",
-        },
-        {
-          filename: "01.jpg",
-          description:
-            "Expansive master suite with plush carpeting, abundant natural light, and direct access to ensuite.",
-          location: "Master Bedroom",
-        },
-        {
-          filename: "02.jpg",
-          description:
-            "Master bedroom retreat featuring split-system air conditioning, ceiling fan, and ample space.",
-          location: "Master Bedroom",
-        },
-        {
-          filename: "04.jpg",
-          description:
-            "Walk-in wardrobe with custom shelving, drawers, and hanging space for organised storage.",
-          location: "Walk-in Wardrobe",
-        },
-        {
-          filename: "05.jpg",
-          description:
-            "Ensuite with dual vanities, wide mirror, and sleek cabinetry, offering a touch of luxury.",
-          location: "Ensuite Bathroom",
-        },
-        {
-          filename: "06.jpg",
-          description:
-            "Double walk-in shower with floor-to-ceiling tiles and twin showerheads.",
-          location: "Ensuite Bathroom",
-        },
-        {
-          filename: "011.jpg",
-          description:
-            "Main bathroom with separate bathtub and shower, complemented by contemporary finishes.",
-          location: "Bathroom",
-        },
-        {
-          filename: "012.jpg",
-          description:
-            "Vanity area in main bathroom with wide mirror, stone-look benchtop, and twin towel rails.",
-          location: "Bathroom",
-        },
-        {
-          filename: "09.jpg",
-          description:
-            "Practical laundry with built-in cabinetry, sink, and pet door to the backyard.",
-          location: "Laundry",
-        },
-        {
-          filename: "07.jpg",
-          description:
-            "Comfortable media room with leather recliners, large TV, and display cabinets.",
-          location: "Media Room",
-        },
-        {
-          filename: "08.jpg",
-          description:
-            "Media room alternative view with antique dresser and relaxed seating arrangement.",
-          location: "Media Room",
-        },
-        {
-          filename: "030.jpg",
-          description:
-            "Covered deck with wicker lounge setting, outdoor rugs, and leafy garden outlook.",
-          location: "Outdoor Entertaining Area",
-        },
-        {
-          filename: "031.jpg",
-          description:
-            "Patio entertaining area with seating and tranquil views of the backyard.",
-          location: "Outdoor Entertaining Area",
-        },
-        {
-          filename: "032.jpg",
-          description:
-            "Outdoor lounge area with comfortable seating and easy access from the dining room.",
-          location: "Outdoor Entertaining Area",
-        },
-        {
-          filename: "033.jpg",
-          description:
-            "Outdoor space with BBQ, potted plants, and inviting seating area.",
-          location: "Outdoor Entertaining Area",
-        },
-        {
-          filename: "034.jpg",
-          description:
-            "Relaxed alfresco dining setting with round glass table and garden views.",
-          location: "Outdoor Entertaining Area",
-        },
-        {
-          filename: "035.jpg",
-          description:
-            "Patio conversation area with stylish wicker chairs and natural outlook.",
-          location: "Outdoor Entertaining Area",
-        },
-        {
-          filename: "036.jpg",
-          description:
-            "Backyard view of covered entertaining area and seating spaces.",
-          location: "Backyard",
-        },
-        {
-          filename: "037.jpg",
-          description:
-            "Fire pit feature surrounded by lush lawn and bamboo screening.",
-          location: "Backyard",
-        },
-        {
-          filename: "038.jpg",
-          description:
-            "Greenhouse with shade cloth roof, perfect for nurturing plants year-round.",
-          location: "Greenhouse / Garden",
-        },
-        {
-          filename: "039.jpg",
-          description:
-            "Inside greenhouse showcasing potted plants, hanging baskets, and well-planned layout.",
-          location: "Greenhouse / Garden",
-        },
-        {
-          filename: "040.jpg",
-          description:
-            "Alternate view inside greenhouse with organised plant displays and workbench area.",
-          location: "Greenhouse / Garden",
-        },
-        {
-          filename: "044.jpg",
-          description:
-            "Large powered shed with double roller doors and attached carport.",
-          location: "Backyard / Shed",
-        },
-        {
-          filename: "045.jpg",
-          description:
-            "Backyard fruit trees including bananas and citrus, with small rustic garden shed.",
-          location: "Backyard / Garden",
-        },
-        {
-          filename: "046.jpg",
-          description:
-            "Hedged garden beds and open lawn space with shed in the background.",
-          location: "Backyard",
-        },
-        {
-          filename: "047.jpg",
-          description:
-            "Expansive lawn leading to shed and greenhouse, ideal for outdoor activities.",
-          location: "Backyard",
-        },
-        {
-          filename: "048.jpg",
-          description:
-            "Rear elevation of the home with solar panels and sprawling lawn.",
-          location: "Backyard / Rear Exterior",
-        },
-        {
-          filename: "03.jpg",
-          description:
-            "Garden with raised vegetable beds, mature citrus tree in fruit, and shaded structure.",
-          location: "Backyard / Garden",
-        },
-      ];
-
-      // Build ticker thumbnails (duplicate sequence for seamless scroll)
-      (function buildTicker() {
-        const track = document.getElementById("galleryTrack");
-        if (!track) return;
-
-        function makeThumb(idx, item) {
-          const btn = document.createElement("button");
-          btn.className = "gallery-thumb js-gallery-thumb";
-          btn.type = "button";
-          btn.setAttribute("data-index", idx);
-
-          const img = document.createElement("img");
-          img.src = GALLERY_BASE + item.filename;
-          img.alt = item.description || "Gallery image";
-          img.loading = "lazy";
-          img.decoding = "async";
-
-          btn.appendChild(img);
-          return btn;
-        }
-
-        GALLERY_CONFIG.forEach((item, i) =>
-          track.appendChild(makeThumb(i, item))
-        );
-        GALLERY_CONFIG.forEach((item, i) =>
-          track.appendChild(makeThumb(i, item))
-        ); // duplicate
-      })();
-
-      // Build fullscreen modal slides & interactions
-      (function galleryModalSetup() {
-        const modal = document.getElementById("galleryModal");
-        const closeBtn = document.getElementById("galleryModalClose");
-        const swiperRoot = document.getElementById("gallerySwiper");
-        const wrapper = swiperRoot
-          ? swiperRoot.querySelector(".swiper-wrapper")
-          : null;
-        if (!wrapper) return;
-
-        // Populate slides
-        GALLERY_CONFIG.forEach((item) => {
-          const slide = document.createElement("div");
-          slide.className = "swiper-slide";
-          const img = document.createElement("img");
-          img.src = GALLERY_BASE + item.filename;
-          img.alt = item.description || "Photo";
-          img.loading = "lazy";
-          img.decoding = "async";
-          img.style.width = "100%";
-          img.style.height = "100%";
-          img.style.objectFit = "contain";
-          img.style.background = "#000";
-          slide.appendChild(img);
-          wrapper.appendChild(slide);
-        });
-
-        // Ensure nav/pagination exist
-        function ensure(selector, create) {
-          let el = swiperRoot.querySelector(selector);
-          if (!el) {
-            el = create();
-            swiperRoot.appendChild(el);
-          }
-          return el;
-        }
-        const prevEl = ensure(".swiper-button-prev", () => {
-          const d = document.createElement("div");
-          d.className = "swiper-button-prev";
-          return d;
-        });
-        const nextEl = ensure(".swiper-button-next", () => {
-          const d = document.createElement("div");
-          d.className = "swiper-button-next";
-          return d;
-        });
-        const pagEl = ensure(".swiper-pagination", () => {
-          const d = document.createElement("div");
-          d.className = "swiper-pagination";
-          return d;
-        });
-
-        // Init Swiper
-        let swiperInstance = new Swiper("#gallerySwiper", {
-          slidesPerView: 1,
-          loop: false,
-          speed: 300,
-          spaceBetween: 0,
-          navigation: { nextEl, prevEl },
-          pagination: { el: pagEl, clickable: true },
-          keyboard: { enabled: true },
-        });
-
-        function openModalAt(index) {
-          modal.classList.add("open");
-          document.body.style.overflow = "hidden";
-          swiperInstance.slideTo(index, 0);
-        }
-
-        function closeModal() {
-          modal.classList.remove("open");
-          document.body.style.overflow = "";
-        }
-
-        // Close handlers
-        closeBtn && closeBtn.addEventListener("click", closeModal);
-        modal.addEventListener("click", (e) => {
-          if (e.target === modal) closeModal();
-        });
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape" && modal.classList.contains("open"))
-            closeModal();
-        });
-
-        // Open from ticker
-        document.addEventListener("click", (e) => {
-          const btn = e.target.closest(".js-gallery-thumb");
-          if (!btn) return;
-          const idx = parseInt(btn.getAttribute("data-index") || "0", 10);
-          openModalAt(isNaN(idx) ? 0 : idx);
-        });
-      })();
-    </script>
     <!-- Back to top (mobile-first) -->
     <button
       id="backToTop"
@@ -2548,6 +1570,7 @@
         viewBox="0 0 24 24"
         fill="currentColor"
         class="h-5 w-5"
+        aria-hidden="true"
       >
         <path
           fill-rule="evenodd"
@@ -2556,27 +1579,6 @@
         />
       </svg>
     </button>
-    <script>
-      // Back-to-top toggle (appears after ~1.5 screens)
-      (function () {
-        const btn = document.getElementById("backToTop");
-        if (!btn) return;
-        function update() {
-          const threshold = window.innerHeight * 1.5;
-          if (window.scrollY > threshold) {
-            btn.classList.remove("opacity-0", "pointer-events-none");
-          } else {
-            btn.classList.add("opacity-0", "pointer-events-none");
-          }
-        }
-        window.addEventListener("scroll", update, { passive: true });
-        window.addEventListener("resize", update);
-        update();
-        btn.addEventListener("click", () => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-      })();
-    </script>
     
     <!-- Modular JavaScript -->
     <script type="module" src="assets/js/main.js"></script>

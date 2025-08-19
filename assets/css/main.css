@@ -6,9 +6,7 @@
    BASE STYLES & TYPOGRAPHY
    ========================================================================== */
 
-html {
-  scroll-behavior: smooth;
-}
+/* Smooth scrolling handled by JavaScript for better control */
 
 /* Section headings font-family (h2, h3) remains as per other sections */
 h2 {

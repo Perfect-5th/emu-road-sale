@@ -11,8 +11,8 @@ export const CONFIG = {
     events: [
       // Example events with confirmed times
       {
-        start: "2025-09-23T12:00:00+10:00",
-        end: "2025-09-23T12:30:00+10:00",
+        start: "2025-08-23T12:00:00+10:00",
+        end: "2025-08-23T12:30:00+10:00",
       },
       // Example date-only event (time TBC)
       {
