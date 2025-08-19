@@ -1154,7 +1154,7 @@
           <!-- LEFT: Feature list -->
           <div>
             <h2 class="text-2xl font-semibold tracking-tight text-slate-900">
-              Why you’ll love living here
+              Why you'll love living here
             </h2>
 
             <ul role="list" class="mt-6 space-y-6 text-slate-800">
@@ -1689,7 +1689,7 @@
             >
               <h4 class="font-medium">Coastal adventures</h4>
               <p class="mt-1">
-                Bribie Island’s pristine beaches and Sandstone Point’s
+                Bribie Island's pristine beaches and Sandstone Point's
                 waterfront events are just a short drive away.
               </p>
             </div>
@@ -1763,7 +1763,7 @@
           <hr class="my-10 border-slate-200" />
           <h4 class="font-medium">Why we have loved living here</h4>
           <p class="mt-2 text-sm text-slate-700">
-            This is more than a home — it’s a retreat. We treasure the sense of
+            This is more than a home — it's a retreat. We treasure the sense of
             space and privacy, the peaceful mornings filled with birdsong, and
             the crystal-clear starry skies at night. The coast is close enough
             for a spontaneous swim, yet the city is within easy reach when
@@ -1896,7 +1896,7 @@
                 href="https://comiskey.com.au/major-news-250m-sandstone-point-expansion-announced/"
                 >proposed <strong>5-star resort</strong> precinct</a
               >
-              . Easy weeknight dining, weekend gigs, and Bribie’s beaches all
+              . Easy weeknight dining, weekend gigs, and Bribie's beaches all
               close by.
             </p>
 
@@ -1995,7 +1995,7 @@
             Trade cramped city living for a
             <strong>large lifestyle block</strong> with beaches, hinterland day
             trips and warm weather — all while staying within easy reach of
-            Brisbane’s CBD and airport. This home balances privacy and space
+            Brisbane's CBD and airport. This home balances privacy and space
             with everyday convenience.
           </p>
           <ul
@@ -2498,19 +2498,35 @@
     </script>
     <script>
       // --- Open Home configuration (Brisbane time) ---
-      // Add/modify future open homes here. Times are stored with explicit +10:00 offset.
-      // If "end" is omitted, it will default to 30 minutes after "start".
+      // Add/modify future open homes here. 
+      // 
+      // TWO TYPES OF EVENTS SUPPORTED:
+      // 1. Timed events: Use "start" and "end" fields with ISO datetime strings
+      //    Example: { start: "2025-08-16T10:00:00+10:00", end: "2025-08-16T10:30:00+10:00" }
+      //    Display: "Sat 16 Aug, 10:00–10:30 AEST"
+      //
+      // 2. Date-only events: Use "date" field with YYYY-MM-DD format
+      //    Example: { date: "2025-08-23" }
+      //    Display: "Sat 23 Aug, Time TBC"
+      //
+      // The system automatically detects the type and displays appropriately.
+      // Events are sorted by date and the next upcoming event is shown.
       const OPEN_HOME_CONFIG = {
         timezone: "Australia/Brisbane",
         address: "77–79 Emu Road, Elimbah QLD 4516",
         events: [
-          // Example events (next one is tomorrow as requested)
+          // Example events with confirmed times
           {
-            start: "2025-08-16T10:00:00+10:00",
-            end: "2025-08-16T10:30:00+10:00",
+            start: "2025-01-25T10:00:00+10:00",
+            end: "2025-01-25T10:30:00+10:00",
+          },
+          // Example date-only event (time TBC)
+          {
+            date: "2025-08-23",
           },
           // Add future opens here, newest last; the script will auto-select the next upcoming
-          // e.g. { start: "2025-08-23T10:00:00+10:00", end: "2025-08-23T10:30:00+10:00" }
+          // For timed events: { start: "2025-02-01T10:00:00+10:00", end: "2025-02-01T10:30:00+10:00" }
+          // For date-only events: { date: "2025-02-08" } (will show "Time TBC")
         ],
       };
 
@@ -2532,22 +2548,7 @@
           return new Date(iso);
         }
 
-        function toBrisbaneString(d) {
-          // e.g., "Sat 16 Aug, 10:00"
-          const fmtDate = new Intl.DateTimeFormat("en-AU", {
-            timeZone: tz,
-            weekday: "short",
-            day: "2-digit",
-            month: "short",
-          }).format(d);
-          const fmtTime = new Intl.DateTimeFormat("en-AU", {
-            timeZone: tz,
-            hour: "numeric",
-            minute: "2-digit",
-            hour12: false,
-          }).format(d);
-          return `${fmtDate} ${fmtTime}`;
-        }
+
 
         function addMinutes(date, mins) {
           return new Date(date.getTime() + mins * 60000);
@@ -2563,15 +2564,9 @@
           return iso;
         }
 
-        function buildICS({ start, end, title, description, location }) {
+        function buildICS({ start, end, title, description, location, isAllDay = false }) {
           const uid = `openhome-${start.toISOString()}@emu-rd`;
-          // Use TZID without embedding VTIMEZONE (widely supported)
-          const dtfmt = (dt) =>
-            dt
-              .toISOString()
-              .replace(/[-:]/g, "")
-              .replace(/\.\d{3}Z$/, "Z"); // UTC with Z for broad compatibility
-
+          
           const ics = [
             "BEGIN:VCALENDAR",
             "VERSION:2.0",
@@ -2580,29 +2575,65 @@
             "METHOD:PUBLISH",
             "BEGIN:VEVENT",
             `UID:${uid}`,
-            `DTSTAMP:${dtfmt(new Date())}`,
-            // Use UTC values; clients render in local TZ. We also add a TZID note in description.
-            `DTSTART:${dtfmt(start)}`,
-            `DTEND:${dtfmt(end)}`,
+            `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z")}`,
+          ];
+          
+          if (isAllDay) {
+            // All-day event (date-only)
+            const dateOnly = start.toISOString().split('T')[0].replace(/-/g, '');
+            ics.push(
+              `DTSTART;VALUE=DATE:${dateOnly}`,
+              `DTEND;VALUE=DATE:${dateOnly}`
+            );
+          } else {
+            // Timed event
+            const dtfmt = (dt) =>
+              dt
+                .toISOString()
+                .replace(/[-:]/g, "")
+                .replace(/\.\d{3}Z$/, "Z"); // UTC with Z for broad compatibility
+            ics.push(
+              `DTSTART:${dtfmt(start)}`,
+              `DTEND:${dtfmt(end)}`
+            );
+          }
+          
+          ics.push(
             `SUMMARY:${title}`,
             `LOCATION:${location}`,
             `DESCRIPTION:${description} (Time zone: ${AEST_LABEL})`,
             "END:VEVENT",
-            "END:VCALENDAR",
-          ].join("\r\n");
-          return "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);
+            "END:VCALENDAR"
+          );
+          
+          return "data:text/calendar;charset=utf-8," + encodeURIComponent(ics.join("\r\n"));
         }
 
         function nextEvent() {
           const now = new Date(); // now in local, OK since we compare on UTC epoch
-          // Normalize and compute ends
+          
+          // Process events - handle both timed and date-only events
           const events = OPEN_HOME_CONFIG.events
             .map((e) => {
-              const s = parseISOWithOffset(e.start);
-              const en = e.end ? parseISOWithOffset(e.end) : addMinutes(s, 30);
-              return { start: s, end: en };
+              if (e.date) {
+                // Date-only event - create a full day event
+                const dateOnly = new Date(e.date + 'T00:00:00+10:00');
+                const endOfDay = new Date(e.date + 'T23:59:59+10:00');
+                return { 
+                  start: dateOnly, 
+                  end: endOfDay, 
+                  isDateOnly: true,
+                  originalDate: e.date 
+                };
+              } else if (e.start) {
+                // Timed event
+                const s = parseISOWithOffset(e.start);
+                const en = e.end ? parseISOWithOffset(e.end) : addMinutes(s, 30);
+                return { start: s, end: en, isDateOnly: false };
+              }
+              return null;
             })
-            .filter((e) => !isNaN(e.start) && !isNaN(e.end))
+            .filter((e) => e && !isNaN(e.start) && !isNaN(e.end))
             .sort((a, b) => a.start - b.start);
 
           // Find first with end in the future
@@ -2627,26 +2658,33 @@
         const gcalEl = document.getElementById("ohGCal");
         const dirEl = document.getElementById("ohDirections");
 
-        // Display string: "Sat 16 Aug, 10:00–10:30 AEST"
+        // Display string - handle both timed and date-only events
         const startStrDate = new Intl.DateTimeFormat("en-AU", {
           timeZone: tz,
           weekday: "short",
           day: "2-digit",
           month: "short",
         }).format(ev.start);
-        const startStrTime = new Intl.DateTimeFormat("en-AU", {
-          timeZone: tz,
-          hour: "numeric",
-          minute: "2-digit",
-          hour12: false,
-        }).format(ev.start);
-        const endStrTime = new Intl.DateTimeFormat("en-AU", {
-          timeZone: tz,
-          hour: "numeric",
-          minute: "2-digit",
-          hour12: false,
-        }).format(ev.end);
-        whenEl.textContent = `${startStrDate}, ${startStrTime}–${endStrTime} ${AEST_LABEL}`;
+        
+        if (ev.isDateOnly) {
+          // Date-only event: "Sat 16 Aug, Time: TBC"
+          whenEl.textContent = `${startStrDate}, Time: TBC`;
+        } else {
+          // Timed event: "Sat 16 Aug, 10:00–10:30 AEST"
+          const startStrTime = new Intl.DateTimeFormat("en-AU", {
+            timeZone: tz,
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: false,
+          }).format(ev.start);
+          const endStrTime = new Intl.DateTimeFormat("en-AU", {
+            timeZone: tz,
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: false,
+          }).format(ev.end);
+          whenEl.textContent = `${startStrDate}, ${startStrTime}–${endStrTime} ${AEST_LABEL}`;
+        }
 
         // Calendar links
         const title = "Open Home — 77–79 Emu Rd, Elimbah";
@@ -2654,31 +2692,62 @@
           "Open Home for 77–79 Emu Rd, Elimbah. View details: https://www.realestate.com.au/property-house-qld-elimbah-148472268";
         const location = OPEN_HOME_CONFIG.address;
 
-        // ICS (download)
-        const icsHref = buildICS({
-          start: ev.start,
-          end: ev.end,
-          title,
-          description: details,
-          location,
-        });
-        addCalEl.setAttribute("href", icsHref);
-        addCalEl.setAttribute("download", "open-home.ics");
+        // Calendar links - handle both timed and date-only events
+        if (ev.isDateOnly) {
+          // Date-only event - create all-day calendar entry
+          const dateOnly = ev.originalDate; // YYYY-MM-DD format
+          
+          // ICS for all-day event
+          const icsHref = buildICS({
+            start: new Date(dateOnly + 'T00:00:00+10:00'),
+            end: new Date(dateOnly + 'T23:59:59+10:00'),
+            title: title + ' (Time: TBC)',
+            description: details + ' - Time to be confirmed',
+            location,
+            isAllDay: true,
+          });
+          addCalEl.setAttribute("href", icsHref);
+          addCalEl.setAttribute("download", "open-home.ics");
+          
+          // Google Calendar for all-day event
+          const gq = new URL("https://calendar.google.com/calendar/render");
+          gq.searchParams.set("action", "TEMPLATE");
+          gq.searchParams.set("text", title + ' (Time: TBC)');
+          gq.searchParams.set("dates", `${dateOnly}/${dateOnly}`);
+          gq.searchParams.set(
+            "details",
+            details + ' - Time to be confirmed (Time zone: ' + AEST_LABEL + ')'
+          );
+          gq.searchParams.set("location", location);
+          gq.searchParams.set("ctz", tz);
+          gcalEl.setAttribute("href", gq.toString());
+        } else {
+          // Timed event - use existing logic
+          const icsHref = buildICS({
+            start: ev.start,
+            end: ev.end,
+            title,
+            description: details,
+            location,
+          });
+          addCalEl.setAttribute("href", icsHref);
+          addCalEl.setAttribute("download", "open-home.ics");
 
-        // Google Calendar
-        const gStart = toGoogleDateUTC(ev.start);
-        const gEnd = toGoogleDateUTC(ev.end);
-        const gq = new URL("https://calendar.google.com/calendar/render");
-        gq.searchParams.set("action", "TEMPLATE");
-        gq.searchParams.set("text", title);
-        gq.searchParams.set("dates", `${gStart}/${gEnd}`);
-        gq.searchParams.set(
-          "details",
-          details + " (Time zone: " + AEST_LABEL + ")"
-        );
-        gq.searchParams.set("location", location);
-        gq.searchParams.set("ctz", tz);
-        gcalEl.setAttribute("href", gq.toString());
+          // Google Calendar
+          const gStart = toGoogleDateUTC(ev.start);
+          const gEnd = toGoogleDateUTC(ev.end);
+          const gq = new URL("https://calendar.google.com/calendar/render");
+          gq.searchParams.set("action", "TEMPLATE");
+          gq.searchParams.set("text", title);
+          gq.searchParams.set("dates", `${gStart}/${gEnd}`);
+          gq.searchParams.set(
+            "details",
+            details + " (Time zone: " + AEST_LABEL + ")"
+          );
+          gq.searchParams.set("location", location);
+          gq.searchParams.set("ctz", tz);
+          gcalEl.setAttribute("href", gq.toString());
+        }
 
         // Directions already set via href above, but ensure it exists
         if (dirEl && !dirEl.getAttribute("href")) {
