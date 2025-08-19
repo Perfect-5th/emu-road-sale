@@ -7,6 +7,7 @@ import { CONFIG } from './config.js';
 import { OpenHomeManager } from './modules/openHome.js';
 import { GalleryManager } from './modules/gallery.js';
 import { VideoModalManager } from './modules/videoModal.js';
+import { AnalyticsManager } from './modules/analytics.js';
 
 /**
  * Main Application Class
@@ -18,6 +19,7 @@ class EmuRoadApp {
       openHome: null,
       gallery: null,
       videoModal: null,
+      analytics: null,
     };
     this.initialized = false;
   }
@@ -78,6 +80,12 @@ class EmuRoadApp {
       this.modules.videoModal = new VideoModalManager();
       if (this.modules.videoModal.init()) {
         console.log("✅ Video Modal module initialized");
+      }
+
+      // Initialize Analytics functionality
+      this.modules.analytics = new AnalyticsManager();
+      if (this.modules.analytics.init()) {
+        console.log("✅ Analytics module initialized");
       }
     } catch (error) {
       console.error("Failed to initialize modules:", error);
