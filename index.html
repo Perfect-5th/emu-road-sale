@@ -1896,24 +1896,7 @@
       //
       // The system automatically detects the type and displays appropriately.
       // Events are sorted by date and the next upcoming event is shown.
-      const OPEN_HOME_CONFIG = {
-        timezone: "Australia/Brisbane",
-        address: "77–79 Emu Road, Elimbah QLD 4516",
-        events: [
-          // Example events with confirmed times
-          {
-            start: "2025-01-25T10:00:00+10:00",
-            end: "2025-01-25T10:30:00+10:00",
-          },
-          // Example date-only event (time TBC)
-          {
-            date: "2025-08-23",
-          },
-          // Add future opens here, newest last; the script will auto-select the next upcoming
-          // For timed events: { start: "2025-02-01T10:00:00+10:00", end: "2025-02-01T10:30:00+10:00" }
-          // For date-only events: { date: "2025-02-08" } (will show "Time TBC")
-        ],
-      };
+      // Open Home configuration moved to assets/js/config.js
 
       (function () {
         const band = document.getElementById("openHomeBand");
@@ -2594,5 +2577,8 @@
         });
       })();
     </script>
+    
+    <!-- Modular JavaScript -->
+    <script type="module" src="assets/js/main.js"></script>
   </body>
 </html>
