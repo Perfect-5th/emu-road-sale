@@ -233,21 +233,6 @@ export const CONFIG = {
         description: "Hedged garden beds and open lawn space with shed in the background.",
         location: "Backyard",
       },
-      {
-        filename: "047.jpg",
-        description: "Expansive lawn leading to shed and greenhouse, ideal for outdoor activities.",
-        location: "Backyard",
-      },
-      {
-        filename: "048.jpg",
-        description: "Rear elevation of the home with solar panels and sprawling lawn.",
-        location: "Backyard / Rear Exterior",
-      },
-      {
-        filename: "03.jpg",
-        description: "Garden with raised vegetable beds, mature citrus tree in fruit, and shaded structure.",
-        location: "Backyard / Garden",
-      },
     ],
   },
 
