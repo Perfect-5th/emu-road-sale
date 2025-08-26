@@ -11,12 +11,12 @@ export const CONFIG = {
     events: [
       // Example events with confirmed times
       {
-        start: "2025-08-23T12:00:00+10:00",
-        end: "2025-08-23T12:30:00+10:00",
+        start: "2025-08-30T11:00:00+10:00",
+        end: "2025-08-30T11:30:00+10:00",
       },
       // Example date-only event (time TBC)
       {
-        date: "2025-08-30",
+        date: "2025-09-06",
       },
       // Add future opens here, newest last; the script will auto-select the next upcoming
       // For timed events: { start: "2025-02-01T10:00:00+10:00", end: "2025-02-01T10:30:00+10:00" }
